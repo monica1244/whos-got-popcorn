@@ -7,9 +7,6 @@ function onYScaleChanged() {
     chartScales.y = selVal;
 	// Update chart
     updateChart();
-	/*d3.select("#"+selVal)
-                    .transition().duration(100)
-                    .style("opacity", 0);*/
     
 }
 
@@ -56,6 +53,10 @@ var legendG = svg2.append('g')
 
 var dict = new Object();
 genres = new Set();
+
+var div = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
 
 d3.csv('tmdb_movies_aggregated.csv', dataPreprocessor).then(function(dataset) {
     // **** Your JavaScript code goes here ****
@@ -116,8 +117,6 @@ d3.csv('tmdb_movies_aggregated.csv', dataPreprocessor).then(function(dataset) {
 
 	dataset.forEach(function(movie) {
 		genres.add(movie.genres);
-		//dict[key] = (key == "Action" || key == "Adventure" || key == "Animation") 
-		//	? true : false;
 	});
 	Array.from(genres).forEach(function(genre) {
 		dict[genre] = (genre == "Action" || genre == "Adventure" || genre == "Animation")
@@ -157,16 +156,8 @@ function updateChart() {
 		['#ff9900', '#ff3300', '#ccff33', '#993366', '#99ff33', '#cc0099',
 		'#009900', '#ff00ff', '#339933', '#9933ff', '#6600cc', '#00ffff',
 		'#669999', '#006699', '#0033cc', '#336699', '#000066', '#993333']);
+		
 	console.log(slices);
-	/*const lines = chartG.selectAll("lines")
-		.data(slices)
-		.enter()
-		.append("g");
-
-		lines.append("path")
-		.attr("class", ids)
-		.attr("id", function(d) { return d.id; })
-		.attr("d", function(d) { return line(d.values); });*/
 
 	svg.selectAll(".line").remove();
 
@@ -184,9 +175,9 @@ function updateChart() {
 				dict[key] = (dict[key] == 1) ? 0 : 1;
 				updateChart(); });
 		x = x + 110;
-		console.log(x)
-		console.log(key);
-		const path = chartG.append("path")
+
+
+		path = chartG.append("path")
 		.datum(slice.data[key])
 		.attr("class", function(d) { return "line"; })
 		.attr("id", function(d) { return key; })
@@ -196,31 +187,38 @@ function updateChart() {
 		.attr('opacity', dict[key])
 		.attr("d", function(d) { return line(d); });
 		
-		path.selectAll("circles")
-		.data(slice.data[key])
-		.enter()
-		.append("circle")
-		.attr("cx", function(d) { return xScale(d.date); })      
-		.attr("cy", function(d) { return yScale(d.measurement); })    
-		.attr('r', 10)
-		.style("opacity", 0)
-
-	//append this
-		.on('mouseover', function(d) {
-			tooltip.transition()
-				.delay(30)
-				.duration(200)
-				.style("opacity", 1);
-
-			tooltip.html(d.measurement)
-			.style("left", (d3.event.pageX + 25) + "px")
-			.style("top", (d3.event.pageY) + "px")  
+	   chartG.selectAll("circles")
+      .data(slice.data[key])
+      .enter()
+      .append("circle")
+        .attr("fill", "red")
+        .attr("stroke", "none")
+		.attr('opacity', 0)
+        .attr("cx", function(d) { return xScale(d.date); })
+        .attr("cy", function(d) { return yScale(d.measurement); })
+        .attr("r", 3)
+		.on("mouseover", function (d) {
+			d3.select(this)
+			  .transition()
+			  .duration(200)
+			  .attr("r", 5)
+			  .attr('opacity', dict[key])
+			  .style("cursor", "pointer");
+		  
+                    div.transition()
+                        .duration(100)
+                        .style("opacity", dict[key]);
+                    div.html("<p>" + d.measurement + "</p>")
+                        .style("left", (d3.event.pageX) + "px")
+                        .style("top", (d3.event.pageY - 28) + "px");
 		})
-
-		.on("mouseout", function(d) {      
-			tooltip.transition()        
-			.duration(100)      
-			.style("opacity", 0);   
+		.on("mouseout", function(d) {
+			d3.select(this) 
+			  .transition()
+			  .duration(200)
+			  .attr("r", 3)
+			  .attr('opacity', 0)
+			  .style("cursor", "none");  
 		});
 		
 	});

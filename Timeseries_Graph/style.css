@@ -50,6 +50,20 @@ font-family: Georgia;
 font-size: 150%;
 }
 
+div.tooltip {
+        position: absolute;
+        text-align: center;
+        padding: 5px;
+        font-size: 12px;
+        font-weight: bold;
+        border-radius: 8px;
+    }
+    
+.tooltip p {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: "Open Sans";
     margin: 0;
