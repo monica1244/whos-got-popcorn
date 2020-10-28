@@ -50,6 +50,13 @@ xAx = chartG.append('g')
 yAx = chartG.append('g')
 		.attr('class', 'axis');
 		
+var svg2 = d3.select('body').append('svg').attr('width', 5000);
+var legendG = svg2.append('g')
+    .attr('transform', 'translate('+[180, padding.t]+')');
+
+var dict = new Object();
+genres = new Set();
+
 d3.csv('tmdb_movies_aggregated.csv', dataPreprocessor).then(function(dataset) {
     // **** Your JavaScript code goes here ****
 
@@ -106,13 +113,23 @@ d3.csv('tmdb_movies_aggregated.csv', dataPreprocessor).then(function(dataset) {
     .style("position", "absolute");
 	
 	chartScales = {x: 'release_year', y: 'budget'};
-	
+
+	dataset.forEach(function(movie) {
+		genres.add(movie.genres);
+		//dict[key] = (key == "Action" || key == "Adventure" || key == "Animation") 
+		//	? true : false;
+	});
+	Array.from(genres).forEach(function(genre) {
+		dict[genre] = (genre == "Action" || genre == "Adventure" || genre == "Animation")
+			? 1 : 0;
+	});
+	console.log(dict);
+
 	updateChart();
-	
 });
 
 function updateChart() {
-	
+
 	xScale.domain(d3.extent(movies, function(d){
 		return d.release_year})).nice();
 	yScale.domain(domainMap[chartScales.y]).nice();
@@ -135,9 +152,12 @@ function updateChart() {
 	}
 
 	//----------------------------LINES-----------------------------//
-	
+	var color = d3.scaleOrdinal();
+	color.domain(Array.from(genres)).range(
+		['#ff9900', '#ff3300', '#ccff33', '#993366', '#99ff33', '#cc0099',
+		'#009900', '#ff00ff', '#339933', '#9933ff', '#6600cc', '#00ffff',
+		'#669999', '#006699', '#0033cc', '#336699', '#000066', '#993333']);
 	console.log(slices);
-	var color = d3.scaleOrdinal(d3.schemeCategory10)
 	/*const lines = chartG.selectAll("lines")
 		.data(slices)
 		.enter()
@@ -156,8 +176,15 @@ function updateChart() {
 			slice = item;
 		}
 	});
-	
-	Object.keys(slice.data).forEach(function(key) { 
+	var x = 0
+	Object.keys(slice.data).forEach(function(key) {
+		legendG.append('text').text(key)
+			.attr('x', x > 990 ? x % 990 : x).attr('fill', color(key)).attr('text-anchor', 'middle')
+			.attr('y', x > 990 ? 25 : 0).on("click", function(d, i) { 
+				dict[key] = (dict[key] == 1) ? 0 : 1;
+				updateChart(); });
+		x = x + 110;
+		console.log(x)
 		console.log(key);
 		const path = chartG.append("path")
 		.datum(slice.data[key])
@@ -166,6 +193,7 @@ function updateChart() {
 		.style('stroke', function() { // Add the colours dynamically
                 return color(key); })
 		.style('fill', 'none')
+		.attr('opacity', dict[key])
 		.attr("d", function(d) { return line(d); });
 		
 		path.selectAll("circles")
