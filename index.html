@@ -1,0 +1,161 @@
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Who's Got Popcorn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Yeseva One' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class = "controls_column">
+      <div class = "movies_heading">Movies</div>
+      <div class = "filters">
+        <div class = "filter_heading">Filter</div>
+        <div class = "filter_dropdown">
+          <nav id="menu">
+            <label for="tm" id="toggle-menu">Navigation <span class="drop-icon">▾</span></label>
+            <input type="checkbox" id="tm">
+            <ul class="main-menu clearfix">
+              <li><a href="#">2-level DD 
+                  <span class="drop-icon">▾</span>
+                  <label title="Toggle Drop-down" class="drop-icon" for="sm1">▾</label>
+                </a>
+                <input type="checkbox" id="sm1">
+                <ul class="sub-menu">
+                  <li><a href="#">Item 2.1</a></li>
+                  <li><a href="#">Item 2.2
+                      <span class="drop-icon">▾</span>
+                      <label title="Toggle Drop-down" class="drop-icon" for="sm2">▾</label>
+                    </a>
+                    <input type="checkbox" id="sm2">
+                    <ul class="sub-menu">
+                      <li><a href="#">Item 2.2.1</a></li>
+                      <li><a href="#">Item 2.2.2</a></li>
+                      <li><a href="#">Item 2.2.3</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Item 3.4</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class = "bubble_control">
+        <div class = "Bubble_heading">Cluster Bubbles</div>
+        <div class = "Color_heading">
+          <p>Color By</p>
+          <div class = "Color_dropdown">
+            <nav id="menu">
+              <label for="tm" id="toggle-menu">Navigation <span class="drop-icon">▾</span></label>
+              <input type="checkbox" id="tm">
+              <ul class="main-menu clearfix">
+                <li><a href="#" id = "Color_sub_menu_heading">Genre
+                    <span class="drop-icon">▾</span>
+                    <label title="Toggle Drop-down" class="drop-icon" for="sm1">▾</label>
+                  </a>
+                  <input type="checkbox" id="sm1">
+                  <ul class="sub-menu Color_sub_menu color_scrollable_menu">
+                    <li><a href="#">Genre</a></li>
+                    <li><a href="#">Popularity</a></li>
+                    <li><a href="#">Runtime</a></li>
+                    <li><a href="#">Revenue</a></li>
+                    <li><a href="#">Profit</a></li>
+                    <li><a href="#">Budget</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class = "timeline_control">
+        <div class = "timeline_heading">Timeline</div>
+        <div class = "Y_axis">
+          <p>Y-Axis</p>
+          <div class = "Y_axis_dropdown">
+            <nav id="menu">
+              <label for="tm" id="toggle-menu">Navigation <span class="drop-icon">▾</span></label>
+              <input type="checkbox" id="tm">
+              <ul class="main-menu clearfix">
+                <li><a href="#" id = "Y_axis_sub_menu_heading">Frequency 
+                    <span class="drop-icon">▾</span>
+                    <label title="Toggle Drop-down" class="drop-icon" for="sm1">▾</label>
+                  </a>
+                  <input type="checkbox" id="sm1">
+                  <ul class="sub-menu Y_axis_sub_menu y_scrollable_menu">
+                    <li><a href="#">Frequency</a></li>
+                    <li><a href="#">Popularity</a></li>
+                    <li><a href="#">Revenue</a></li>
+                    <li><a href="#">Budget</a></li>
+                    <li><a href="#">Profit</a></li>
+                    <li><a href="#">Rating</a></li>
+                    <li><a href="#">Runtime</a></li>
+                    <li><a href="#">Vote Count</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class = "Genres">
+          <p>Genre</p>
+          <div class = "Genre_dropdown">
+            <nav id="menu">
+              <label for="tm" id="toggle-menu">Navigation <span class="drop-icon">▾</span></label>
+              <input type="checkbox" id="tm">
+              <ul class="main-menu clearfix">
+                <li><a href="#">Select Genre 
+                    <span class="drop-icon">▾</span>
+                    <label title="Toggle Drop-down" class="drop-icon" for="sm1">▾</label>
+                  </a>
+                  <input type="checkbox" id="sm1">
+                  <ul class="sub-menu genre_scrollable_menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Adventure</a></li>
+                    <li><a href="#">Animation</a></li>
+                    <li><a href="#">Comedy</a></li>
+                    <li><a href="#">Crime</a></li>
+                    <li><a href="#">Documentary</a></li>
+                    <li><a href="#">Drama</a></li>
+                    <li><a href="#">Family</a></li>
+                    <li><a href="#">Fantasy</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Horror</a></li>
+                    <li><a href="#">Music</a></li>
+                    <li><a href="#">Mystery</a></li>
+                    <li><a href="#">Romance</a></li>
+                    <li><a href="#">Science Fiction</a></li>
+                    <li><a href="#">Thriller</a></li>
+                    <li><a href="#">War</a></li>
+                    <li><a href="#">Western</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class = "viz_column">
+      <div class = "graph_viz">
+      </div>
+      <div class = "timeline_viz">
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(".Y_axis_sub_menu > li").click(function() {
+        $("#Y_axis_sub_menu_heading").text($(this).text()+" "); 
+        $("#Y_axis_sub_menu_heading").append('<span class="drop-icon">▾</span><label title="Toggle Drop-down" class="drop-icon" for="sm1">▾</label>');
+      });
+      $(".Color_sub_menu > li").click(function() {
+        $("#Color_sub_menu_heading").text($(this).text()+" "); 
+        $("#Color_sub_menu_heading").append('<span class="drop-icon">▾</span><label title="Toggle Drop-down" class="drop-icon" for="sm1">▾</label>');
+      });
+    </script>
+  </body>
+</html>
