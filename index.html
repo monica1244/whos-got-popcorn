@@ -9,6 +9,8 @@
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Yeseva One' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src = "./test.js"></script>
   </head>
   <body>
     <div class = "controls_column">
@@ -88,14 +90,14 @@
                   </a>
                   <input type="checkbox" id="sm1">
                   <ul class="sub-menu Y_axis_sub_menu y_scrollable_menu">
-                    <li><a href="#">Frequency</a></li>
-                    <li><a href="#">Popularity</a></li>
-                    <li><a href="#">Revenue</a></li>
-                    <li><a href="#">Budget</a></li>
-                    <li><a href="#">Profit</a></li>
-                    <li><a href="#">Rating</a></li>
-                    <li><a href="#">Runtime</a></li>
-                    <li><a href="#">Vote Count</a></li>
+                    <li><a href="#" onclick = "ChangeY('Frequency')">Frequency</a></li>
+                    <li><a href="#" onclick = "ChangeY('Popularity')">Popularity</a></li>
+                    <li><a href="#" onclick = "ChangeY('Revenue')">Revenue</a></li>
+                    <li><a href="#" onclick = "ChangeY('Budget')">Budget</a></li>
+                    <li><a href="#" onclick = "ChangeY('Profit')">Profit</a></li>
+                    <li><a href="#" onclick = "ChangeY('Rating')">Rating</a></li>
+                    <li><a href="#" onclick = "ChangeY('Runtime')">Runtime</a></li>
+                    <li><a href="#" onclick = "ChangeY('Vote Count')">Vote Count</a></li>
                   </ul>
                 </li>
               </ul>
