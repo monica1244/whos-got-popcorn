@@ -1,5 +1,3 @@
-<script>
-var changeY = function(y_axis){
+function ChangeY(y_axis){
   console.log(y_axis);
 }
-</script>
