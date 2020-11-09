@@ -115,7 +115,7 @@
                     <label title="Toggle Drop-down" class="drop-icon" for="sm1">▾</label>
                   </a>
                   <input type="checkbox" id="sm1">
-                  <ul class="sub-menu genre_scrollable_menu">
+                  <ul class="sub-menu genre_sub_menu genre_scrollable_menu">
                     <li><a onclick = "ChangeGenre('Action')">Action</a></li>
                     <li><a onclick = "ChangeGenre('Adventure')">Adventure</a></li>
                     <li><a onclick = "ChangeGenre('Animation')">Animation</a></li>
@@ -140,7 +140,7 @@
             </nav>
           </div>
         </div>
-        <div class = "Genre_tags">
+        <div class = "Genre_tags" id = "tag_holder>
           <div class = "tag"><a>Action&nbsp</a><a class = "close_tag">x</a></div>
         </div>
       </div>
@@ -153,9 +153,20 @@
     </div>
     <script src = "./test.js" type="text/javascript"></script>
     <script type="text/javascript">
+      var genres = [];
       $(".Y_axis_sub_menu > li").click(function() {
         $("#Y_axis_sub_menu_heading").text($(this).text()+" "); 
         $("#Y_axis_sub_menu_heading").append('<span class="drop-icon">▾</span><label title="Toggle Drop-down" class="drop-icon" for="sm1">▾</label>');
+      });
+      $(".genre_sub_menu > li").click(function() {
+          var str2 = $(this).text();
+          if (genres.indexOf(str2) > -1) {
+            var str1 = '<div class = "tag"><a>';
+            var str3 = '&nbsp</a><a class = "close_tag">x</a></div>;
+            var res = str1.concat(str2, str3);
+            genres.push(str2);
+            $("#tag_holder").append(res);
+          }
       });
       $(".Color_sub_menu > li").click(function() {
         $("#Color_sub_menu_heading").text($(this).text()+" "); 
