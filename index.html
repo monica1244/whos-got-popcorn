@@ -158,7 +158,7 @@
         $("#Y_axis_sub_menu_heading").append('<span class="drop-icon">▾</span><label title="Toggle Drop-down" class="drop-icon" for="sm1">▾</label>');
       });
       
-      $(".close_tag").click(function() {
+      $('.close_tag').on('click', function() {
         console.log("Entering");
         $(this).parent('div').remove();
         genres.remove($(this).text());
