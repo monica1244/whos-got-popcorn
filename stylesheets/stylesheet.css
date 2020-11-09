@@ -107,6 +107,10 @@ body {
     overflow-x: hidden;
 }
 
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
 #menu ul {
   margin: 0;
   padding: 0;
