@@ -5,7 +5,7 @@ body {
   padding: 0;
   margin: 0;
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.7); 
+  color: rgba(255, 255, 255, 0.8); 
   background-color: #000000;
 } 
 
@@ -13,7 +13,7 @@ body {
   font-family: "Lobster";
   text-align: center;
   font-size: 4vh;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.98);
   padding: 1vh 0vh 1vh 0vh;
   height: 7vh;
 }
@@ -46,7 +46,7 @@ body {
 }
 
 .timeline_control {
-  background-color: rgba(51, 37, 114, 0.4);
+  background-color: rgba(51, 37, 114, 0.5);
   border-radius: 5px;
   height: 41.75vh;
   margin: 0rem 0rem 1vh 0rem;
@@ -56,13 +56,13 @@ body {
 .bubble_control {
   height: 16.3vh;
   padding: 1.7vh 1.7vh 1.7vh 1.7vh;
-  background-color: rgba(51, 37, 114, 0.4);
+  background-color: rgba(51, 37, 114, 0.5);
   border-radius: 5px;
   margin: 0rem 0rem 1.7vh 0rem;
 }
 
 .filters {
-  background-color: rgba(51, 37, 114, 0.4);
+  background-color: rgba(51, 37, 114, 0.5);
   border-radius: 5px;
   height: 30.55vh;
   margin: 0rem 0rem 1.7vh 0rem;
@@ -108,7 +108,7 @@ body {
 }
 
 .tag {
-  background-color: rgb(1, 94, 94);
+  background-color: rgb(4, 117, 116);
   padding: 0.8vh 1.2vh 0.8vh 1.2vh;
   margin: 0px 1vh 1vh 0vh;
   display: inline-flex;
@@ -179,13 +179,13 @@ body {
 #menu a {
   position: relative;
   display: block;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.8);
   text-shadow: 1px 1px 0 rgba(0, 0, 0, .125);
   text-decoration: none;
   border-radius: 5px;
   font-size: 1.7vh;
   border-width: 0.01vh;
-  border-color: rgba(255,255,255,0.7);
+  border-color: rgba(255,255,255,0.8);
 }
 
 #menu, 
@@ -203,13 +203,13 @@ body {
 }
 
 #menu a:hover {
-  background-color: rgb(1, 94, 94);
+  background-color: rgb(4, 117, 116);
 }
 
 #menu .sub-menu {
   display: none;
   border-width: 0.01vh;
-  border-color: rgba(255,255,255,0.7);
+  border-color: rgba(255,255,255,0.8);
   background-color: rgb(21, 15, 46);
 }
 
@@ -234,7 +234,7 @@ body {
   text-align: center;
   background-color: rgba(0, 0, 0, .125);
   text-shadow: 0 0 0 transparent;
-  color: rgba(255, 255, 255, .75);
+  color: rgba(255, 255, 255, .8);
 }
 
 #menu .drop-icon {
@@ -272,12 +272,12 @@ body {
   #menu .sub-menu li {
     float: none;
     border-width: 0 0 0.01vh 0;
-    border-color: rgba(255,255,255,0.7);
+    border-color: rgba(255,255,255,0.8);
   }
 
   #menu .sub-menu {
     border-width: 0.01vh;
-    border-color: rgba(255,255,255,0.7);
+    border-color: rgba(255,255,255,0.8);
     margin: 0;
     position: absolute;
     top: 100%;
@@ -293,7 +293,7 @@ body {
 
   #menu .sub-menu li {
     border-width: 0 0 0.01vh 0;
-    border-color: rgba(255,255,255,0.7);
+    border-color: rgba(255,255,255,0.8);
     border-radius: 0px;
   }
 
