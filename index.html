@@ -162,11 +162,13 @@
           var str2 = $(this).text();
           if (!genres.includes(str2)) {
             console.log("Entered");
-            var str1 = '<div class = "tag"><a>';
-            var str3 = '&nbsp</a><a class = "close_tag">x</a></div>;
-            var res = str1.concat(str2, str3);
+//             var str1 = '<div class = "tag"><a>';
+//             var str3 = '&nbsp</a><a class = "close_tag">x</a></div>';
+//             var res = str1.concat(str2, str3);
             genres.push(str2);
-            $("#tag_holder").append(res);
+            $("#tag_holder").append('<div class = "tag"><a>');
+            $("#tag_holder").append($(this).text());
+            $("#tag_holder").append('&nbsp</a><a class = "close_tag">x</a></div>');
           }
       });
       $(".Color_sub_menu > li").click(function() {
