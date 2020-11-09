@@ -109,12 +109,15 @@ body {
 
 .tag {
   background-color: rgb(1, 135, 134);
-  padding: 1vh 1.5vh 1vh 1.5vh;
-  margin: 0px 1.5vh 1.5vh 0vh;
+  padding: 0.8vh 1.2vh 0.8vh 1.2vh;
+  margin: 0px 1vh 1vh 0vh;
+  display: inline-flex;
+  font-size: 1.5vh;
+  border-radius: 50px;
 }
 
 .Genre_tags {
-  margin-bottom: 2vh;
+  margin-top: 2vh;
   height: auto;
   max-height: 20vh;
   overflow-x: hidden;
