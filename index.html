@@ -161,10 +161,12 @@
       $(document).on('click', '.close_tag', function() { 
         $(this).parent('div').remove();
         genres.splice(genres.indexOf($(this).prev().text()), 1);
+        console.log(genres);
       });
       
       $(".genre_sub_menu > li").click(function() {
           var str2 = $(this).text();
+          console.log(genres);
           if (!genres.includes(str2)) {
             var d = document.createElement("div");
             d.className = "tag";
