@@ -158,7 +158,7 @@
         $("#Y_axis_sub_menu_heading").text($(this).text()+" "); 
         $("#Y_axis_sub_menu_heading").append('<span class="drop-icon">▾</span><label title="Toggle Drop-down" class="drop-icon" for="sm1">▾</label>');
       });
-      $(".genre_sub_menu > li").click(function() {
+<!--       $(".genre_sub_menu > li").click(function() {
           var str2 = $(this).text();
           if (genres.indexOf(str2) > -1) {
             var str1 = '<div class = "tag"><a>';
@@ -167,7 +167,7 @@
             genres.push(str2);
             $("#tag_holder").append(res);
           }
-      });
+      }); -->
       $(".Color_sub_menu > li").click(function() {
         $("#Color_sub_menu_heading").text($(this).text()+" "); 
         $("#Color_sub_menu_heading").append('<span class="drop-icon">▾</span><label title="Toggle Drop-down" class="drop-icon" for="sm1">▾</label>');
