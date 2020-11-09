@@ -311,7 +311,7 @@ body {
     left: 100%;
   }
 
-  #menu li:active > input[type="checkbox"] + .sub-menu {
+  #menu li > input[type="checkbox"]:checked + .sub-menu {
     display: block;
   }
 }
