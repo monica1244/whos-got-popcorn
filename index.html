@@ -116,24 +116,24 @@
                   </a>
                   <input type="checkbox" id="sm1">
                   <ul class="sub-menu genre_sub_menu genre_scrollable_menu">
-                    <li><a onclick = "ChangeGenre('Action')">Action</a></li>
-                    <li><a onclick = "ChangeGenre('Adventure')">Adventure</a></li>
-                    <li><a onclick = "ChangeGenre('Animation')">Animation</a></li>
-                    <li><a onclick = "ChangeGenre('Comedy')">Comedy</a></li>
-                    <li><a onclick = "ChangeGenre('Crime')">Crime</a></li>
-                    <li><a onclick = "ChangeGenre('Documentary')">Documentary</a></li>
-                    <li><a onclick = "ChangeGenre('Drama')">Drama</a></li>
-                    <li><a onclick = "ChangeGenre('Family')">Family</a></li>
-                    <li><a onclick = "ChangeGenre('Fantasy')">Fantasy</a></li>
-                    <li><a onclick = "ChangeGenre('History')">History</a></li>
-                    <li><a onclick = "ChangeGenre('Horror')">Horror</a></li>
-                    <li><a onclick = "ChangeGenre('Music')">Music</a></li>
-                    <li><a onclick = "ChangeGenre('Mystery')">Mystery</a></li>
-                    <li><a onclick = "ChangeGenre('Romance')">Romance</a></li>
-                    <li><a onclick = "ChangeGenre('Science Fiction')">Science Fiction</a></li>
-                    <li><a onclick = "ChangeGenre('Thriller')">Thriller</a></li>
-                    <li><a onclick = "ChangeGenre('War')">War</a></li>
-                    <li><a onclick = "ChangeGenre('Western')">Western</a></li>
+                    <li><a onclick = "AddGenre('Action')">Action</a></li>
+                    <li><a onclick = "AddGenre('Adventure')">Adventure</a></li>
+                    <li><a onclick = "AddGenre('Animation')">Animation</a></li>
+                    <li><a onclick = "AddGenre('Comedy')">Comedy</a></li>
+                    <li><a onclick = "AddGenre('Crime')">Crime</a></li>
+                    <li><a onclick = "AddGenre('Documentary')">Documentary</a></li>
+                    <li><a onclick = "AddGenre('Drama')">Drama</a></li>
+                    <li><a onclick = "AddGenre('Family')">Family</a></li>
+                    <li><a onclick = "AddGenre('Fantasy')">Fantasy</a></li>
+                    <li><a onclick = "AddGenre('History')">History</a></li>
+                    <li><a onclick = "AddGenre('Horror')">Horror</a></li>
+                    <li><a onclick = "AddGenre('Music')">Music</a></li>
+                    <li><a onclick = "AddGenre('Mystery')">Mystery</a></li>
+                    <li><a onclick = "AddGenre('Romance')">Romance</a></li>
+                    <li><a onclick = "AddGenre('Science Fiction')">Science Fiction</a></li>
+                    <li><a onclick = "AddGenre('Thriller')">Thriller</a></li>
+                    <li><a onclick = "AddGenre('War')">War</a></li>
+                    <li><a onclick = "AddGenre('Western')">Western</a></li>
                   </ul>
                 </li>
               </ul>
@@ -162,13 +162,25 @@
           var str2 = $(this).text();
           if (!genres.includes(str2)) {
             console.log("Entered");
+            var d = document.createElement("div");
+            d.className = "tag";
+            var a1 = document.createElement("a");
+            a1.appendChild(document.createTextNode(str2));
+            a1.appendChild(document.createTextNode("\u00A0"));
+            var a2 = document.createElement("a");
+            a2.appendChild(document.createTextNode("x"));
+            a2.className = "close_tag";
+            d.appendChild(a1);
+            d.appendChild(a2);
+            tag_holder.appendChild(d);
+            
 //             var str1 = '<div class = "tag"><a>';
 //             var str3 = '&nbsp</a><a class = "close_tag">x</a></div>';
 //             var res = str1.concat(str2, str3);
             genres.push(str2);
-            $("#tag_holder").append('<div class = "tag"><a>');
-            $("#tag_holder").append($(this).text());
-            $("#tag_holder").append('&nbsp</a><a class = "close_tag">x</a></div>');
+//             $("#tag_holder").append('<div class = "tag"><a>');
+//             $("#tag_holder").append($(this).text());
+//             $("#tag_holder").append('\u00A0</a><a class = "close_tag">x</a></div>');
           }
       });
       $(".Color_sub_menu > li").click(function() {
