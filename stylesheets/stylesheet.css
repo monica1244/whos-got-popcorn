@@ -158,6 +158,8 @@ body {
   background-color: #545454;
   border-radius: 5px;
   font-size: 1.7vh;
+  border-width: 0 0 0.01vh 0;
+  border-color: rgba(255,255,255,0.8);
 }
 
 #menu, 
@@ -241,8 +243,6 @@ body {
 
   #menu li {
     float: left;
-    border-width: 0 0 0.01vh 0;
-    border-color: rgba(255,255,255,0.8);
   }
 
   #menu .sub-menu li {
