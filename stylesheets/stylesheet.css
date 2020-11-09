@@ -155,10 +155,9 @@ body {
   color: white;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, .125);
   text-decoration: none;
-  background-color: #545454;
   border-radius: 5px;
   font-size: 1.7vh;
-  border-width: 0 0 0.01vh 0;
+  border-width: 0.01vh;
   border-color: rgba(255,255,255,0.8);
 }
 
@@ -186,6 +185,7 @@ body {
   display: none;
   border-width: 0.01vh;
   border-color: rgba(255,255,255,0.8);
+  background-color: rgb(21, 15, 46);
 }
 
 #menu input[type="checkbox"]:checked + .sub-menu {
