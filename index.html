@@ -158,7 +158,8 @@
         $("#Y_axis_sub_menu_heading").append('<span class="drop-icon">▾</span><label title="Toggle Drop-down" class="drop-icon" for="sm1">▾</label>');
       });
       
-      $('.close_tag').on('click', function() {
+      $('.close_tag').click(function() {
+        console.log("Entering");
         $(this).parent('div').remove();
         genres.remove($(this).text());
       });
@@ -166,7 +167,6 @@
       $(".genre_sub_menu > li").click(function() {
           var str2 = $(this).text();
           if (!genres.includes(str2)) {
-            console.log("Entered");
             var d = document.createElement("div");
             d.className = "tag";
             var a1 = document.createElement("a");
