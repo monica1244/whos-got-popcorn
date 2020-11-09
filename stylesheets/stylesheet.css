@@ -114,6 +114,15 @@ body {
   display: inline-flex;
   font-size: 1.5vh;
   border-radius: 50px;
+  pointer-events: none;
+}
+
+.tag:hover {
+  background-color: #3e355f;
+}
+
+.close_tag {
+  pointer-events: auto;
 }
 
 .Genre_tags {
