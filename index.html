@@ -158,13 +158,10 @@
         $("#Y_axis_sub_menu_heading").append('<span class="drop-icon">▾</span><label title="Toggle Drop-down" class="drop-icon" for="sm1">▾</label>');
       });
       
-      $('.close_tag').click(function() {
-        console.log("Entering");
-//         $(this).parent('div').remove();
-//         genres.remove($(this).prev.text());
+      $(document).on('click', '.close_tag', function() { 
+        $(this).parent('div').remove();
+        genres.remove($(this).prev.text());
       });
-      
-      $(document).on('click', '.close_tag', function() { console.log("hello"); });
       
       $(".genre_sub_menu > li").click(function() {
           var str2 = $(this).text();
