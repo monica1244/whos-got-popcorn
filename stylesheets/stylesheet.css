@@ -241,12 +241,14 @@ body {
 
   #menu li {
     float: left;
-    border-width: 0 0.01vh 0 0;
+    border-width: 0 0 0.01vh 0;
     border-color: rgba(255,255,255,0.8);
   }
 
   #menu .sub-menu li {
     float: none;
+    border-width: 0 0 0.01vh 0;
+    border-color: rgba(255,255,255,0.8);
   }
 
   #menu .sub-menu {
@@ -266,7 +268,8 @@ body {
   }
 
   #menu .sub-menu li {
-    border-width: 0 0 1px;
+    border-width: 0 0 0.01vh 0;
+    border-color: rgba(255,255,255,0.8);
   }
 
   #menu .sub-menu .sub-menu {
