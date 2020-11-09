@@ -111,6 +111,10 @@ body {
   -webkit-appearance: none;
 }
 
+::-webkit-scrollbar-thumb {
+  background-color: #7d77a4;
+}
+
 #menu ul {
   margin: 0;
   padding: 0;
