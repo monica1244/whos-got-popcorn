@@ -268,6 +268,7 @@ body {
   #menu .sub-menu li {
     border-width: 0 0 0.01vh 0;
     border-color: rgba(255,255,255,0.7);
+    border-radius: 0px;
   }
 
   #menu .sub-menu .sub-menu {
