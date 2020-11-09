@@ -6,7 +6,7 @@ body {
   margin: 0;
   font-size: 18px;
   color: #FFFFFF; 
-  background-color: #222222;
+  background-color: #0e032d;
 } 
 
 .movies_heading {
@@ -45,7 +45,7 @@ body {
 }
 
 .timeline_control {
-  background-color: #404040;
+  background-color: #34217a;
   border-radius: 5px;
   height: 41.75vh;
   margin: 0rem 0rem 1vh 0rem;
@@ -55,13 +55,13 @@ body {
 .bubble_control {
   height: 16.3vh;
   padding: 1.7vh 1.7vh 1.7vh 1.7vh;
-  background-color: #404040;
+  background-color: #34217a;
   border-radius: 5px;
   margin: 0rem 0rem 1.7vh 0rem;
 }
 
 .filters {
-  background-color: #404040;
+  background-color: #34217a;
   border-radius: 5px;
   height: 30.55vh;
   margin: 0rem 0rem 1.7vh 0rem;
@@ -70,14 +70,14 @@ body {
 
 .timeline_viz {
   border-radius: 5px;
-  background-color: #404040;
+  background-color: #34217a;
   height: 36.59vh;
   margin: 0vh 0rem 1vh 0rem;
 }
 
 .graph_viz {
   border-radius: 5px;
-  background-color: #404040;
+  background-color: #34217a;
   height: 59.06vh;
   margin: 1.7vh 0rem 1.7vh 0rem;
 }
@@ -138,7 +138,7 @@ body {
 }
 
 #menu .sub-menu {
-  background-color: #545454;
+  background-color: #a081de;
   border-width: 1px 1px 0;
   margin: 0 1em;
 }
