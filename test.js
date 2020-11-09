@@ -2,6 +2,6 @@ console.log("Enter");
 function ChangeY(y_axis){
   console.log(y_axis);
 }
-function ChangeGenre(genre){
+function AddGenre(genre){
   console.log(genre);
 }
