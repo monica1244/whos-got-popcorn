@@ -119,7 +119,7 @@ body {
 .Genre_tags {
   margin-top: 2vh;
   height: auto;
-  max-height: 20vh;
+  max-height: 12.5vh;
   overflow-x: hidden;
 }
 
