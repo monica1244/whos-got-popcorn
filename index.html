@@ -161,7 +161,7 @@
       $('.close_tag').on('click', function() {
         console.log("Entering");
         $(this).parent('div').remove();
-        genres.remove($(this).text());
+        genres.remove($(this).prev.text());
       });
       
       $(".genre_sub_menu > li").click(function() {
