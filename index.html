@@ -159,6 +159,7 @@
       });
       
       $(document).on('click', '.close_tag', function() { 
+        console.log($(this).prev().text(),"efre");
         genres.splice(genres.indexOf($(this).prev().text()), 1);
         $(this).parent('div').remove();   
         console.log(genres);
