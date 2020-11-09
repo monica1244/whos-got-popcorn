@@ -164,6 +164,8 @@
 //         genres.remove($(this).prev.text());
       });
       
+      $(document).on('click', '.close_tag', function() { console.log("hello"); });
+      
       $(".genre_sub_menu > li").click(function() {
           var str2 = $(this).text();
           if (!genres.includes(str2)) {
