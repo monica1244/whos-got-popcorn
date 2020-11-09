@@ -5,7 +5,7 @@ body {
   padding: 0;
   margin: 0;
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.8); 
+  color: rgba(255, 255, 255, 0.7); 
   background-color: #000000;
 } 
 
@@ -158,7 +158,7 @@ body {
   border-radius: 5px;
   font-size: 1.7vh;
   border-width: 0.01vh;
-  border-color: rgba(255,255,255,0.8);
+  border-color: rgba(255,255,255,0.7);
 }
 
 #menu, 
@@ -184,7 +184,7 @@ body {
 #menu .sub-menu {
   display: none;
   border-width: 0.01vh;
-  border-color: rgba(255,255,255,0.8);
+  border-color: rgba(255,255,255,0.7);
   background-color: rgb(21, 15, 46);
 }
 
@@ -248,12 +248,12 @@ body {
   #menu .sub-menu li {
     float: none;
     border-width: 0 0 0.01vh 0;
-    border-color: rgba(255,255,255,0.8);
+    border-color: rgba(255,255,255,0.7);
   }
 
   #menu .sub-menu {
     border-width: 0.01vh;
-    border-color: rgba(255,255,255,0.8);
+    border-color: rgba(255,255,255,0.7);
     margin: 0;
     position: absolute;
     top: 100%;
@@ -269,7 +269,7 @@ body {
 
   #menu .sub-menu li {
     border-width: 0 0 0.01vh 0;
-    border-color: rgba(255,255,255,0.8);
+    border-color: rgba(255,255,255,0.7);
   }
 
   #menu .sub-menu .sub-menu {
