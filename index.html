@@ -159,8 +159,8 @@
       });
       
       $(document).on('click', '.close_tag', function() { 
-        $(this).parent('div').remove();
         genres.splice(genres.indexOf($(this).prev().text()), 1);
+        $(this).parent('div').remove();   
         console.log(genres);
       });
       
