@@ -160,7 +160,8 @@
       });
       $(".genre_sub_menu > li").click(function() {
           var str2 = $(this).text();
-          if (genres.indexOf(str2) > -1) {
+          if (!genres.includes(str2)) {
+            console.log("Entered");
             var str1 = '<div class = "tag"><a>';
             var str3 = '&nbsp</a><a class = "close_tag">x</a></div>;
             var res = str1.concat(str2, str3);
