@@ -160,7 +160,7 @@
       
       $(document).on('click', '.close_tag', function() { 
         $(this).parent('div').remove();
-        genres.remove($(this).prev.text());
+        genres.remove($(this).prev().text());
       });
       
       $(".genre_sub_menu > li").click(function() {
