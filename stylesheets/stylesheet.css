@@ -24,18 +24,12 @@ body {
   margin: 0rem 1% 0rem 1%;
 }
 
-.filter_heading {
-  font-family: 'Yeseva One';
-  font-size: 2.3vh;
-  margin-bottom: 2vh;
-}
-
 .timeline_heading, .Bubble_heading {
   font-family: 'Yeseva One';
   font-size: 2.3vh;
 }
 
-.Y_axis p, .Genres p, .Color_heading p {
+.Y_axis p, .Genres p, .Color_heading p, .filter_heading p {
   font-family: 'Yeseva One';
   font-size: 2vh;
   margin: 2vh 0vh 2vh 0vh;
@@ -51,14 +45,6 @@ body {
   height: 41.75vh;
   margin: 0rem 0rem 1vh 0rem;
   padding: 1.7vh 1.7vh 1.7vh 1.7vh;
-}
-
-.bubble_control {
-  height: 16.3vh;
-  padding: 1.7vh 1.7vh 1.7vh 1.7vh;
-  background-color: rgba(51, 37, 114, 0.5);
-  border-radius: 5px;
-  margin: 0rem 0rem 1.7vh 0rem;
 }
 
 .filters {
