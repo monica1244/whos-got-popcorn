@@ -167,7 +167,8 @@
           var str2 = $(this).text();
           if (!genres.includes(str2)) {
             var d = document.createElement("div");
-            d.className = "tag";
+            var str1 = "tag ";
+            d.className = str1.concat(str2);
             var a1 = document.createElement("a");
             a1.appendChild(document.createTextNode(str2));
             var a2 = document.createElement("a");
