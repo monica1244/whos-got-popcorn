@@ -18,6 +18,10 @@ body {
   height: 7vh;
 }
 
+.filter_box {
+  height: 24vh;
+}
+
 .controls_column {
   float: left;
   width: 18%;
