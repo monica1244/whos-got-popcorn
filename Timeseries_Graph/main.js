@@ -220,6 +220,7 @@ function updateChart() {
 		.attr("id", function(d) { return key; })
 		.style('stroke', function() { // Add the colours dynamically
                 return colors[key]; })
+		.style('stroke-width', 3)
 		.style('fill', 'none')
 		.attr('opacity', dict[key])
 		.attr("d", function(d) { return line(d); });
