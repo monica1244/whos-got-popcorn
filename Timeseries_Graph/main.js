@@ -1,5 +1,3 @@
-// Global functions called when select elements changed
-
 function onYScaleChanged(selVal) {
     //var select = d3.select('#yScaleSelect').node();
     // Get current value of select element, save to global chartScales
@@ -42,35 +40,13 @@ function dataPreprocessor(row) {
 }
 
 var svg = d3.select('.svg1');
-// svg.attr('width', d3.select('.timeline_viz')
-//       .text();
-// svg.attr('height', d3.select('.timeline_viz')
-//       .text(getDivHeight('.timeline_viz')));
+//svg.attr('width', window.innerWidth - 300);
+//svg.attr('height', window.innerHeight - 400);
 //var svg = select('body').append('svg');
 
-function getDivWidth (div) {
-    var width = d3.select(div)
-      // get the width of div element
-      .style('width')
-      // take of 'px'
-      .slice(0, -2)
-    // return as an integer
-    return Math.round(Number(width))
-  }
-
-function getDivHeight (div) {
-    var width = d3.select(div)
-      // get the width of div element
-      .style('height')
-      // take of 'px'
-      .slice(0, -2)
-    // return as an integer
-    return Math.round(Number(width))
-  }
-
 // Get layout parameters
-var svgWidth = getDivWidth('.timeline_viz'));
-var svgHeight = getDivHeight('.timeline_viz')));
+var svgWidth = +svg.attr('width');
+var svgHeight = +svg.attr('height');
 
 var padding = {t: 40, r: 60, b: 40, l: 100};
 
@@ -285,5 +261,3 @@ function updateChart() {
 
 	
 }
-
-// Remember code outside of the data callback function will run before the data loads
