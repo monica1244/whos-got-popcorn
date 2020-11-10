@@ -42,7 +42,7 @@ body {
 .timeline_control {
   background-color: rgba(51, 37, 114, 0.5);
   border-radius: 5px;
-  height: 59.75vh;
+  height: 41.75vh;
   margin: 0rem 0rem 1vh 0rem;
   padding: 1.7vh 1.7vh 1.7vh 1.7vh;
 }
@@ -50,7 +50,7 @@ body {
 .filters {
   background-color: rgba(51, 37, 114, 0.5);
   border-radius: 5px;
-  height: 30.55vh;
+  height: 48.55vh;
   margin: 0rem 0rem 1.7vh 0rem;
   padding: 1.7vh 1.7vh 1.7vh 1.7vh;
 }
