@@ -104,8 +104,9 @@ body {
   padding: 1.1vw;
 }
 
-.list_search:hover {
+.list_search:focus {
   border: none;
+  outline: none;
 }
 
 .tag {
