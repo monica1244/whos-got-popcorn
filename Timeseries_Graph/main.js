@@ -1,13 +1,23 @@
 // Global functions called when select elements changed
 
-function onYScaleChanged() {
-    var select = d3.select('#yScaleSelect').node();
+function onYScaleChanged(selVal) {
+    //var select = d3.select('#yScaleSelect').node();
     // Get current value of select element, save to global chartScales
-	var selVal = select.options[select.selectedIndex].value;
+	//var selVal = select.options[select.selectedIndex].value;
     chartScales.y = selVal;
 	// Update chart
     updateChart();
     
+}
+
+function onGenreSelected(key) {
+	dict[key] = (dict[key] == 0) ? 1 : 1;
+	updateChart();
+}
+
+function onGenreDelected(key) {
+	dict[key] = (dict[key] == 1) ? 0 : 0;
+	updateChart();
 }
 
 // Load data and use this function to process each row
@@ -25,7 +35,10 @@ function dataPreprocessor(row) {
     };
 }
 
-var svg = d3.select('svg');
+var svg = d3.select('.svg1');
+//svg.attr('width', window.innerWidth - 300);
+//svg.attr('height', window.innerHeight - 400);
+//var svg = select('body').append('svg');
 
 // Get layout parameters
 var svgWidth = +svg.attr('width');
@@ -47,18 +60,36 @@ xAx = chartG.append('g')
 yAx = chartG.append('g')
 		.attr('class', 'axis');
 		
-var svg2 = d3.select('body').append('svg').attr('width', 5000);
-var legendG = svg2.append('g')
-    .attr('transform', 'translate('+[180, padding.t]+')');
+//var svg2 = d3.select('body').append('svg').attr('width', 5000);
+//var svg2 = d3.select('.svg2');
+//var legendG = svg2.append('g')
+   //.attr('transform', 'translate('+[180, padding.t]+')');
 
 var dict = new Object();
-genres = new Set();
+var colors = new Object();
+colors['Action'] = '#09ACB8';
+colors['Adventure'] = '#6FA8CF';
+colors['Animation'] = '#7781EE';
+colors['Comedy'] = '#2E7FB8';
+colors['Crime'] = '#3F9372';
+colors['Documentary'] = '#73B334';
+colors['Drama'] = '#6F837C';
+colors['Family'] = '#B9B18F';
+colors['Fantasy'] = '#EA967D';
+colors['History'] = '#F1A9BB';
+colors['Horror'] = '#B784DE';
+colors['Music'] = '#7D6A89';
+colors['Romance'] = '#553E8F';
+colors['Science'] = '#F0624F';
+colors['Thriller'] = '#A23041';
+colors['War'] = '#713E45';
+colors['Western'] = '#E9B650';
 
-var div = d3.select("body").append("div")
-            .attr("class", "tooltip")
-            .style("opacity", 0);
+//var div = d3.select("body").append("div")
+  //          .attr("class", "tooltip")
+  //          .style("opacity", 0);
 
-d3.csv('tmdb_movies_aggregated.csv', dataPreprocessor).then(function(dataset) {
+d3.csv('./Timeseries_Graph/tmdb_movies_aggregated.csv', dataPreprocessor).then(function(dataset) {
     // **** Your JavaScript code goes here ****
 
 	movies = dataset;
@@ -108,21 +139,21 @@ d3.csv('tmdb_movies_aggregated.csv', dataPreprocessor).then(function(dataset) {
 		}
 	})
 	
-	const tooltip = d3.select("body").append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0)
-    .style("position", "absolute");
+	//const tooltip = d3.select("body").append("div")
+    //.attr("class", "tooltip")
+    //.style("opacity", 0)
+    //.style("position", "absolute");
 	
-	chartScales = {x: 'release_year', y: 'budget'};
-
+	chartScales = {x: 'release_year', y: 'count'};
+	var genres = new Set();
 	dataset.forEach(function(movie) {
 		genres.add(movie.genres);
 	});
 	Array.from(genres).forEach(function(genre) {
 		dict[genre] = (genre == "Action" || genre == "Adventure" || genre == "Animation")
-			? 1 : 0;
+			? 0 : 0;
 	});
-	console.log(dict);
+	console.log(genres);
 
 	updateChart();
 });
@@ -151,11 +182,11 @@ function updateChart() {
 	}
 
 	//----------------------------LINES-----------------------------//
-	var color = d3.scaleOrdinal();
-	color.domain(Array.from(genres)).range(
-		['#ff9900', '#ff3300', '#ccff33', '#993366', '#99ff33', '#cc0099',
-		'#009900', '#ff00ff', '#339933', '#9933ff', '#6600cc', '#00ffff',
-		'#669999', '#006699', '#0033cc', '#336699', '#000066', '#993333']);
+	//var color = d3.scaleOrdinal();
+	//color.domain(Array.from(genres)).range(
+	//	['#09ACB8', '#6FA8CF', '#7781EE', '#2E7FB8', '#3F9372', '#73B334',
+	//	'#6F837C', '#B9B18F', '#EA967D', '#F1A9BB', '#B784DE', '#7D6A89',
+	//	'#B74B9C', '#553E8F', '#F0624F', '#A23041', '#713E45', '#E9B650']);
 		
 	console.log(slices);
 
@@ -169,11 +200,11 @@ function updateChart() {
 	});
 	var x = 0
 	Object.keys(slice.data).forEach(function(key) {
-		legendG.append('text').text(key)
+		/*legendG.append('text').text(key)
 			.attr('x', x > 990 ? x % 990 : x).attr('fill', color(key)).attr('text-anchor', 'middle')
 			.attr('y', x > 990 ? 25 : 0).on("click", function(d, i) { 
 				dict[key] = (dict[key] == 1) ? 0 : 1;
-				updateChart(); });
+				updateChart(); });*/
 		x = x + 110;
 
 
@@ -182,7 +213,7 @@ function updateChart() {
 		.attr("class", function(d) { return "line"; })
 		.attr("id", function(d) { return key; })
 		.style('stroke', function() { // Add the colours dynamically
-                return color(key); })
+                return colors[key]; })
 		.style('fill', 'none')
 		.attr('opacity', dict[key])
 		.attr("d", function(d) { return line(d); });
@@ -205,12 +236,12 @@ function updateChart() {
 			  .attr('opacity', dict[key])
 			  .style("cursor", "pointer");
 		  
-                    div.transition()
+                    /*div.transition()
                         .duration(100)
                         .style("opacity", dict[key]);
                     div.html("<p>" + d.measurement + "</p>")
                         .style("left", (d3.event.pageX) + "px")
-                        .style("top", (d3.event.pageY - 28) + "px");
+                        .style("top", (d3.event.pageY - 28) + "px");*/
 		})
 		.on("mouseout", function(d) {
 			d3.select(this) 

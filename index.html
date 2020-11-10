@@ -123,13 +123,13 @@
                   </a>
                   <input type="checkbox" id="sm1">
                   <ul class="sub-menu Y_axis_sub_menu y_scrollable_menu">
-                    <li><a onclick = "ChangeY('Frequency')">Number of Movies</a></li>
-                    <li><a onclick = "ChangeY('Popularity')">Popularity</a></li>
-                    <li><a onclick = "ChangeY('Revenue')">Revenue</a></li>
-                    <li><a onclick = "ChangeY('Budget')">Budget</a></li>
-                    <li><a onclick = "ChangeY('Profit')">Profit</a></li>
-                    <li><a onclick = "ChangeY('Rating')">Rating</a></li>
-                    <li><a onclick = "ChangeY('Vote Count')">Vote Count</a></li>
+                    <li><a onclick = "onYScaleChanged('count')">Number of Movies</a></li>
+                    <li><a onclick = "onYScaleChanged('popularity')">Popularity</a></li>
+                    <li><a onclick = "onYScaleChanged('revenue')">Revenue</a></li>
+                    <li><a onclick = "onYScaleChanged('budget')">Budget</a></li>
+                    <li><a onclick = "onYScaleChanged('profit')">Profit</a></li>
+                    <li><a onclick = "onYScaleChanged('average_rating')">Rating</a></li>
+                    <li><a onclick = "onYScaleChanged('vote_count')">Vote Count</a></li>
                   </ul>
                 </li>
               </ul>
@@ -149,25 +149,25 @@
                   </a>
                   <input type="checkbox" id="sm1">
                   <ul class="sub-menu genre_sub_menu genre_scrollable_menu">
-                    <li><a onclick = "AddGenre('All')">All</a></li>
-                    <li><a onclick = "AddGenre('Action')">Action</a></li>
-                    <li><a onclick = "AddGenre('Adventure')">Adventure</a></li>
-                    <li><a onclick = "AddGenre('Animation')">Animation</a></li>
-                    <li><a onclick = "AddGenre('Comedy')">Comedy</a></li>
-                    <li><a onclick = "AddGenre('Crime')">Crime</a></li>
-                    <li><a onclick = "AddGenre('Documentary')">Documentary</a></li>
-                    <li><a onclick = "AddGenre('Drama')">Drama</a></li>
-                    <li><a onclick = "AddGenre('Family')">Family</a></li>
-                    <li><a onclick = "AddGenre('Fantasy')">Fantasy</a></li>
-                    <li><a onclick = "AddGenre('History')">History</a></li>
-                    <li><a onclick = "AddGenre('Horror')">Horror</a></li>
-                    <li><a onclick = "AddGenre('Music')">Music</a></li>
-                    <li><a onclick = "AddGenre('Mystery')">Mystery</a></li>
-                    <li><a onclick = "AddGenre('Romance')">Romance</a></li>
-                    <li><a onclick = "AddGenre('Science Fiction')">Science Fiction</a></li>
-                    <li><a onclick = "AddGenre('Thriller')">Thriller</a></li>
-                    <li><a onclick = "AddGenre('War')">War</a></li>
-                    <li><a onclick = "AddGenre('Western')">Western</a></li>
+                    <li><a onclick = "onGenreSelected('All')">All</a></li>
+                    <li><a onclick = "onGenreSelected('Action')">Action</a></li>
+                    <li><a onclick = "onGenreSelected('Adventure')">Adventure</a></li>
+                    <li><a onclick = "onGenreSelected('Animation')">Animation</a></li>
+                    <li><a onclick = "onGenreSelected('Comedy')">Comedy</a></li>
+                    <li><a onclick = "onGenreSelected('Crime')">Crime</a></li>
+                    <li><a onclick = "onGenreSelected('Documentary')">Documentary</a></li>
+                    <li><a onclick = "onGenreSelected('Drama')">Drama</a></li>
+                    <li><a onclick = "onGenreSelected('Family')">Family</a></li>
+                    <li><a onclick = "onGenreSelected('Fantasy')">Fantasy</a></li>
+                    <li><a onclick = "onGenreSelected('History')">History</a></li>
+                    <li><a onclick = "onGenreSelected('Horror')">Horror</a></li>
+                    <li><a onclick = "onGenreSelected('Music')">Music</a></li>
+                    <li><a onclick = "onGenreSelected('Mystery')">Mystery</a></li>
+                    <li><a onclick = "onGenreSelected('Romance')">Romance</a></li>
+                    <li><a onclick = "onGenreSelected('Science Fiction')">Science Fiction</a></li>
+                    <li><a onclick = "onGenreSelected('Thriller')">Thriller</a></li>
+                    <li><a onclick = "onGenreSelected('War')">War</a></li>
+                    <li><a onclick = "onGenreSelected('Western')">Western</a></li>
                   </ul>
                 </li>
               </ul>
@@ -182,9 +182,16 @@
       <div class = "graph_viz">
       </div>
       <div class = "timeline_viz">
+        <svg class = "svg1" height = "300" width="1100">
+        </svg>
       </div>
     </div>
     <script src = "./test.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="./Timeseries_Graph/main.js"></script>
     <script type="text/javascript">
       var genres = [];
       var all_genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History", "Horror", "Music", "Mystery", "Romance", "Science Fiction", "Thriller", "War", "Western"]
@@ -195,7 +202,8 @@
       
       $(document).on('click', '.close_tag', function() { 
         genres.splice(genres.indexOf($(this).prev().text()), 1);
-        $(this).parent('div').remove();   
+        $(this).parent('div').remove(); 
+        onGenreSelected(this);  
       });
       
       $(".genre_sub_menu > li").click(function() {
