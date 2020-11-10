@@ -11,7 +11,13 @@ function onYScaleChanged(selVal) {
 }
 
 function onGenreSelected(key) {
+	if (key == 'All') {
+		for (let k in dict) {
+			dict[k] = 1;
+		}
+	} else {
 	dict[key] = (dict[key] == 0) ? 1 : 1;
+	}
 	updateChart();
 }
 
