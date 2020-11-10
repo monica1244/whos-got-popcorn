@@ -5,3 +5,6 @@ function ChangeY(y_axis){
 function AddGenre(genre){
   console.log(genre);
 }
+function RemoveGenre(genre){
+  console.log(genre);
+}
