@@ -168,7 +168,6 @@
       
       $(".genre_sub_menu > li").click(function() {
           var str2 = $(this).text();
-          console.log(genres);
           if (!genres.includes(str2)) {
             var d = document.createElement("div");
             d.className = "tag";
@@ -183,6 +182,7 @@
             tag_holder.appendChild(d);
             genres.push(str2);
           }
+        console.log(genres);
       });
       
       $(".Color_sub_menu > li").click(function() {
