@@ -43,7 +43,7 @@ function dataPreprocessor(row) {
 
 var svg = d3.select('.svg1');
 svg.attr('width', d3.select('.timeline_viz')
-      .text(getDivWidth('.timeline_viz')));
+      .text();
 svg.attr('height', d3.select('.timeline_viz')
       .text(getDivHeight('.timeline_viz')));
 //var svg = select('body').append('svg');
@@ -69,8 +69,8 @@ function getDivHeight (div) {
   }
 
 // Get layout parameters
-var svgWidth = +svg.attr('width');
-var svgHeight = +svg.attr('height');
+var svgWidth = getDivWidth('.timeline_viz'));
+var svgHeight = getDivHeight('.timeline_viz')));
 
 var padding = {t: 40, r: 60, b: 40, l: 100};
 
