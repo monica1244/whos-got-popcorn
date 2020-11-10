@@ -252,8 +252,8 @@
       $(document).ready(function(){
         $("#actor_input").on("keyup", function() {
           var value = $(this).val().toLowerCase();
-          $("#actor_list li").filter(function() {
-            $(this).toggle($(this).children().first().text().toLowerCase().indexOf(value) > -1)
+          $("#actor_list li a").filter(function() {
+            $(this).parent.toggle($(this).text().toLowerCase().indexOf(value) > -1)
           });
         });
       });
