@@ -365,6 +365,17 @@ body {
     width: 12em;
     z-index: 3000;
   }
+  
+  .filter_box #menu .sub-menu {
+    border-width: 0.01vh;
+    border-color: rgba(255,255,255,0.8);
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 13em;
+    z-index: 3000;
+  }
 
   #menu .sub-menu, 
   #menu input[type="checkbox"]:checked + .sub-menu {
