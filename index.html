@@ -159,11 +159,8 @@
       });
       
       $(document).on('click', '.close_tag', function() { 
-        console.log($(this).prev().text(),"efre","jjb");
-        console.log(genres.indexOf($(this).prev().text()));
         genres.splice(genres.indexOf($(this).prev().text()), 1);
         $(this).parent('div').remove();   
-        console.log(genres);
       });
       
       $(".genre_sub_menu > li").click(function() {
@@ -176,13 +173,17 @@
             var a2 = document.createElement("a");
             a2.appendChild(document.createTextNode("x"));
             a2.className = "close_tag";
+            var str3 = "RemoveGenre(\'";
+            var str4 = "\')";
+            str3.concat(str2, str4);
+            console.log(str3);
+            a2.setAttribute("onclick", str3);
             d.appendChild(a1);
             d.appendChild(document.createTextNode("\u00A0"));
             d.appendChild(a2);
             tag_holder.appendChild(d);
             genres.push(str2);
           }
-        console.log(genres);
       });
       
       $(".Color_sub_menu > li").click(function() {
