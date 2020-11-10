@@ -42,10 +42,10 @@ function dataPreprocessor(row) {
 }
 
 var svg = d3.select('.svg1');
-svg.attr('width', d3.select('.timeline_viz')
-      .text();
-svg.attr('height', d3.select('.timeline_viz')
-      .text(getDivHeight('.timeline_viz')));
+// svg.attr('width', d3.select('.timeline_viz')
+//       .text();
+// svg.attr('height', d3.select('.timeline_viz')
+//       .text(getDivHeight('.timeline_viz')));
 //var svg = select('body').append('svg');
 
 function getDivWidth (div) {
