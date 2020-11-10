@@ -117,12 +117,93 @@ body {
   pointer-events: none;
 }
 
-.tag:hover {
+.tag:hover, .Action:hover, .Adventure:hover, .Animation:hover, .Comedy:hover, .Crime:hover, .Documentary:hover, .Drama:hover, .Family:hover, .Fantasy:hover, .History:hover, .Horror:hover, .Music:hover, .Mystery:hover, .Romance:hover, .Science:hover, .Thriller:hover, .War:hover, .Western:hover {
   background-color: #3e355f;
 }
 
 .close_tag {
   pointer-events: auto;
+}
+
+.Action, .Adventure, .Animation, .Comedy, .Crime, .Documentary, .Drama, .Family, .Fantasy, .History, .Horror, .Music, .Mystery, .Romance, .Science, .Thriller, .War, .Western {
+  padding: 0.8vh 1.2vh 0.8vh 1.2vh;
+  margin: 0px 1vh 1vh 0vh;
+  display: inline-flex;
+  font-size: 1.5vh;
+  border-radius: 50px;
+  pointer-events: none;
+}
+
+.Action {
+  background-color: #09ACB8;
+}
+
+.Adventure {
+  background-color: #6fa8cf;
+}
+
+.Animation{
+  background-color: #7781ee;
+}
+
+.Comedy {
+  background-color: #d0efe8;
+}
+
+.Crime {
+  background-color: #49e0a4;
+}
+
+.Documentary {
+  background-color: #4bb9a1;
+}
+
+.Drama {
+  background-color: #73b334;
+}
+
+.Family {
+  background-color: #829Da8;
+}
+
+.Fantasy {
+  background-color: #be8890;
+}
+
+.History {
+  background-color: #f1a9bb;
+}
+
+.Horror {
+  background-color: #efb6ff;
+}
+
+.Music {
+  background-color: #7d6a89;
+}
+
+.Mystery {
+  background-color: #ea967d;
+}
+
+.Romance {
+  background-color: #a23041;
+}
+
+.Science {
+  background-color: #f0624f;
+}
+
+.Thriller {
+  background-color: #b74b90;
+}
+
+.War {
+  background-color: #eae285;
+}
+
+.Western {
+  background-color: #eed80e;
 }
 
 .Genre_tags {
