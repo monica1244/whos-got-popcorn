@@ -151,19 +151,19 @@ body {
 }
 
 .Crime {
-  background-color: #0d9b56;
+  background-color: #3f9372;
 }
 
 .Documentary {
-  background-color: #4bb9a1;
-}
-
-.Drama {
   background-color: #73b334;
 }
 
-.Family {
+.Drama {
   background-color: #6f837c;
+}
+
+.Family {
+  background-color: #b9b18f;
 }
 
 .Fantasy {
