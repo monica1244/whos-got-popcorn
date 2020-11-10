@@ -169,22 +169,24 @@
           var str2 = $(this).text();
           if (str2 == "All") {
             for (i = 0; i < all_genres.length; i++) {
-              var d = document.createElement("div");
-              d.className = all_genres[i];
-              var a1 = document.createElement("a");
-              a1.appendChild(document.createTextNode(all_genres[i]));
-              var a2 = document.createElement("a");
-              a2.appendChild(document.createTextNode("x"));
-              a2.className = "close_tag";
-              var str3 = "RemoveGenre(\'";
-              var str4 = "\')";
-              var str5 = str3.concat(all_genres[i], str4);
-              a2.setAttribute("onclick", str5);
-              d.appendChild(a1);
-              d.appendChild(document.createTextNode("\u00A0"));
-              d.appendChild(a2);
-              tag_holder.appendChild(d);
-              genres.push(all_genres[i]);
+              if (!genres.includes(all_genres[i])) {
+                var d = document.createElement("div");
+                d.className = all_genres[i];
+                var a1 = document.createElement("a");
+                a1.appendChild(document.createTextNode(all_genres[i]));
+                var a2 = document.createElement("a");
+                a2.appendChild(document.createTextNode("x"));
+                a2.className = "close_tag";
+                var str3 = "RemoveGenre(\'";
+                var str4 = "\')";
+                var str5 = str3.concat(all_genres[i], str4);
+                a2.setAttribute("onclick", str5);
+                d.appendChild(a1);
+                d.appendChild(document.createTextNode("\u00A0"));
+                d.appendChild(a2);
+                tag_holder.appendChild(d);
+                genres.push(all_genres[i]);
+              }
             }
           }
           else if (!genres.includes(str2)) {
