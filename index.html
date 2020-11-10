@@ -116,6 +116,7 @@
                   </a>
                   <input type="checkbox" id="sm1">
                   <ul class="sub-menu genre_sub_menu genre_scrollable_menu">
+                    <li><a onclick = "AddGenre('All')">All</a></li>
                     <li><a onclick = "AddGenre('Action')">Action</a></li>
                     <li><a onclick = "AddGenre('Adventure')">Adventure</a></li>
                     <li><a onclick = "AddGenre('Animation')">Animation</a></li>
@@ -153,6 +154,7 @@
     <script src = "./test.js" type="text/javascript"></script>
     <script type="text/javascript">
       var genres = [];
+      var all_genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History", "Horror", "Music", "Mystery", "Romance", "Science Fiction", "Thriller", "War", "Western"]
       $(".Y_axis_sub_menu > li").click(function() {
         $("#Y_axis_sub_menu_heading").text($(this).text()+" "); 
         $("#Y_axis_sub_menu_heading").append('<span class="drop-icon">▾</span><label title="Toggle Drop-down" class="drop-icon" for="sm1">▾</label>');
@@ -165,7 +167,27 @@
       
       $(".genre_sub_menu > li").click(function() {
           var str2 = $(this).text();
-          if (!genres.includes(str2)) {
+          if (str2 == "All") {
+            for (i = 0; i < all_genres.length; i++) {
+              var d = document.createElement("div");
+              d.className = str2;
+              var a1 = document.createElement("a");
+              a1.appendChild(document.createTextNode(all_genres[i]));
+              var a2 = document.createElement("a");
+              a2.appendChild(document.createTextNode("x"));
+              a2.className = "close_tag";
+              var str3 = "RemoveGenre(\'";
+              var str4 = "\')";
+              var str5 = str3.concat(all_genres[i], str4);
+              a2.setAttribute("onclick", str5);
+              d.appendChild(a1);
+              d.appendChild(document.createTextNode("\u00A0"));
+              d.appendChild(a2);
+              tag_holder.appendChild(d);
+              genres.push(all_genres[i]);
+            }
+          }
+          else if (!genres.includes(str2)) {
             var d = document.createElement("div");
             d.className = str2;
             var a1 = document.createElement("a");
