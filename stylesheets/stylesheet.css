@@ -97,6 +97,17 @@ body {
     overflow-x: hidden;
 }
 
+.list_search {
+  background-color: rgb(21,15,46);
+  border: none;
+  height: 4vh;
+  padding: 1.1vw;
+}
+
+.list_search:hover {
+  border: none;
+}
+
 .tag {
   background-color: rgb(4, 117, 116);
   padding: 0.8vh 1.2vh 0.8vh 1.2vh;
