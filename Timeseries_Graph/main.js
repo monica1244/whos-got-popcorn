@@ -47,8 +47,7 @@ var svg = d3.select('.svg1');
 // Get layout parameters
 var svgWidth = $("#svg1").width();
 var svgHeight = $("#svg1").height();
-var vh = svgHeight/33.19;
-var padding = {t: 2*vh, r: 2*vh, b: 2*vh, l: 2*vh};
+var padding = {t: 20, r: 20, b: 20, l: 20};
 
 // Compute chart dimensions
 var chartWidth = svgWidth - padding.l - padding.r;
