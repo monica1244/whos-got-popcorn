@@ -48,7 +48,7 @@ var svg = d3.select('.svg1');
 var svgWidth = $("#timeline_viz svg").parent().width();
 var svgHeight = $("#timeline_viz svg").parent().height();
 var vh = svgHeight/36.59;
-var padding = {t: 1*vh, r:3*vh, b: 1*vh, l: 3*vh};
+var padding = {t: 2*vh, r: vh, b: 2*vh, l: 3*vh};
 
 // Compute chart dimensions
 var chartWidth = svgWidth - padding.l - padding.r;
