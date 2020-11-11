@@ -45,9 +45,8 @@ var svg = d3.select('.svg1');
 //var svg = select('body').append('svg');
 
 // Get layout parameters
-var parentDiv = document.getElementById("timeline_viz");
-var svgWidth = parentDiv.clientWidth;
-var svgHeight = parentDiv.clientHeight;
+var svgWidth = $("#timeline_viz svg").parent().width();
+var svgHeight = $("#timeline_viz svg").parent().height();
 
 var padding = {t: 0, r: 0, b: 0, l: 0};
 
