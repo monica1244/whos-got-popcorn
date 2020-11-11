@@ -203,7 +203,6 @@
       $(document).on('click', '.close_tag', function() { 
         genres.splice(genres.indexOf($(this).prev().text()), 1);
         $(this).parent('div').remove(); 
-        onGenreSelected(this);  
       });
       
       $(".genre_sub_menu > li").click(function() {
@@ -218,7 +217,7 @@
                 var a2 = document.createElement("a");
                 a2.appendChild(document.createTextNode("x"));
                 a2.className = "close_tag";
-                var str3 = "RemoveGenre(\'";
+                var str3 = "OnGenreDelected(\'";
                 var str4 = "\')";
                 var str5 = str3.concat(all_genres[i], str4);
                 a2.setAttribute("onclick", str5);
@@ -238,7 +237,7 @@
             var a2 = document.createElement("a");
             a2.appendChild(document.createTextNode("x"));
             a2.className = "close_tag";
-            var str3 = "RemoveGenre(\'";
+            var str3 = "OnGenreDelected(\'";
             var str4 = "\')";
             var str5 = str3.concat(str2, str4);
             a2.setAttribute("onclick", str5);
