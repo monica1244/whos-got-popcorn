@@ -45,10 +45,11 @@ var svg = d3.select('.svg1');
 //var svg = select('body').append('svg');
 
 // Get layout parameters
-var svgWidth = +svg.attr('width');
-var svgHeight = +svg.attr('height');
+var parentDiv = document.getElementById("timeline_viz");
+var svgWidth = parentDiv.clientWidth;
+var svgHeight = parentDiv.clientHeight;
 
-var padding = {t: 40, r: 60, b: 40, l: 100};
+var padding = {t: 0, r: 0, b: 0, l: 0};
 
 // Compute chart dimensions
 var chartWidth = svgWidth - padding.l - padding.r;
