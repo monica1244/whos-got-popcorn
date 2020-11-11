@@ -7,5 +7,4 @@ function AddGenre(genre){
 }
 function RemoveGenre(genre){
   console.log(genre);
-  onGenreDelected(genre);
 }
