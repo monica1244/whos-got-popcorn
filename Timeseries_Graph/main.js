@@ -83,6 +83,7 @@ colors['Fantasy'] = '#EA967D';
 colors['History'] = '#F1A9BB';
 colors['Horror'] = '#B784DE';
 colors['Music'] = '#7D6A89';
+colors['Mystery']='#B74B9C';
 colors['Romance'] = '#553E8F';
 colors['Science Fiction'] = '#F0624F';
 colors['Thriller'] = '#A23041';
