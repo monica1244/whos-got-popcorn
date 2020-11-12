@@ -3,10 +3,25 @@ var svg2 = d3.select("#svg2"),
     diameter = +svg2.attr("width"),
     g = svg2.append("g").attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
 
-var color = d3.scaleLinear()
-    .domain([-1, 5])
-    .range(["hsl(152,80%,80%)", "hsl(228,30%,40%)"])
-    .interpolate(d3.interpolateHcl);
+var bubble_color = new Object();
+bubble_color['Action'] = '#09ACB8';
+bubble_color['Adventure'] = '#6FA8CF';
+bubble_color['Animation'] = '#7781EE';
+bubble_color['Comedy'] = '#2E7FB8';
+bubble_color['Crime'] = '#3F9372';
+bubble_color['Documentary'] = '#73B334';
+bubble_color['Drama'] = '#6F837C';
+bubble_color['Family'] = '#B9B18F';
+bubble_color['Fantasy'] = '#EA967D';
+bubble_color['History'] = '#F1A9BB';
+bubble_color['Horror'] = '#B784DE';
+bubble_color['Music'] = '#7D6A89';
+bubble_color['Mystery']='#B74B9C';
+bubble_color['Romance'] = '#553E8F';
+bubble_color['Science Fiction'] = '#F0624F';
+bubble_color['Thriller'] = '#A23041';
+bubble_color['War'] = '#713E45';
+bubble_color['Western'] = '#E9B650';
 
 var pack = d3.pack()
     .size([diameter - margin, diameter - margin])
@@ -27,7 +42,7 @@ d3.json("data.json").then(function(root) {
     .data(nodes)
     .enter().append("circle")
       .attr("class", function(d) { return d.parent ? d.children ? "node" : "node node--leaf" : "node node--root"; })
-      .style("fill", function(d) { return d.children ? "#0b0817" : color(d.depth); })
+      .style("fill", function(d) { return d.children ? "#0b0817" : bubble_color[d.data.genres]; })
       .on("click", function(d) { if (focus !== d) zoom(d), d3.event.stopPropagation(); });
 
   // var text = g.selectAll("text")
