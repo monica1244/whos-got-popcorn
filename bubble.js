@@ -12,7 +12,7 @@ var pack = d3.pack()
     .size([diameter - margin, diameter - margin])
     .padding(2);
 
-d3.json("data_fin.json", function(error, root) {
+d3.json("data.json", function(error, root) {
   if (error) throw error;
 
   root = d3.hierarchy(root)
