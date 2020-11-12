@@ -221,6 +221,25 @@ body {
   overflow-x: hidden;
 }
 
+.node {
+  cursor: pointer;
+}
+
+.node:hover {
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.node--leaf {
+  fill: white;
+}
+
+.label,
+.node--root,
+.node--leaf {
+  pointer-events: none;
+}
+
 ::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 1vh;
