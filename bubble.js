@@ -59,7 +59,7 @@ function createBubbles(scaleBy) {
 		.data(nodes)
 		.enter().append("circle")
 		  .attr("class", function(d) { return d.parent ? d.children ? "node" : "node node--leaf" : "node node--root"; })
-		  .style("fill", function(d) { return d.children ? "#0b0817" : bubble_color[d.data.genres]; })
+		  .style("fill", function(d) { if(d.children){return "#0b0817"}else{if(d.data.genres){ return bubble_color[d.data.genres];}else {return '#09ACB8'}}})
 		  .on("click", function(d) { if (focus !== d) zoom(d), d3.event.stopPropagation(); });
 
 	  // var text = g.selectAll("text")
