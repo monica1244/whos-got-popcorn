@@ -27,7 +27,7 @@ d3.json("data.json").then(function(root) {
     .data(nodes)
     .enter().append("circle")
       .attr("class", function(d) { return d.parent ? d.children ? "node" : "node node--leaf" : "node node--root"; })
-      .style("fill", function(d) { return d.parent? d.children ? color(d.depth) : null : null; })
+      .style("fill", function(d) { return d.children ? "#0b0817" : color(d.depth); })
       .on("click", function(d) { if (focus !== d) zoom(d), d3.event.stopPropagation(); });
 
   // var text = g.selectAll("text")
