@@ -108,6 +108,7 @@ body {
   border: none;
   height: 3.8vh;
   padding: 1.1vw;
+  color: #9c9a9a;
 }
 
 .list_search:focus {

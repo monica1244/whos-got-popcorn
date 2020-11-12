@@ -60,7 +60,8 @@
                         <label title="Toggle Drop-down" class="drop-icon" for="sm2">▾</label>
                         </a>
                       <input type="checkbox" id="sm4">
-                      <ul class="sub-menu">
+                      <ul class="sub-menu" id = "director_list">
+                        <li><input class="list_search" id="director_input" type="text" placeholder="Search.."></li>
                         <li><a>Tdff</a></li>
                         <li><a>Tdff</a></li>
                         <li><a>bjekrrff</a></li>
@@ -71,7 +72,8 @@
                         <label title="Toggle Drop-down" class="drop-icon" for="sm2">▾</label>
                         </a>
                       <input type="checkbox" id="sm5">
-                      <ul class="sub-menu">
+                      <ul class="sub-menu" id = "production_company_list">
+                        <li><input class="list_search" id="production_company_input" type="text" placeholder="Search.."></li>
                         <li><a>Tdff</a></li>
                         <li><a>Tdff</a></li>
                         <li><a>bjekrrff</a></li>
@@ -82,7 +84,8 @@
                         <label title="Toggle Drop-down" class="drop-icon" for="sm2">▾</label>
                         </a>
                       <input type="checkbox" id="sm5">
-                      <ul class="sub-menu">
+                      <ul class="sub-menu" id = "keyword_list">
+                        <li><input class="list_search" id="keyword_input" type="text" placeholder="Search.."></li>
                         <li><a>Tdff</a></li>
                         <li><a>Tdff</a></li>
                         <li><a>bjekrrff</a></li>
@@ -270,6 +273,33 @@
         $("#actor_input").on("keyup", function() {
           var value = $(this).val().toLowerCase();
           $("#actor_list li a").filter(function() {
+            $(this).parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+        });
+      });
+
+      $(document).ready(function(){
+        $("#director_input").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#director_list li a").filter(function() {
+            $(this).parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+        });
+      });
+
+      $(document).ready(function(){
+        $("#production_company_input").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#production_company_list li a").filter(function() {
+            $(this).parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+        });
+      });
+
+      $(document).ready(function(){
+        $("#keyword_input").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#keyword_list li a").filter(function() {
             $(this).parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
           });
         });
