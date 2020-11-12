@@ -226,7 +226,7 @@ body {
 }
 
 .node:hover {
-  stroke: #000;
+  stroke: #6495ed;
   stroke-width: 1.5px;
 }
 
