@@ -41,7 +41,6 @@ d3.json("data.json").then(function(root) {
   var node = g.selectAll("circle,text");
 
   svg2
-      .style("background", color(-1))
       .on("click", function() { zoom(root); });
 
   zoomTo([root.x, root.y, root.r * 2 + margin]);
