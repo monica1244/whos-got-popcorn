@@ -6,6 +6,7 @@ $(document).ready(function(){
     for(i = 0; i < actorss.length; i++) {
         var k = actorss[i];
         var d = document.createElement("li");
+        d.className = "Actor10";
         var a = document.createElement("a");
         var s = "filterBy(\'Actor\',\'";
         var s2 = "\')";

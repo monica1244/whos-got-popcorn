@@ -39,7 +39,7 @@ body {
   margin: 2vh 0vh 2vh 0vh;
 }
 
-.Y_axis, .Genres{
+.Y_axis, .Genres, .filter_box_box{
   height: 8.3vh;
 }
 
@@ -132,7 +132,7 @@ body {
   pointer-events: none;
 }
 
-.tag:hover, .Action:hover, .Adventure:hover, .Animation:hover, .Comedy:hover, .Crime:hover, .Documentary:hover, .Drama:hover, .Family:hover, .Fantasy:hover, .History:hover, .Horror:hover, .Music:hover, .Mystery:hover, .Romance:hover, .Science:hover, .Thriller:hover, .War:hover, .Western:hover {
+.tag:hover, .filter_tag:hover, .Action:hover, .Adventure:hover, .Animation:hover, .Comedy:hover, .Crime:hover, .Documentary:hover, .Drama:hover, .Family:hover, .Fantasy:hover, .History:hover, .Horror:hover, .Music:hover, .Mystery:hover, .Romance:hover, .Science:hover, .Thriller:hover, .War:hover, .Western:hover {
   background-color: #554794;
 }
 
@@ -140,13 +140,21 @@ body {
   pointer-events: auto;
 }
 
-.Action, .Adventure, .Animation, .Comedy, .Crime, .Documentary, .Drama, .Family, .Fantasy, .History, .Horror, .Music, .Mystery, .Romance, .Science, .Thriller, .War, .Western {
+.close_filter_tag {
+  pointer-events: auto;
+}
+
+.filter_tag, .Action, .Adventure, .Animation, .Comedy, .Crime, .Documentary, .Drama, .Family, .Fantasy, .History, .Horror, .Music, .Mystery, .Romance, .Science, .Thriller, .War, .Western {
   padding: 0.8vh 1.2vh 0.8vh 1.2vh;
   margin: 0px 1vh 1vh 0vh;
   display: inline-flex;
   font-size: 1.5vh;
   border-radius: 50px;
   pointer-events: none;
+}
+
+.filter_tag {
+  background-color: rgba(111, 129, 197,0.7);
 }
 
 .Action {
@@ -221,7 +229,7 @@ body {
   background-color: #e9b650;
 }
 
-.Genre_tags {
+.Genre_tags, #filter_tag_holder {
   margin-top: 2vh;
   height: auto;
   max-height: 17vh;
@@ -241,10 +249,8 @@ body {
   stroke-width: 0px;
 }
 
-.label,
-.node--root,
-.node--leaf {
-  /*pointer-events: none;*/
+.node--root{
+  pointer-events: none;
 }
 
 ::-webkit-scrollbar {

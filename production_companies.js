@@ -5,6 +5,7 @@ $(document).ready(function(){
     for(i = 0; i < prod_compss.length; i++) {
         var k = prod_compss[i];
         var d = document.createElement("li");
+        d.className = "Production10";
         var a = document.createElement("a");
         var s = "filterBy(\'Production Company\',\'";
         var s2 = "\')";

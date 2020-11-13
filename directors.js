@@ -6,6 +6,7 @@ $(document).ready(function(){
     for(i = 0; i < directorss.length; i++) {
         var k = directorss[i];
         var d = document.createElement("li");
+        d.className = "Director10";
         var a = document.createElement("a");
         var s = "filterBy(\'Director\',\'";
         var s2 = "\')";

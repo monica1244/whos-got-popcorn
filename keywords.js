@@ -6,6 +6,7 @@ $(document).ready(function(){
     for(i = 0; i < keywordss.length; i++) {
         var k = keywordss[i];
         var d = document.createElement("li");
+        d.className = "Keyword10";
         var a = document.createElement("a");
         var s = "filterBy(\'Keyword\',\'";
         var s2 = "\')";
