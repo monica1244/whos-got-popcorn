@@ -34,10 +34,25 @@
                         <label title="Toggle Drop-down" class="drop-icon" for="sm2">▾</label>
                         </a>
                       <input type="checkbox" id="sm2">
-                      <ul class="sub-menu">
-                        <li><a>Tdff</a></li>
-                        <li><a>Tdff</a></li>
-                        <li><a>bjekrrff</a></li>
+                      <ul class="sub-menu" id ="genre_list">
+                        <li><a onclick="filterBy('Genre','Action')">Action</a></li>
+                        <li><a onclick="filterBy('Genre','Adventure')">Adventure</a></li>
+                        <li><a onclick="filterBy('Genre','Animation')">Animation</a></li>
+                        <li><a onclick="filterBy('Genre','Comedy')">Comedy</a></li>
+                        <li><a onclick="filterBy('Genre','Crime')">Crime</a></li>
+                        <li><a onclick="filterBy('Genre','Documentary')">Documentary</a></li>
+                        <li><a onclick="filterBy('Genre','Drama')">Drama</a></li>
+                        <li><a onclick="filterBy('Genre','Family')">Family</a></li>
+                        <li><a onclick="filterBy('Genre','Fantasy')">Fantasy</a></li>
+                        <li><a onclick="filterBy('Genre','History')">History</a></li>
+                        <li><a onclick="filterBy('Genre','Horror')">Horror</a></li>
+                        <li><a onclick="filterBy('Genre','Music')">Music</a></li>
+                        <li><a onclick="filterBy('Genre','Mystery')">Mystery</a></li>
+                        <li><a onclick="filterBy('Genre','Romance')">Romance</a></li>
+                        <li><a onclick="filterBy('Genre','Science Fiction')">Science Fiction</a></li>
+                        <li><a onclick="filterBy('Genre','Thriller')">Thriller</a></li>
+                        <li><a onclick="filterBy('Genre','War')">War</a></li>
+                        <li><a onclick="filterBy('Genre','Western')">Western</a></li>
                       </ul>
                     </li>
                     <li><a>Actor
@@ -47,12 +62,6 @@
                       <input type="checkbox" id="sm3">
                       <ul class="sub-menu" id = "actor_list">
                         <li><input class="list_search" id="actor_input" type="text" placeholder="Search.."></li>
-                        <li><a>Tdff</a></li>
-                        <li><a>Tdff</a></li>
-                        <li><a>bjekrrff</a></li>
-                        <li><a>abc</a></li>
-                        <li><a>def</a></li>
-                        <li><a>tdff</a></li>
                       </ul>
                     </li>
                     <li><a>Director
@@ -62,9 +71,6 @@
                       <input type="checkbox" id="sm4">
                       <ul class="sub-menu" id = "director_list">
                         <li><input class="list_search" id="director_input" type="text" placeholder="Search.."></li>
-                        <li><a>Tdff</a></li>
-                        <li><a>Tdff</a></li>
-                        <li><a>bjekrrff</a></li>
                       </ul>
                     </li>
                     <li><a>Production Company
@@ -74,9 +80,6 @@
                       <input type="checkbox" id="sm5">
                       <ul class="sub-menu" id = "production_company_list">
                         <li><input class="list_search" id="production_company_input" type="text" placeholder="Search.."></li>
-                        <li><a>Tdff</a></li>
-                        <li><a>Tdff</a></li>
-                        <li><a>bjekrrff</a></li>
                       </ul>
                     </li>
                     <li><a>Keyword
@@ -86,9 +89,6 @@
                       <input type="checkbox" id="sm5">
                       <ul class="sub-menu" id = "keyword_list">
                         <li><input class="list_search" id="keyword_input" type="text" placeholder="Search.."></li>
-                        <li><a>Tdff</a></li>
-                        <li><a>Tdff</a></li>
-                        <li><a>bjekrrff</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -206,7 +206,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="./Timeseries_Graph/main.js"></script>
+    <script src="./keywords.js"></script>
+    <script src="./actors.js"></script>
     <script src="./bubble.js"></script>
+    <script src="./directors.js"></script>
+    <script src="./production_companies.js"></script>
     <script type="text/javascript">
       var genres = [];
       var all_genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History", "Horror", "Music", "Mystery", "Romance", "Science Fiction", "Thriller", "War", "Western"]

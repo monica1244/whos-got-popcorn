@@ -103,6 +103,12 @@ body {
     overflow-x: hidden;
 }
 
+#keyword_list, #actor_list, #director_list, #production_company_list, #genre_list {
+  height: auto;
+  max-height: 28.5vh;
+  overflow-x: hidden;
+}
+
 .list_search {
   background-color: rgb(21,15,46);
   border: none;
