@@ -19,13 +19,19 @@ body {
 }
 
 .filter_box {
-  height: 26vh;
+  height: 30vh;
 }
 
 .controls_column {
   float: left;
-  width: 18%;
-  margin: 0rem 1% 0rem 1%;
+  width: 18.2%;
+  margin: 0rem 0.6% 0rem 0rem;
+}
+
+.viz_column {
+  float: left;
+  width: 80%;
+  margin: 0rem 0.6% 0rem 0.6%;
 }
 
 .timeline_heading, .Bubble_heading {
@@ -46,7 +52,7 @@ body {
 .timeline_control {
   background-color: rgba(51, 37, 114, 0.5);
   border-radius: 5px;
-  height: 45.15vh;
+  height: 48.5vh;
   margin: 0rem 0rem 1vh 0rem;
   padding: 1.7vh 1.7vh 1.7vh 1.7vh;
 }
@@ -54,8 +60,8 @@ body {
 .filters {
   background-color: rgba(51, 37, 114, 0.5);
   border-radius: 5px;
-  height: 45.15vh;
-  margin: 0rem 0rem 1.7vh 0rem;
+  height: 48.5vh;
+  margin: 1vh 0rem 1vh 0rem;
   padding: 1.7vh 1.7vh 1.7vh 1.7vh;
 }
 
@@ -75,25 +81,19 @@ body {
 .graph_viz {
   border-radius: 5px;
   background-color: rgba(51, 37, 114, 0.2);
-  height: 59.06vh;
-  margin: 1.7vh 0rem 1.7vh 0rem;
+  height: 60.41vh;
+  margin: 1vh 0rem 1vh 0rem;
 }
 
-.viz_column {
-  float: left;
-  width: 79%;
-  margin: 0rem 1% 0rem 0rem;
-}
-
-.y_scrollable_menu {
+.y_scrollable_menu {/*
     height: auto;
-    max-height: 24.4vh;
+    max-height: 24.4vh;*/
     overflow-x: hidden;
 }
 
 .genre_scrollable_menu {
     height: auto;
-    max-height: 16vh;
+    max-height: 20vh;
     overflow-x: hidden;
 }
 
@@ -101,12 +101,6 @@ body {
     height: auto;
     max-height: 20vh;
     overflow-x: hidden;
-}
-
-#keyword_list, #actor_list, #director_list, #production_company_list, #genre_list {
-  height: auto;
-  max-height: 28.5vh;
-  overflow-x: hidden;
 }
 
 .list_search {
@@ -232,7 +226,7 @@ body {
 .Genre_tags, #filter_tag_holder {
   margin-top: 2vh;
   height: auto;
-  max-height: 17vh;
+  max-height: 21vh;
   overflow-x: hidden;
 }
 
@@ -431,7 +425,7 @@ body {
     top: 100%;
     left: 0;
     width: 13em;
-    z-index: 3000;
+    z-index: 3;
   }
 
   #menu .sub-menu, 
@@ -453,6 +447,22 @@ body {
   #menu li:hover > input[type="checkbox"] + .sub-menu {
     display: block;
   }
+}
+
+#keyword_list, #actor_list, #director_list, #genre_list {
+  top: 0%;
+  left: -101% !important;
+  height: auto;
+  max-height: 28.5vh;
+  overflow-x: hidden;
+}
+
+#production_company_list {
+  top: 0%;
+  left: -101% !important;
+  height: auto;
+  max-height: 30.4vh;
+  overflow-x: hidden;
 }
 
 .page-header {

@@ -12,8 +12,16 @@
     <script src="https://d3js.org/d3.v3.min.js"></script>
   </head>
   <body>
+    <div class = "viz_column">
+      <div class = "graph_viz">
+        <svg id = "svg2" width="460" height="460"></svg>
+      </div>
+      <div class = "timeline_viz" id = "timeline_viz">
+        <svg class = "svg1">
+        </svg>
+      </div>
+    </div>
     <div class = "controls_column">
-      <div class = "movies_heading">Movies</div>
       <div class = "filters">
         <div class = "Bubble_heading">Cluster Bubbles</div>
         <div class = "filter_box">
@@ -193,15 +201,6 @@
         </div>
         <div class = "Genre_tags" id = "tag_holder">
         </div>
-      </div>
-    </div>
-    <div class = "viz_column">
-      <div class = "graph_viz">
-        <svg id = "svg2" width="460" height="460"></svg>
-      </div>
-      <div class = "timeline_viz" id = "timeline_viz">
-        <svg class = "svg1">
-        </svg>
       </div>
     </div>
     <script src = "./test.js" type="text/javascript"></script>
