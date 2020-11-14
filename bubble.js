@@ -58,7 +58,7 @@ function createBubbles(scaleBy) {
 	  var circle = g.selectAll("circle")
 		.data(nodes)
 		.enter().append("circle")
-		  .attr("class", function(d) { return d.parent ? d.children ? "node" : "node node--leaf" : "node node--root"; })
+		  .attr("class", function(d) { return d.parent ? d.children ? "node" : "node node--leaf"+" "+d.data.id : "node node--root"; })
 		  .style("fill", function(d) {
 		   if(d.children){
 		  		return "#0b0817"
@@ -75,13 +75,13 @@ function createBubbles(scaleBy) {
 	  		}}})
 		  .on("click", function(d) { if (focus !== d) zoom(d), d3.event.stopPropagation(); });
 
-	  // var text = g.selectAll("text")
-	  //   .data(nodes)
-	  //   .enter().append("text")
-	  //     .attr("class", "label")
-	  //     .style("fill-opacity", function(d) { return d.parent === root ? 1 : 0; })
-	  //     .style("display", function(d) { return d.parent === root ? "inline" : "none"; })
-	  //     .text(function(d) { return d.data.name; });
+	  var text = g.selectAll("text")
+	    .data(nodes)
+	    .enter().append("text")
+	      .attr("class", "label")
+	      .style("fill-opacity", function(d) { return d.children ? 1 : 0; })
+	      .style("display", function(d) { return d.children ? "inline" : "none"; })
+	      .text(function(d) { return d.data.title; });
 
 	  var node = g.selectAll("circle,text");
 
@@ -100,12 +100,18 @@ function createBubbles(scaleBy) {
 			  return function(t) { zoomTo(i(t)); };
 			});
 
-		transition.selectAll("text")
-		  .filter(function(d) { return d.parent === focus || this.style.display === "inline"; })
-		  .style("fill-opacity", function(d) { return d.parent === focus ? 1 : 0; })
-			.on("start", function(d) { if (d.parent === focus) this.style.display = "inline"; })
-			.on("end", function(d) { if (d.parent !== focus) this.style.display = "none"; });
-	  }
+		// transition.selectAll("text")
+		//   .filter(function(d) { return d.parent === focus; })
+		//   .style("fill-opacity", function(d) { return d === focus ? 1 : 0; })
+		// 	.on("start", function(d) { if (d === focus && d.parent != root) this.style.display = "inline"; })
+		// 	.on("end", function(d) { if (d !== focus) this.style.display = "none"; });
+	 //  }
+	 transition.selectAll("text")
+      .filter(function(d) { return d === focus || this.style.display === "inline"; })
+        .style("fill-opacity", function(d) { return d === focus ? 1 : 0; })
+        .on("start", function(d) { if (d === focus) this.style.display = "inline"; })
+        .on("end", function(d) { if (d !== focus) this.style.display = "none"; });
+  }
 
 	  function zoomTo(v) {
 		var k = diameter / v[2]; view = v;
