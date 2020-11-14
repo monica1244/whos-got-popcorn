@@ -226,7 +226,7 @@ body {
 .Genre_tags, #filter_tag_holder {
   margin-top: 2vh;
   height: auto;
-  max-height: 21vh;
+  max-height: 21.5vh;
   overflow-x: hidden;
 }
 
