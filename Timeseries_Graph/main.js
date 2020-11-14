@@ -410,7 +410,10 @@ function updateChart2(d) {
 				.style('stroke-width', function() { 
 		                return key == d.data.genres ? 5.5 : 3; })
 				.style('fill', 'none')
-				.attr('opacity', dict[key])
+				.style('z-index', function() { 
+		                return key == d.data.genres ? 4 : 1; })
+				.attr('opacity', function() { 
+		                return key == d.data.genres ? 1 : 0.2; })
 				.attr("d", function(d) { return line(d); });
 		});
 	}
@@ -488,8 +491,11 @@ function updateChart2(d) {
 		                return key == d.data.genres ? colors[key] : 'gray'; })
 				.style('stroke-width', function() {
 		                return key == d.data.genres ? 5.5 : 3; })
+				.style('z-index', function() { 
+		                return key == d.data.genres ? 4 : 1; })
 				.style('fill', 'none')
-				.attr('opacity', dict[key])
+				.attr('opacity', function() { 
+		                return key == d.data.genres ? 1 : 0.2; })
 				.attr("d", function(d) { return line(d); });
 				
 			   /*chartG.selectAll("circles")
