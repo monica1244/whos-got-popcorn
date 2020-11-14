@@ -406,9 +406,9 @@ function updateChart2(d) {
 				.attr("class", function(d) { return "line"; })
 				.attr("id", function(d) { return key; })
 				.style('stroke', function() { // Add the colours dynamically
-		                return key == d.data.genres ? 'white' : 'gray'; })
+		                return key == d.data.genres ? colors[key] : 'gray'; })
 				.style('stroke-width', function() { 
-		                return key == d.data.genres ? 5 : 3; })
+		                return key == d.data.genres ? 5.5 : 3; })
 				.style('fill', 'none')
 				.attr('opacity', dict[key])
 				.attr("d", function(d) { return line(d); });
@@ -485,9 +485,9 @@ function updateChart2(d) {
 				.attr("class", function(d) { return "line"; })
 				.attr("id", function(d) { return key; })
 				.style('stroke', function() { // Add the colours dynamically
-		                return key == d.data.genres ? 'red' : 'gray'; })
+		                return key == d.data.genres ? colors[key] : 'gray'; })
 				.style('stroke-width', function() {
-		                return key == d.data.genres ? 5 : 3; })
+		                return key == d.data.genres ? 5.5 : 3; })
 				.style('fill', 'none')
 				.attr('opacity', dict[key])
 				.attr("d", function(d) { return line(d); });
