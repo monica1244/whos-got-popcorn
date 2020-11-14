@@ -338,3 +338,196 @@ function updateChart() {
 	}
 	
 }
+
+function updateChart2(d) {
+	//console.log(d.data.genres);
+	var selected = [];
+	for (let k in dict) {
+			if (dict[k] == 1) {
+				selected.push(k);
+			}
+		}
+	//console.log(movies);
+	var movies_filtered = movies.filter(function(d){ return selected.includes(d.genres) ;})
+	movies_filtered.columns = movies.columns;
+
+	if (movies_filtered.length == 0) {
+		domainMap = {};
+		movies.columns.forEach(function(column) {
+			if(column != "release_year" && column != "genres") {
+				domainMap[column] = [(0), d3.max(slices, function(c) {
+					if(c.id == column) {
+						return d3.max(c.values, function(d) {
+							return d.measurement + 4; 
+						});
+					}
+				})];
+			}
+		})
+
+		xScale.domain(d3.extent(movies, function(d){
+			return d.release_year})).nice();
+		yScale.domain(domainMap[chartScales.y]);
+	 		
+			
+		xAx.transition()
+			.duration(350)
+			.call(d3.axisBottom(xScale));
+		yAx.transition()
+			.duration(350)
+			.call(d3.axisLeft(yScale))
+			
+		const line = d3.line()
+			.x(function(d) { return xScale(d.date); })
+			.y(function(d) { return yScale(d.measurement); });
+
+		let id = 0;
+		const ids = function () {
+			return "line-"+id++;
+		}
+			
+		console.log(slices);
+
+		svg.selectAll(".line").remove();
+
+		slices.forEach(function (item) {
+			console.log(item);
+			if(item.id == chartScales.y) {
+				slice = item;
+			}
+		});
+		var x = 0
+		Object.keys(slice.data).forEach(function(key) {
+				x = x + 110;
+
+
+				path = chartG.append("path")
+				.datum(slice.data[key])
+				.attr("class", function(d) { return "line"; })
+				.attr("id", function(d) { return key; })
+				.style('stroke', function() { // Add the colours dynamically
+		                return key == d.data.genres ? 'white' : 'gray'; })
+				.style('stroke-width', function() { 
+		                return key == d.data.genres ? 5 : 3; })
+				.style('fill', 'none')
+				.attr('opacity', dict[key])
+				.attr("d", function(d) { return line(d); });
+		});
+	}
+	else {
+		domainMap = {};
+		movies_filtered.columns.forEach(function(column) {
+			if(column != "release_year" && column != "genres") {
+				domainMap[column] = [(0), d3.max(slices, function(c) {
+					//return c.column;
+					if(c.id == column) {
+						return d3.max(c.values, function(d) {
+							if (selected.includes(d.genre)) {
+								return d.measurement + 4;
+							}
+						});
+					}
+				})];
+			}
+		})
+
+		xScale.domain(d3.extent(movies_filtered, function(d){
+			return d.release_year})).nice();
+		yScale.domain(domainMap[chartScales.y]);
+	 		
+			
+		xAx.transition()
+			.duration(350)
+			.call(d3.axisBottom(xScale));
+		yAx.transition()
+			.duration(350)
+			.call(d3.axisLeft(yScale))
+			
+		const line = d3.line()
+			.x(function(d) { return xScale(d.date); })
+			.y(function(d) { return yScale(d.measurement); });
+
+		let id = 0;
+		const ids = function () {
+			return "line-"+id++;
+		}
+
+		//----------------------------LINES-----------------------------//
+		//var color = d3.scaleOrdinal();
+		//color.domain(Array.from(genres)).range(
+		//	['#09ACB8', '#6FA8CF', '#7781EE', '#2E7FB8', '#3F9372', '#73B334',
+		//	'#6F837C', '#B9B18F', '#EA967D', '#F1A9BB', '#B784DE', '#7D6A89',
+		//	'#B74B9C', '#553E8F', '#F0624F', '#A23041', '#713E45', '#E9B650']);
+			
+		console.log(slices);
+
+		svg.selectAll(".line").remove();
+
+		slices.forEach(function (item) {
+			console.log(item);
+			if(item.id == chartScales.y) {
+				slice = item;
+			}
+		});
+		var x = 0
+		Object.keys(slice.data).forEach(function(key) {
+			/*legendG.append('text').text(key)
+				.attr('x', x > 990 ? x % 990 : x).attr('fill', color(key)).attr('text-anchor', 'middle')
+				.attr('y', x > 990 ? 25 : 0).on("click", function(d, i) { 
+					dict[key] = (dict[key] == 1) ? 0 : 1;
+					updateChart(); });*/
+			if (selected.includes(key)) {
+				x = x + 110;
+
+
+				path = chartG.append("path")
+				.datum(slice.data[key])
+				.attr("class", function(d) { return "line"; })
+				.attr("id", function(d) { return key; })
+				.style('stroke', function() { // Add the colours dynamically
+		                return key == d.data.genres ? 'red' : 'gray'; })
+				.style('stroke-width', function() {
+		                return key == d.data.genres ? 5 : 3; })
+				.style('fill', 'none')
+				.attr('opacity', dict[key])
+				.attr("d", function(d) { return line(d); });
+				
+			   /*chartG.selectAll("circles")
+		      .data(slice.data[key])
+		      .enter()
+		      .append("circle")
+		        .attr("fill", "red")
+		        .attr("stroke", "none")
+				.attr('opacity', 0)
+		        .attr("cx", function(d) { return xScale(d.date); })
+		        .attr("cy", function(d) { return yScale(d.measurement); })
+		        .attr("r", 3)
+				.on("mouseover", function (d) {
+					d3.select(this)
+					  .transition()
+					  .duration(200)
+					  .attr("r", 5)
+					  .attr('opacity', dict[key])
+					  .style("cursor", "pointer");*/
+				  
+		                    /*div.transition()
+		                        .duration(100)
+		                        .style("opacity", dict[key]);
+		                    div.html("<p>" + d.measurement + "</p>")
+		                        .style("left", (d3.event.pageX) + "px")
+		                        .style("top", (d3.event.pageY - 28) + "px");*/
+				/*})
+				.on("mouseout", function(d) {
+					d3.select(this) 
+					  .transition()
+					  .duration(200)
+					  .attr("r", 3)
+					  .attr('opacity', 0)
+					  .style("cursor", "none");  
+				});*/
+			}
+		});
+	}
+	
+}
+
