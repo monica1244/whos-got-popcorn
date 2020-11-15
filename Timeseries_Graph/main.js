@@ -79,10 +79,10 @@ colors['Crime'] = '#3F9372';
 colors['Documentary'] = '#73B334';
 colors['Drama'] = '#6F837C';
 colors['Family'] = '#B9B18F';
-colors['Fantasy'] = '#EA967D';
-colors['History'] = '#F1A9BB';
-colors['Horror'] = '#B784DE';
-colors['Music'] = '#7D6A89';
+colors['Fantasy'] = '#7D6A89';
+colors['History'] = '#EA967D';
+colors['Horror'] = '#F1A9BB';
+colors['Music'] = '#B784DE';
 colors['Mystery']='#B74B9C';
 colors['Romance'] = '#553E8F';
 colors['Science Fiction'] = '#F0624F';
@@ -482,7 +482,7 @@ function updateChart2(d) {
 				.attr("class", function(d) { return "line"; })
 				.attr("id", function(d) { return key; })
 				.style('stroke', function() { // Add the colours dynamically
-		                return key == d.data.genres ? colors[key] : 'rgba(16, 57, 95,0.5)'; })
+		                return key == d.data.genres ? colors[key] : 'rgba(111, 168, 207,0.1)'; })
 				.style('stroke-width', function() { 
 		                return key == d.data.genres ? 5.5 : 3; })
 				.style('fill', 'none')
@@ -626,7 +626,7 @@ function updateChart2(d) {
 				.attr("class", function(d) { return "line"; })
 				.attr("id", function(d) { return key; })
 				.style('stroke', function() { // Add the colours dynamically
-		                return key == d.data.genres ? colors[key] : 'rgba(16, 57, 95,0.5)'; })
+		                return key == d.data.genres ? colors[key] : 'rgba(111, 168, 207,0.1)'; })
 				.style('stroke-width', function() {
 		                return key == d.data.genres ? 5.5 : 3; })
 				.style('z-index', function() { 
