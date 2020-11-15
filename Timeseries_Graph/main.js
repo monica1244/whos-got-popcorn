@@ -14,13 +14,13 @@ function onGenreSelected(key) {
 			dict[k] = 1;
 		}
 	} else {
-	dict[key] = (dict[key] == 0) ? 1 : 1;
+	dict[key] = 1;
 	}
 	updateChart();
 }
 
-function onGenreDelected(key) {
-	dict[key] = (dict[key] == 1) ? 0 : 0;
+function onGenreDeleted(key) {
+	dict[key] = 0;
 	updateChart();
 }
 
@@ -142,8 +142,7 @@ d3.csv('./Timeseries_Graph/tmdb_movies_aggregated.csv', dataPreprocessor).then(f
 		genres.add(movie.genres);
 	});
 	Array.from(genres).forEach(function(genre) {
-		dict[genre] = (genre == "Action" || genre == "Adventure" || genre == "Animation")
-			? 0 : 0;
+		dict[genre] = 0;
 	});
 	console.log(genres);
 
@@ -157,7 +156,6 @@ function updateChart() {
 				selected.push(k);
 			}
 		}
-	//console.log(movies);
 	var movies_filtered = movies.filter(function(d){ return selected.includes(d.genres) ;})
 	movies_filtered.columns = movies.columns;
 
@@ -271,13 +269,17 @@ function updateChart() {
 					domainMap[column] = [d3.min(slices, function(c) {
 					if(c.id == column) {
 						return d3.min(c.values, function(d) {
-							return d.measurement + 4; 
+							if (selected.includes(d.genre)) {
+								return d.measurement + 4;
+							} 
 						});
 					}
 				}), d3.max(slices, function(c) {
 					if(c.id == column) {
 						return d3.max(c.values, function(d) {
-							return d.measurement + 4; 
+							if (selected.includes(d.genre)) {
+								return d.measurement + 4;
+							}
 						});
 					}
 				})];
@@ -285,14 +287,16 @@ function updateChart() {
 				domainMap[column] = [(0), d3.max(slices, function(c) {
 					if(c.id == column) {
 						return d3.max(c.values, function(d) {
-							return d.measurement + 4; 
+							if (selected.includes(d.genre)) {
+								return d.measurement + 4;
+							}
 						});
 					}
 				})];
 				}
 			}
 		})
-
+		console.log(domainMap[chartScales.y]);
 		xScale.domain(d3.extent(movies_filtered, function(d){
 			return d.release_year})).nice();
 		yScale.domain(domainMap[chartScales.y]);
@@ -396,8 +400,6 @@ function updateChart() {
 }
 
 function updateChart2(d) {
-	console.log(d.data);
-	console.log(chartScales.y);
 	var selected = [];
 	for (let k in dict) {
 			if (dict[k] == 1) {
@@ -541,13 +543,17 @@ function updateChart2(d) {
 					domainMap[column] = [d3.min(slices, function(c) {
 					if(c.id == column) {
 						return d3.min(c.values, function(d) {
-							return d.measurement + 4; 
+							if (selected.includes(d.genre)) {
+								return d.measurement + 4;
+							}
 						});
 					}
 				}), d3.max(slices, function(c) {
 					if(c.id == column) {
 						return d3.max(c.values, function(d) {
-							return d.measurement + 4; 
+							if (selected.includes(d.genre)) {
+								return d.measurement + 4;
+							} 
 						});
 					}
 				})];
@@ -555,7 +561,9 @@ function updateChart2(d) {
 				domainMap[column] = [(0), d3.max(slices, function(c) {
 					if(c.id == column) {
 						return d3.max(c.values, function(d) {
-							return d.measurement + 4; 
+							if (selected.includes(d.genre)) {
+								return d.measurement + 4;
+							} 
 						});
 					}
 				})];
