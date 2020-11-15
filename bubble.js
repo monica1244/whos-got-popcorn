@@ -107,8 +107,11 @@ function createBubbles(scaleBy){
 					return obj.children.length != 0;
 				});
 		  
-		console.log(root)
 		  
+		var div = d3.select("body").append("div")
+	        .attr("class", "tooltip-title")
+	        .style("opacity", 0);
+
 		root = d3.hierarchy(root)
 			  .sum(function(d) { 
 				if(scaleBy == 'popularity') {return d.popularity;}
@@ -142,8 +145,29 @@ function createBubbles(scaleBy){
 						return '#09ACB8';
 				}}})
 			  .on("click", function(d) { if (focus !== d) zoom(d), d3.event.stopPropagation(); })
-			  .on("mouseover", function(d) {if (!d.children) updateChart2(d);})
-			  .on("mouseout", function(d) {if (!d.children) updateChart();});
+			  .on("mouseover", function(d) {
+			  		if (!d.children){
+			  		 	updateChart2(d);
+			  		 	d3.select(this).transition()
+		               .duration('50')
+		               .attr('opacity', '.85');
+		          		div.transition()
+		               .duration(50)
+		               .style("opacity", 1);
+		               div.html(d.data.title)
+		               .style("left", (d3.event.pageX + 10) + "px")
+               			.style("top", (d3.event.pageY + 10) + "px");
+			  		}
+			  	})
+			  .on("mouseout", function(d) {if (!d.children){
+			   updateChart();
+               d3.select(this).transition()
+               .duration('50')
+               .attr('opacity', '1');
+		          div.transition()
+		               .duration('50')
+		               .style("opacity", 0);
+			}});
 
 		  var text = g.selectAll("text")
 			.data(nodes)
@@ -176,11 +200,6 @@ function createBubbles(scaleBy){
 			// 	.on("start", function(d) { if (d === focus && d.parent != root) this.style.display = "inline"; })
 			// 	.on("end", function(d) { if (d !== focus) this.style.display = "none"; });
 		 //  }
-		 transition.selectAll("text")
-		  .filter(function(d) { return d === focus || this.style.display === "inline"; })
-			.style("fill-opacity", function(d) { return d === focus ? 1 : 0; })
-			.on("start", function(d) { if (d === focus) this.style.display = "inline"; })
-			.on("end", function(d) { if (d !== focus) this.style.display = "none"; });
 		  }
 
 		  function zoomTo(v) {

@@ -209,32 +209,25 @@
           <div class = "Action">
             <a>Action</a>&nbsp;
             <a class = "close_tag" onclick="onGenreDeleted('Action')">x</a>
-          </div>
-          <div class = "Adventure">
+          </div><div class = "Adventure">
             <a>Adventure</a>&nbsp;
             <a class = "close_tag" onclick="onGenreDeleted('Adventure')">x</a>
-          </div>
-          <div class = "Animation">
+          </div><div class = "Animation">
             <a>Animation</a>&nbsp;
             <a class = "close_tag" onclick="onGenreDeleted('Animation')">x</a>
-          </div>
-          <div class = "Comedy">
+          </div><div class = "Comedy">
             <a>Comedy</a>&nbsp;
             <a class = "close_tag" onclick="onGenreDeleted('Comedy')">x</a>
-          </div>
-          <div class = "Crime">
+          </div><div class = "Crime">
             <a>Crime</a>&nbsp;
             <a class = "close_tag" onclick="onGenreDeleted('Crime')">x</a>
-          </div>
-          <div class = "Documentary">
+          </div><div class = "Documentary">
             <a>Documentary</a>&nbsp;
             <a class = "close_tag" onclick="onGenreDeleted('Documentary')">x</a>
-          </div>
-          <div class = "Mystery">
+          </div><div class = "Mystery">
             <a>Mystery</a>&nbsp;
             <a class = "close_tag" onclick="onGenreDeleted('Mystery')">x</a>
-          </div>
-          <div class = "Romance">
+          </div><div class = "Romance">
             <a>Romance</a>&nbsp;
             <a class = "close_tag" onclick="onGenreDeleted('Romance')">x</a>
           </div>
@@ -261,7 +254,7 @@
         $("#Y_axis_sub_menu_heading").text($(this).text()+" "); 
         $("#Y_axis_sub_menu_heading").append('<span class="drop-icon">▾</span><label title="Toggle Drop-down" class="drop-icon" for="sm1">▾</label>');
       });
-      
+
       $(document).on('click', '.close_tag', function() { 
         genres.splice(genres.indexOf($(this).prev().text()), 1);
         $(this).parent('div').remove(); 
