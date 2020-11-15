@@ -5,8 +5,9 @@ body {
   padding: 0;
   margin: 0;
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.8); 
+  color: rgba(255, 255, 255, 0.85); 
   background-color: #000000;
+  font-family: 'Varela';
 } 
 
 .movies_heading {
@@ -50,7 +51,7 @@ body {
 }
 
 .timeline_control {
-  background-color: rgba(51, 37, 114, 0.5);
+  background-color: rgba(51, 37, 114, 0.4);
   border-radius: 5px;
   height: 48.5vh;
   margin: 0rem 0rem 1vh 0rem;
@@ -58,7 +59,7 @@ body {
 }
 
 .filters {
-  background-color: rgba(51, 37, 114, 0.5);
+  background-color: rgba(51, 37, 114, 0.4);
   border-radius: 5px;
   height: 48.5vh;
   margin: 1vh 0rem 1vh 0rem;
@@ -71,6 +72,8 @@ body {
   height: 36.59vh;
   margin: 0vh 0rem 1vh 0rem;
   padding: 1.7vh;
+  float:left;
+  width: 100%;
 }
 
 .svg1 {
@@ -78,11 +81,43 @@ body {
   height: 100%;
 }
 
+#svg2 {
+  margin-left: 3vw;
+}
+
 .graph_viz {
   border-radius: 5px;
   background-color: rgba(51, 37, 114, 0.2);
   height: 60.41vh;
   margin: 1vh 0rem 1vh 0rem;
+  width: 50%;
+  float:left;
+}
+
+.welcome_div {
+  width: 49.4%;
+  height: 60.41vh;
+  border-radius: 5px;
+  margin: 1vh 0.6% 1vh 0rem;
+  float:left;
+  background-color: rgba(51, 37, 114, 0.2);
+}
+
+.explore {
+  width:100%;
+  font-family: 'Montserrat', sans-serif;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 3.5vh;
+  margin: 2vh 0vh 0vh 2vh;
+}
+
+.movies_welcome {
+  width: 100%;
+  font-family: 'Baro';
+  color: coral;
+  font-weight: 600;
+  margin: -1vh 0vh 0vh 1.1vh;
+  font-size: 80;
 }
 
 .y_scrollable_menu {/*
@@ -93,13 +128,11 @@ body {
 
 .genre_scrollable_menu {
     height: auto;
-    max-height: 20vh;
+    max-height: 21.5vh;
     overflow-x: hidden;
 }
 
 .color_scrollable_menu {
-    height: auto;
-    max-height: 12.4vh;
     overflow-x: hidden;
 }
 
@@ -139,10 +172,10 @@ body {
 }
 
 .filter_tag, .Action, .Adventure, .Animation, .Comedy, .Crime, .Documentary, .Drama, .Family, .Fantasy, .History, .Horror, .Music, .Mystery, .Romance, .Science, .Thriller, .War, .Western {
-  padding: 0.8vh 1.2vh 0.8vh 1.2vh;
-  margin: 0px 1vh 1vh 0vh;
+  padding: 0.7vh 1.2vh 0.7vh 1.2vh;
+  margin: 0px 0.9vh 0.9vh 0vh;
   display: inline-flex;
-  font-size: 1.5vh;
+  font-size: 1.4vh;
   border-radius: 50px;
   pointer-events: none;
 }
@@ -226,7 +259,7 @@ body {
 .Genre_tags, #filter_tag_holder {
   margin-top: 2vh;
   height: auto;
-  max-height: 21.5vh;
+  max-height: 20.2vh;
   overflow-x: hidden;
 }
 
@@ -260,7 +293,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #3e355f;
+  background-color: rgba(62, 53, 95,0.6);
   border-radius: 8px;
 }
 
@@ -316,7 +349,7 @@ body {
   border-radius: 5px;
   font-size: 1.7vh;
   border-width: 0.01vh;
-  border-color: rgba(255,255,255,0.8);
+  border-color: rgba(255,255,255,0.85);
 }
 
 #menu, 
@@ -340,7 +373,7 @@ body {
 #menu .sub-menu {
   display: none;
   border-width: 0.01vh;
-  border-color: rgba(255,255,255,0.8);
+  border-color: rgba(255,255,255,0.85);
   background-color: rgb(21, 15, 46);
 }
 
@@ -365,7 +398,7 @@ body {
   text-align: center;
   background-color: rgba(0, 0, 0, .125);
   text-shadow: 0 0 0 transparent;
-  color: rgba(255, 255, 255, .8);
+  color: rgba(255, 255, 255, .85);
 }
 
 #menu .drop-icon {
@@ -403,12 +436,12 @@ body {
   #menu .sub-menu li {
     float: none;
     border-width: 0 0 0.01vh 0;
-    border-color: rgba(255,255,255,0.8);
+    border-color: rgba(255,255,255,0.85);
   }
 
   #menu .sub-menu {
     border-width: 0.01vh;
-    border-color: rgba(255,255,255,0.8);
+    border-color: rgba(255,255,255,0.85);
     margin: 0;
     position: absolute;
     top: 100%;
@@ -419,7 +452,7 @@ body {
   
   .filter_box #menu .sub-menu {
     border-width: 0.01vh;
-    border-color: rgba(255,255,255,0.8);
+    border-color: rgba(255,255,255,0.85);
     margin: 0;
     position: absolute;
     top: 100%;
@@ -435,7 +468,7 @@ body {
 
   #menu .sub-menu li {
     border-width: 0 0 0.01vh 0;
-    border-color: rgba(255,255,255,0.8);
+    border-color: rgba(255,255,255,0.85);
     border-radius: 0px;
   }
 
@@ -449,11 +482,19 @@ body {
   }
 }
 
-#keyword_list, #actor_list, #director_list, #genre_list {
+  #actor_list, #genre_list {
   top: 0%;
   left: -101% !important;
   height: auto;
-  max-height: 28.5vh;
+  max-height: 30.1vh;
+  overflow-x: hidden;
+}
+
+ #director_list, #keyword_list {
+  top: 0%;
+  left: -101% !important;
+  height: auto;
+  max-height: 29.8vh;
   overflow-x: hidden;
 }
 
@@ -461,7 +502,7 @@ body {
   top: 0%;
   left: -101% !important;
   height: auto;
-  max-height: 30.4vh;
+  max-height: 38.5vh;
   overflow-x: hidden;
 }
 
@@ -654,3 +695,8 @@ body {
 @media screen and (max-width: 64em) {
   .site-footer {
     font-size: 0.9rem; } }
+
+@font-face {
+    font-family: Baro;
+    src: url("../Font/BaroStrip.otf") format("opentype");
+}

@@ -6,15 +6,22 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Varela' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Yeseva One' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://d3js.org/d3.v3.min.js"></script>
   </head>
   <body>
     <div class = "viz_column">
+      <div class = "welcome_div">
+        <p class = "explore">EXPLORE</p>
+        <p class = "movies_welcome">Movies</p>
+
+      </div>
       <div class = "graph_viz">
-        <svg id = "svg2" width="460" height="460"></svg>
+        <svg id = "svg2" width="500" height="500"></svg>
       </div>
       <div class = "timeline_viz" id = "timeline_viz">
         <svg class = "svg1">
@@ -149,11 +156,11 @@
                   <input type="checkbox" id="sm1">
                   <ul class="sub-menu Y_axis_sub_menu y_scrollable_menu">
                     <li><a onclick = "onYScaleChanged('count')">Number of Movies</a></li>
-                    <li><a onclick = "onYScaleChanged('popularity')">Popularity</a></li>
-                    <li><a onclick = "onYScaleChanged('revenue')">Revenue</a></li>
-                    <li><a onclick = "onYScaleChanged('budget')">Budget</a></li>
-                    <li><a onclick = "onYScaleChanged('profit')">Profit</a></li>
-                    <li><a onclick = "onYScaleChanged('average_rating')">Rating</a></li>
+                    <li><a onclick = "onYScaleChanged('popularity')">Average Popularity</a></li>
+                    <li><a onclick = "onYScaleChanged('revenue')">Average Revenue</a></li>
+                    <li><a onclick = "onYScaleChanged('budget')">Average Budget</a></li>
+                    <li><a onclick = "onYScaleChanged('profit')">Average Profit</a></li>
+                    <li><a onclick = "onYScaleChanged('average_rating')">Average Rating</a></li>
                     <li><a onclick = "onYScaleChanged('vote_count')">Vote Count</a></li>
                   </ul>
                 </li>
