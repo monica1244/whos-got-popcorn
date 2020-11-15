@@ -164,7 +164,7 @@ function updateChart() {
 	if (movies_filtered.length == 0) {
 		domainMap = {};
 		movies.columns.forEach(function(column) {
-			if(column != "release_year" && column != "genres") {
+			/*if(column != "release_year" && column != "genres") {
 				domainMap[column] = [(0), d3.max(slices, function(c) {
 					if(c.id == column) {
 						return d3.max(c.values, function(d) {
@@ -172,6 +172,31 @@ function updateChart() {
 						});
 					}
 				})];
+			}*/
+			if(column != "release_year" && column != "genres") {
+				if(column == "profit") {
+					domainMap[column] = [d3.min(slices, function(c) {
+					if(c.id == column) {
+						return d3.min(c.values, function(d) {
+							return d.measurement + 4; 
+						});
+					}
+				}), d3.max(slices, function(c) {
+					if(c.id == column) {
+						return d3.max(c.values, function(d) {
+							return d.measurement + 4; 
+						});
+					}
+				})];
+				} else {
+				domainMap[column] = [(0), d3.max(slices, function(c) {
+					if(c.id == column) {
+						return d3.max(c.values, function(d) {
+							return d.measurement + 4; 
+						});
+					}
+				})];
+				}
 			}
 		})
 
@@ -199,6 +224,7 @@ function updateChart() {
 		console.log(slices);
 
 		svg.selectAll(".line").remove();
+		svg.selectAll('.point').remove();
 
 		slices.forEach(function (item) {
 			console.log(item);
@@ -221,12 +247,14 @@ function updateChart() {
 				.style('fill', 'none')
 				.attr('opacity', dict[key])
 				.attr("d", function(d) { return line(d); });
+				//.on('mouseover', function(d) { console.log('test'); })
+				//.on('mouseout', function(d) { console.log('test'); });
 		});
 	}
 	else {
 		domainMap = {};
 		movies_filtered.columns.forEach(function(column) {
-			if(column != "release_year" && column != "genres") {
+			/*if(column != "release_year" && column != "genres") {
 				domainMap[column] = [(0), d3.max(slices, function(c) {
 					//return c.column;
 					if(c.id == column) {
@@ -237,6 +265,31 @@ function updateChart() {
 						});
 					}
 				})];
+			}*/
+			if(column != "release_year" && column != "genres") {
+				if(column == "profit") {
+					domainMap[column] = [d3.min(slices, function(c) {
+					if(c.id == column) {
+						return d3.min(c.values, function(d) {
+							return d.measurement + 4; 
+						});
+					}
+				}), d3.max(slices, function(c) {
+					if(c.id == column) {
+						return d3.max(c.values, function(d) {
+							return d.measurement + 4; 
+						});
+					}
+				})];
+				} else {
+				domainMap[column] = [(0), d3.max(slices, function(c) {
+					if(c.id == column) {
+						return d3.max(c.values, function(d) {
+							return d.measurement + 4; 
+						});
+					}
+				})];
+				}
 			}
 		})
 
@@ -271,6 +324,7 @@ function updateChart() {
 		console.log(slices);
 
 		svg.selectAll(".line").remove();
+		svg.selectAll('.point').remove();
 
 		slices.forEach(function (item) {
 			console.log(item);
@@ -298,7 +352,9 @@ function updateChart() {
 				.style('stroke-width', 3)
 				.style('fill', 'none')
 				.attr('opacity', dict[key])
-				.attr("d", function(d) { return line(d); });
+				.attr("d", function(d) { return line(d); })
+				.on('mouseover', function(d) { console.log(key); })
+				.on('mouseout', function(d) { console.log(key); });
 				
 			   /*chartG.selectAll("circles")
 		      .data(slice.data[key])
@@ -340,7 +396,8 @@ function updateChart() {
 }
 
 function updateChart2(d) {
-	//console.log(d.data.genres);
+	console.log(d.data);
+	console.log(chartScales.y);
 	var selected = [];
 	for (let k in dict) {
 			if (dict[k] == 1) {
@@ -355,6 +412,21 @@ function updateChart2(d) {
 		domainMap = {};
 		movies.columns.forEach(function(column) {
 			if(column != "release_year" && column != "genres") {
+				if(column == "profit") {
+					domainMap[column] = [d3.min(slices, function(c) {
+					if(c.id == column) {
+						return d3.min(c.values, function(d) {
+							return d.measurement + 4; 
+						});
+					}
+				}), d3.max(slices, function(c) {
+					if(c.id == column) {
+						return d3.max(c.values, function(d) {
+							return d.measurement + 4; 
+						});
+					}
+				})];
+				} else {
 				domainMap[column] = [(0), d3.max(slices, function(c) {
 					if(c.id == column) {
 						return d3.max(c.values, function(d) {
@@ -362,6 +434,7 @@ function updateChart2(d) {
 						});
 					}
 				})];
+				}
 			}
 		})
 
@@ -389,6 +462,7 @@ function updateChart2(d) {
 		console.log(slices);
 
 		svg.selectAll(".line").remove();
+		svg.selectAll('.point').remove();
 
 		slices.forEach(function (item) {
 			console.log(item);
@@ -413,24 +487,79 @@ function updateChart2(d) {
 				.style('z-index', function() { 
 		                return key == d.data.genres ? 4 : 1; })
 				.attr('opacity', function() { 
-		                return key == d.data.genres ? 1 : 0.2; })
+		                if (dict[key] == 1) {
+		                	if (d.data.genres == key) {
+		                		return 1;
+		                	} else {
+		                		return 0.2;
+		                	}
+		                } else {
+		                	return 0;
+		                }})
 				.attr("d", function(d) { return line(d); });
+
+				if (dict[key] == 1 && key == d.data.genres) {
+					y_coord = null;
+					if (chartScales.y == 'popularity') {
+						y_coord = d.data.popularity;
+					} else if (chartScales.y == 'budget') {
+						y_coord = d.data.budget;
+					} else if (chartScales.y == 'count') {
+						y_coord = 1;
+					} else if (chartScales.y == 'revenue') {
+						y_coord = d.data.revenue;
+					} else if (chartScales.y == 'average_rating') {
+						y_coord = d.data.vote_average;
+					} else if (chartScales.y == 'vote_count') {
+						y_coord = vote_count_dic[d.data.id]
+					} else if (chartScales.y == 'profit') {
+						y_coord = d.data.revenue - d.data.budget;
+					}
+					if (y_coord > yScale.domain()[1]) {
+						y_coord = yScale.domain()[1];
+					} else if (y_coord < yScale.domain()[0]) {
+						y_coord = yScale.domain()[0];
+					} else {
+						y_coord = y_coord;
+					}
+					y_coord = yScale(y_coord);
+					console.log(yScale.domain());
+					point = chartG.append('circle')
+						.attr('cx', xScale(d.data.release_date.substring(0, 4)))
+						.attr('cy', y_coord)
+						.attr('r', 8)
+						.attr('fill', colors[d.data.genres])
+						.attr('class', 'point');
+				}
 		});
 	}
 	else {
 		domainMap = {};
 		movies_filtered.columns.forEach(function(column) {
 			if(column != "release_year" && column != "genres") {
-				domainMap[column] = [(0), d3.max(slices, function(c) {
-					//return c.column;
+				if(column == "profit") {
+					domainMap[column] = [d3.min(slices, function(c) {
+					if(c.id == column) {
+						return d3.min(c.values, function(d) {
+							return d.measurement + 4; 
+						});
+					}
+				}), d3.max(slices, function(c) {
 					if(c.id == column) {
 						return d3.max(c.values, function(d) {
-							if (selected.includes(d.genre)) {
-								return d.measurement + 4;
-							}
+							return d.measurement + 4; 
 						});
 					}
 				})];
+				} else {
+				domainMap[column] = [(0), d3.max(slices, function(c) {
+					if(c.id == column) {
+						return d3.max(c.values, function(d) {
+							return d.measurement + 4; 
+						});
+					}
+				})];
+				}
 			}
 		})
 
@@ -465,6 +594,7 @@ function updateChart2(d) {
 		console.log(slices);
 
 		svg.selectAll(".line").remove();
+		svg.selectAll('.point').remove();
 
 		slices.forEach(function (item) {
 			console.log(item);
@@ -495,45 +625,51 @@ function updateChart2(d) {
 		                return key == d.data.genres ? 4 : 1; })
 				.style('fill', 'none')
 				.attr('opacity', function() { 
-		                return key == d.data.genres ? 1 : 0.2; })
+		                if (dict[key] == 1) {
+		                	if (d.data.genres == key) {
+		                		return 1;
+		                	} else {
+		                		return 0.2;
+		                	}
+		                } else {
+		                	return 0;
+		                }})
 				.attr("d", function(d) { return line(d); });
-				
-			   /*chartG.selectAll("circles")
-		      .data(slice.data[key])
-		      .enter()
-		      .append("circle")
-		        .attr("fill", "red")
-		        .attr("stroke", "none")
-				.attr('opacity', 0)
-		        .attr("cx", function(d) { return xScale(d.date); })
-		        .attr("cy", function(d) { return yScale(d.measurement); })
-		        .attr("r", 3)
-				.on("mouseover", function (d) {
-					d3.select(this)
-					  .transition()
-					  .duration(200)
-					  .attr("r", 5)
-					  .attr('opacity', dict[key])
-					  .style("cursor", "pointer");*/
-				  
-		                    /*div.transition()
-		                        .duration(100)
-		                        .style("opacity", dict[key]);
-		                    div.html("<p>" + d.measurement + "</p>")
-		                        .style("left", (d3.event.pageX) + "px")
-		                        .style("top", (d3.event.pageY - 28) + "px");*/
-				/*})
-				.on("mouseout", function(d) {
-					d3.select(this) 
-					  .transition()
-					  .duration(200)
-					  .attr("r", 3)
-					  .attr('opacity', 0)
-					  .style("cursor", "none");  
-				});*/
+				if (dict[key] == 1 && key == d.data.genres) {
+					y_coord = null;
+					if (chartScales.y == 'popularity') {
+						y_coord = d.data.popularity;
+					} else if (chartScales.y == 'budget') {
+						y_coord = d.data.budget;
+					} else if (chartScales.y == 'count') {
+						y_coord = 1;
+					} else if (chartScales.y == 'revenue') {
+						y_coord = d.data.revenue;
+					} else if (chartScales.y == 'average_rating') {
+						y_coord = d.data.vote_average;
+					} else if (chartScales.y == 'vote_count') {
+						y_coord = vote_count_dic[d.data.id]
+					} else if (chartScales.y == 'profit') {
+						y_coord = d.data.revenue - d.data.budget;
+					}
+					if (y_coord > yScale.domain()[1]) {
+						y_coord = yScale.domain()[1];
+					} else if (y_coord < yScale.domain()[0]) {
+						y_coord = yScale.domain()[0];
+					} else {
+						y_coord = y_coord;
+					}
+					y_coord = yScale(y_coord);
+					point = chartG.append('circle')
+						.attr('cx', xScale(d.data.release_date.substring(0, 4)))
+						.attr('cy', y_coord)
+						.attr('r', 8)
+						.attr('fill', colors[d.data.genres])
+						.attr('class', 'point');
+				}
+
 			}
 		});
 	}
 	
 }
-
