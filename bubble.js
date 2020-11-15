@@ -64,8 +64,8 @@ function createBubbles(scaleBy){
 					p_flag = false;
 					k_flag = false;
 					if(parseInt(obj.release_date.split('-')[0]) >= 1980) {
-						if(genre.length == 1) {
-							if(obj.genres == genre[0]) {
+						if(genre.length > 0) {
+							if(genre.includes(obj.genres)) {
 								g_flag = true;
 							}
 						} else if(genre.length == 0) {
