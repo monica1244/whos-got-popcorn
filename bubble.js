@@ -160,7 +160,7 @@ function createBubbles(scaleBy){
 		               .style("opacity", 1);
 		               div.html(d.data.title)
 		               .style("left", (d3.event.pageX + 10) + "px")
-               			.style("top", (d3.event.pageY + 10) + "px");
+               			.style("top", (d3.event.pageY + 5) + "px");
 			  		}
 			  	})
 			  .on("mouseout", function(d) {if (!d.children){
