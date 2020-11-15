@@ -28,13 +28,80 @@ var node = null;
 var pack = d3.pack()
     .size([diameter - margin, diameter - margin])
     .padding(2);
+var highlight = 0;
+var highlight_color = "";
+var scale_option = "popularity";
 
 createBubbles('popularity');
 
 function onBubbleScaleChanged(selVal) {
     console.log(selVal);
 	svg2.selectAll("circle").remove();
+	scale_option = selVal;
     createBubbles(selVal);
+}
+
+function highlight_genre(genre){
+	highlight = 1;
+	highlight_color = genre;
+	svg2.selectAll("circle").style("fill", function(d) {
+		   if(d.children){
+		  		return "#0b0817"
+		  	}else{
+		  		if(!highlight){
+			  		if(d.data.genres){
+			  			if(d.data.genres in bubble_color){
+			  				return bubble_color[d.data.genres];
+			  			}
+			  			else{
+			  				return '#09ACB8';
+			  			}
+			  		}else {
+			  			return '#09ACB8';
+		  			}
+		  		}
+		  		else{
+		  			if(d.data.genres){
+		  				if(d.data.genres in bubble_color){
+		  					if(d.data.genres == highlight_color){
+		  						return bubble_color[d.data.genres];
+		  					}
+		  				}
+		  			}
+		  			return 'rgba(16, 57, 95,0.5)';
+		  		}
+	  		}})
+}
+
+function delight_genre(genre){
+	highlight = 0;
+	svg2.selectAll("circle").style("fill", function(d) {
+		   if(d.children){
+		  		return "#0b0817"
+		  	}else{
+		  		if(!highlight){
+			  		if(d.data.genres){
+			  			if(d.data.genres in bubble_color){
+			  				return bubble_color[d.data.genres];
+			  			}
+			  			else{
+			  				return '#09ACB8';
+			  			}
+			  		}else {
+			  			return '#09ACB8';
+		  			}
+		  		}
+		  		else{
+		  			if(d.data.genres){
+		  				if(d.data.genres in bubble_color){
+		  					if(d.data.genres == highlight_color){
+		  						return bubble_color[d.data.genres];
+		  					}
+		  				}
+		  			}
+		  			return 'rgba(16, 57, 95,0.5)';
+		  		}
+	  		}})
 }
 
 function createBubbles(scaleBy) {
@@ -63,16 +130,29 @@ function createBubbles(scaleBy) {
 		   if(d.children){
 		  		return "#0b0817"
 		  	}else{
-		  		if(d.data.genres){
-		  			if(d.data.genres in bubble_color){
-		  				return bubble_color[d.data.genres];
+		  		if(!highlight){
+			  		if(d.data.genres){
+			  			if(d.data.genres in bubble_color){
+			  				return bubble_color[d.data.genres];
+			  			}
+			  			else{
+			  				return '#09ACB8';
+			  			}
+			  		}else {
+			  			return '#09ACB8';
 		  			}
-		  			else{
-		  				return '#09ACB8';
+		  		}
+		  		else{
+		  			if(d.data.genres){
+		  				if(d.data.genres in bubble_color){
+		  					if(d.data.genres == highlight_color){
+		  						return bubble_color[d.data.genres];
+		  					}
+		  				}
 		  			}
-		  		}else {
-		  			return '#09ACB8';
-	  		}}})
+		  			return 'gray';
+		  		}
+	  		}})
 		  .on("click", function(d) { if (focus !== d) zoom(d), d3.event.stopPropagation(); })
 		  .on("mouseover", function(d) {if (!d.children) updateChart2(d);})
 		  .on("mouseout", function(d) {if (!d.children) updateChart();});

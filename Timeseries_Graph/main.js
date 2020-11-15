@@ -353,8 +353,8 @@ function updateChart() {
 				.style('fill', 'none')
 				.attr('opacity', dict[key])
 				.attr("d", function(d) { return line(d); })
-				.on('mouseover', function(d) { console.log(key); })
-				.on('mouseout', function(d) { console.log(key); });
+				.on('mouseover', function(d) { highlight_genre(key); })
+				.on('mouseout', function(d) { delight_genre(key); });
 				
 			   /*chartG.selectAll("circles")
 		      .data(slice.data[key])
@@ -480,7 +480,7 @@ function updateChart2(d) {
 				.attr("class", function(d) { return "line"; })
 				.attr("id", function(d) { return key; })
 				.style('stroke', function() { // Add the colours dynamically
-		                return key == d.data.genres ? colors[key] : 'gray'; })
+		                return key == d.data.genres ? colors[key] : 'rgba(16, 57, 95,0.5)'; })
 				.style('stroke-width', function() { 
 		                return key == d.data.genres ? 5.5 : 3; })
 				.style('fill', 'none')
@@ -618,7 +618,7 @@ function updateChart2(d) {
 				.attr("class", function(d) { return "line"; })
 				.attr("id", function(d) { return key; })
 				.style('stroke', function() { // Add the colours dynamically
-		                return key == d.data.genres ? colors[key] : 'gray'; })
+		                return key == d.data.genres ? colors[key] : 'rgba(16, 57, 95,0.5)'; })
 				.style('stroke-width', function() {
 		                return key == d.data.genres ? 5.5 : 3; })
 				.style('z-index', function() { 
