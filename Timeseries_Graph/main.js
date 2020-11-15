@@ -8,6 +8,20 @@ function onYScaleChanged(selVal) {
     
 }
 
+function display_genre(key) {
+	svg.append('text')
+		.text(key)
+		.style('fill', colors[key])
+		.style('font-size', '22px')
+		.attr('x', chartWidth - 10.5)
+		.attr('y', 18)
+		.attr('class', 'genre_label');
+}
+
+function remove_genre(key) {
+	svg.selectAll('.genre_label').remove();
+}
+
 function onGenreSelected(key) {
 	if (key == 'All') {
 		for (let k in dict) {
@@ -223,6 +237,23 @@ function updateChart() {
 
 		svg.selectAll(".line").remove();
 		svg.selectAll('.point').remove();
+		svg.selectAll('.axis_label').remove();
+
+		svg.append('text')
+			.text(chartScales.y + " of movies")
+			.style('fill', 'white')
+			.style('font-size', '11px')
+			.attr('x', 10.5)
+			.attr('y', 10.5)
+			.attr('class', 'axis_label');
+
+		svg.append('text')
+			.text("release date")
+			.style('fill', 'white')
+			.style('font-size', '11px')
+			.attr('x', chartWidth - 5)
+			.attr('y', chartHeight - 5)
+			.attr('class', 'axis_label');
 
 		slices.forEach(function (item) {
 			console.log(item);
@@ -329,6 +360,23 @@ function updateChart() {
 
 		svg.selectAll(".line").remove();
 		svg.selectAll('.point').remove();
+		svg.selectAll('.axis_label').remove();
+
+		svg.append('text')
+			.text(chartScales.y + " of movies")
+			.style('fill', 'white')
+			.style('font-size', '11px')
+			.attr('x', 10.5)
+			.attr('y', 10.5)
+			.attr('class', 'axis_label');
+
+		svg.append('text')
+			.text("release date")
+			.style('fill', 'white')
+			.style('font-size', '11px')
+			.attr('x', chartWidth - 5)
+			.attr('y', chartHeight - 5)
+			.attr('class', 'axis_label');
 
 		slices.forEach(function (item) {
 			console.log(item);
@@ -357,8 +405,8 @@ function updateChart() {
 				.style('fill', 'none')
 				.attr('opacity', dict[key])
 				.attr("d", function(d) { return line(d); })
-				.on('mouseover', function(d) { highlight_genre(key); })
-				.on('mouseout', function(d) { delight_genre(key); });
+				.on('mouseover', function(d) { highlight_genre(key); display_genre(key);})
+				.on('mouseout', function(d) { delight_genre(key); remove_genre(key);});
 				
 			   /*chartG.selectAll("circles")
 		      .data(slice.data[key])
@@ -465,6 +513,23 @@ function updateChart2(d) {
 
 		svg.selectAll(".line").remove();
 		svg.selectAll('.point').remove();
+		svg.selectAll('.axis_label').remove();
+
+		svg.append('text')
+			.text(chartScales.y + " of movies")
+			.style('fill', 'white')
+			.style('font-size', '11px')
+			.attr('x', 10.5)
+			.attr('y', 10.5)
+			.attr('class', 'axis_label');
+
+		svg.append('text')
+			.text("release date")
+			.style('fill', 'white')
+			.style('font-size', '11px')
+			.attr('x', chartWidth - 5)
+			.attr('y', chartHeight - 5)
+			.attr('class', 'axis_label');
 
 		slices.forEach(function (item) {
 			console.log(item);
@@ -603,6 +668,23 @@ function updateChart2(d) {
 
 		svg.selectAll(".line").remove();
 		svg.selectAll('.point').remove();
+		svg.selectAll('.axis_label').remove();
+
+		svg.append('text')
+			.text(chartScales.y + " of movies")
+			.style('fill', 'white')
+			.style('font-size', '11px')
+			.attr('x', 10.5)
+			.attr('y', 10.5)
+			.attr('class', 'axis_label');
+
+		svg.append('text')
+			.text("release date")
+			.style('fill', 'white')
+			.style('font-size', '11px')
+			.attr('x', chartWidth - 5)
+			.attr('y', chartHeight - 5)
+			.attr('class', 'axis_label');
 
 		slices.forEach(function (item) {
 			console.log(item);
