@@ -286,6 +286,16 @@ body {
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
 }
 
+div.tooltip-title {
+     position: absolute;
+     text-align: center;
+     padding: .5vh 0.8vh 0.5vh 0.8vh;
+     background: #FFFFFF;
+     color: #313639;
+     border-radius: 8px;
+     pointer-events: none;
+     font-size: 1.5vh;
+}
 
 ::-webkit-scrollbar {
   -webkit-appearance: none;

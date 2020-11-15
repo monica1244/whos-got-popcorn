@@ -13,8 +13,9 @@ function display_genre(key) {
 		.text(key)
 		.style('fill', colors[key])
 		.style('font-size', '22px')
-		.attr('x', chartWidth - 10.5)
+		.attr('x', chartWidth)
 		.attr('y', 18)
+		.attr('text-anchor', 'end')
 		.attr('class', 'genre_label');
 }
 
@@ -82,6 +83,15 @@ yAx = chartG.append('g')
 //var svg2 = d3.select('.svg2');
 //var legendG = svg2.append('g')
    //.attr('transform', 'translate('+[180, padding.t]+')');
+
+var chartScaleMap = new Object();
+chartScaleMap['count'] = 'Number of Movies';
+chartScaleMap['popularity'] = 'Average Popularity';
+chartScaleMap['revenue'] = 'Average Revenue';
+chartScaleMap['budget'] = 'Average Budget';
+chartScaleMap['profit'] = 'Average Profit';
+chartScaleMap['average_rating'] = 'Average Rating';
+chartScaleMap['vote_count'] = 'Vote Count';
 
 var dict = new Object();
 var colors = new Object();
@@ -247,15 +257,15 @@ function updateChart() {
 		svg.selectAll('.axis_label').remove();
 
 		svg.append('text')
-			.text(chartScales.y + " of movies")
+			.text(chartScaleMap[chartScales.y])
 			.style('fill', 'white')
 			.style('font-size', '11px')
-			.attr('x', 10.5)
+			.attr('x', 80)
 			.attr('y', 10.5)
 			.attr('class', 'axis_label');
 
 		svg.append('text')
-			.text("release date")
+			.text("Release Year")
 			.style('fill', 'white')
 			.style('font-size', '11px')
 			.attr('x', chartWidth - 5)
@@ -370,15 +380,15 @@ function updateChart() {
 		svg.selectAll('.axis_label').remove();
 
 		svg.append('text')
-			.text(chartScales.y + " of movies")
+			.text(chartScaleMap[chartScales.y])
 			.style('fill', 'white')
 			.style('font-size', '11px')
-			.attr('x', 10.5)
+			.attr('x', 80)
 			.attr('y', 10.5)
 			.attr('class', 'axis_label');
 
 		svg.append('text')
-			.text("release date")
+			.text("Release Year")
 			.style('fill', 'white')
 			.style('font-size', '11px')
 			.attr('x', chartWidth - 5)
@@ -523,15 +533,15 @@ function updateChart2(d) {
 		svg.selectAll('.axis_label').remove();
 
 		svg.append('text')
-			.text(chartScales.y + " of movies")
+			.text(chartScaleMap[chartScales.y])
 			.style('fill', 'white')
 			.style('font-size', '11px')
-			.attr('x', 10.5)
+			.attr('x', 80)
 			.attr('y', 10.5)
 			.attr('class', 'axis_label');
 
 		svg.append('text')
-			.text("release date")
+			.text("Release Year")
 			.style('fill', 'white')
 			.style('font-size', '11px')
 			.attr('x', chartWidth - 5)
@@ -678,15 +688,15 @@ function updateChart2(d) {
 		svg.selectAll('.axis_label').remove();
 
 		svg.append('text')
-			.text(chartScales.y + " of movies")
+			.text(chartScaleMap[chartScales.y])
 			.style('fill', 'white')
 			.style('font-size', '11px')
-			.attr('x', 10.5)
+			.attr('x', 80)
 			.attr('y', 10.5)
 			.attr('class', 'axis_label');
 
 		svg.append('text')
-			.text("release date")
+			.text("Release Year")
 			.style('fill', 'white')
 			.style('font-size', '11px')
 			.attr('x', chartWidth - 5)
