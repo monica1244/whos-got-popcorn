@@ -206,6 +206,38 @@
           </div>
         </div>
         <div class = "Genre_tags" id = "tag_holder">
+          <div class = "Action">
+            <a>Action</a>&nbsp;
+            <a class = "close_tag" onclick="onGenreDeleted('Action')">x</a>
+          </div>
+          <div class = "Adventure">
+            <a>Adventure</a>&nbsp;
+            <a class = "close_tag" onclick="onGenreDeleted('Adventure')">x</a>
+          </div>
+          <div class = "Animation">
+            <a>Animation</a>&nbsp;
+            <a class = "close_tag" onclick="onGenreDeleted('Animation')">x</a>
+          </div>
+          <div class = "Comedy">
+            <a>Comedy</a>&nbsp;
+            <a class = "close_tag" onclick="onGenreDeleted('Comedy')">x</a>
+          </div>
+          <div class = "Crime">
+            <a>Crime</a>&nbsp;
+            <a class = "close_tag" onclick="onGenreDeleted('Crime')">x</a>
+          </div>
+          <div class = "Documentary">
+            <a>Documentary</a>&nbsp;
+            <a class = "close_tag" onclick="onGenreDeleted('Documentary')">x</a>
+          </div>
+          <div class = "Mystery">
+            <a>Mystery</a>&nbsp;
+            <a class = "close_tag" onclick="onGenreDeleted('Mystery')">x</a>
+          </div>
+          <div class = "Romance">
+            <a>Romance</a>&nbsp;
+            <a class = "close_tag" onclick="onGenreDeleted('Romance')">x</a>
+          </div>
         </div>
       </div>
     </div>
@@ -222,7 +254,7 @@
     <script src="./vote_dic.js"></script>
     <script src="./production_companies.js"></script>
     <script type="text/javascript">
-      var genres = [];
+      var genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary","Mystery","Romance"];
       var applied_filters = [];
       var all_genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History", "Horror", "Music", "Mystery", "Romance", "Science Fiction", "Thriller", "War", "Western"];
       $(".Y_axis_sub_menu > li").click(function() {
