@@ -158,7 +158,14 @@ d3.csv('./Timeseries_Graph/tmdb_movies_aggregated.csv', dataPreprocessor).then(f
 	Array.from(genres).forEach(function(genre) {
 		dict[genre] = 0;
 	});
-	console.log(genres);
+	dict['Action'] = 1;
+	dict['Adventure'] = 1;
+	dict['Animation'] = 1;
+	dict['Comedy'] = 1;
+	dict['Crime'] = 1;
+	dict['Documentary'] = 1;
+	dict['Mystery'] = 1;
+	dict['Romance'] = 1;
 
 	updateChart();
 });
