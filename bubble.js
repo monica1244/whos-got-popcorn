@@ -25,6 +25,12 @@ bubble_color['Western'] = '#E9B650';
 
 var nodes = null;
 var node = null;
+var actors = [];
+var genre = [];
+var director = [];
+var production = [];
+var keywords = [];
+
 var pack = d3.pack()
     .size([diameter - margin, diameter - margin])
     .padding(2);
@@ -37,89 +43,148 @@ function onBubbleScaleChanged(selVal) {
     createBubbles(selVal);
 }
 
-function createBubbles(scaleBy) {
-	d3.json("data.json").then(function(root) {
-	  console.log("hi  "+scaleBy);
-
-	  root = d3.hierarchy(root)
-		  .sum(function(d) { 
-			if(scaleBy == 'popularity') {return d.popularity;}
-			else if(scaleBy == 'revenue') {return d.revenue;}
-			else if(scaleBy == 'budget') {return d.budget;}
-			else if(scaleBy == 'rating') {return d.vote_average;}
-			else { return d.popularity;}
-		  })
-		  .sort(function(a, b) { return b.value - a.value; });
+function createBubbles(scaleBy){
+	
+	  svg2.selectAll("g > *").remove(); 
 	  
-	  var focus = root,
-		  nodes = pack(root).descendants(),
-		  view;
+	  d3.json("data.json").then(function(root) {
+		  console.log("Scale "+scaleBy);
 
-	  var circle = g.selectAll("circle")
-		.data(nodes)
-		.enter().append("circle")
-		  .attr("class", function(d) { return d.parent ? d.children ? "node" : "node node--leaf"+" "+d.data.id : "node node--root"; })
-		  .style("fill", function(d) {
-		   if(d.children){
-		  		return "#0b0817"
-		  	}else{
-		  		if(d.data.genres){
-		  			if(d.data.genres in bubble_color){
-		  				return bubble_color[d.data.genres];
-		  			}
-		  			else{
-		  				return '#09ACB8';
-		  			}
-		  		}else {
-		  			return '#09ACB8';
-	  		}}})
-		  .on("click", function(d) { if (focus !== d) zoom(d), d3.event.stopPropagation(); })
-		  .on("mouseover", function(d) {if (!d.children) updateChart2(d);})
-		  .on("mouseout", function(d) {if (!d.children) updateChart();});
+		  // apply filter
+			  for(c in root.children) {
+				root.children[c].children = root.children[c].children.filter(function( obj ) {
+					g_flag = false;
+					a_flag = false;
+					d_flag = false;
+					p_flag = false;
+					k_flag = false;
+					if(genre.length == 1) {
+						if(obj.genres == genre[0]) {
+							g_flag = true;
+						}
+					} else if(genre.length == 0) {
+						g_flag = true;
+					}
+					if(actors.length > 0 &&  actors.length <= 3) {
+						if(actors.every(i => obj.cast.includes(i))) {
+							a_flag = true;
+						}
+					} else if(actors.length == 0){
+						a_flag = true;
+					}
+					if(director.length == 1) {
+						if(obj.director == director[0]) {
+							d_flag = true;
+						}
+					}else if(director.length == 0){
+						d_flag = true;
+					}
+					if(production.length > 0) {
+						if(production.every(i => obj.production_companies.includes(i))) {
+							p_flag = true;
+						}
+					} else if(production.length == 0) {
+						p_flag = true;
+					}
+					if(keywords.length > 0) {
+						if(keywords.every(i => obj.keywords.includes(i))) {
+							k_flag = true;
+						}
+					}else if(keywords.length == 0) {
+						k_flag = true;
+					}
+					if(g_flag && a_flag && d_flag && p_flag && k_flag) {
+						return obj;
+					}
+				});
+			  }	
+			  
+			  root.children = root.children.filter(function( obj ) {
+					return obj.children.length != 0;
+				});
+		  
+		console.log(root)
+		  
+		root = d3.hierarchy(root)
+			  .sum(function(d) { 
+				if(scaleBy == 'popularity') {return d.popularity;}
+				else if(scaleBy == 'revenue') {return d.revenue;}
+				else if(scaleBy == 'budget') {return d.budget;}
+				else if(scaleBy == 'rating') {return d.vote_average;}
+				else { return d.popularity;}
+			  })
+			  .sort(function(a, b) { return b.value - a.value; });
+		  
+		  var focus = root,
+			  nodes = pack(root).descendants(),
+			  view;
 
-	  var text = g.selectAll("text")
-	    .data(nodes)
-	    .enter().append("text")
-	      .attr("class", "label")
-	      .style("fill-opacity", function(d) { return d.children ? 1 : 0; })
-	      .style("display", function(d) { return d.children ? "inline" : "none"; })
-	      .text(function(d) { return d.data.title; });
+		  var circle = g.selectAll("circle")
+			.data(nodes)
+			.enter().append("circle")
+			  .attr("class", function(d) { return d.parent ? d.children ? "node" : "node node--leaf"+" "+d.data.id : "node node--root"; })
+			  .style("fill", function(d) {
+			   if(d.children){
+					return "#0b0817"
+				}else{
+					if(d.data.genres){
+						if(d.data.genres in bubble_color){
+							return bubble_color[d.data.genres];
+						}
+						else{
+							return '#09ACB8';
+						}
+					}else {
+						return '#09ACB8';
+				}}})
+			  .on("click", function(d) { if (focus !== d) zoom(d), d3.event.stopPropagation(); })
+			  .on("mouseover", function(d) {if (!d.children) updateChart2(d);})
+			  .on("mouseout", function(d) {if (!d.children) updateChart();});
 
-	  var node = g.selectAll("circle,text");
+		  var text = g.selectAll("text")
+			.data(nodes)
+			.enter().append("text")
+			  .attr("class", "label")
+			  .style("fill-opacity", function(d) { return d.children ? 1 : 0; })
+			  .style("display", function(d) { return d.children ? "inline" : "none"; })
+			  .text(function(d) { return d.data.title; });
 
-	  svg2
-		  .on("click", function() { zoom(root); });
+		  var node = g.selectAll("circle,text");
 
-	  zoomTo([root.x, root.y, root.r * 2 + margin]);
+		  svg2
+			  .on("click", function() { zoom(root); });
 
-	  function zoom(d) {
-		var focus0 = focus; focus = d;
+		  zoomTo([root.x, root.y, root.r * 2 + margin]);
 
-		var transition = d3.transition()
-			.duration(d3.event.altKey ? 7500 : 750)
-			.tween("zoom", function(d) {
-			  var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 + margin]);
-			  return function(t) { zoomTo(i(t)); };
-			});
+		  function zoom(d) {
+			var focus0 = focus; focus = d;
 
-		// transition.selectAll("text")
-		//   .filter(function(d) { return d.parent === focus; })
-		//   .style("fill-opacity", function(d) { return d === focus ? 1 : 0; })
-		// 	.on("start", function(d) { if (d === focus && d.parent != root) this.style.display = "inline"; })
-		// 	.on("end", function(d) { if (d !== focus) this.style.display = "none"; });
-	 //  }
-	 transition.selectAll("text")
-      .filter(function(d) { return d === focus || this.style.display === "inline"; })
-        .style("fill-opacity", function(d) { return d === focus ? 1 : 0; })
-        .on("start", function(d) { if (d === focus) this.style.display = "inline"; })
-        .on("end", function(d) { if (d !== focus) this.style.display = "none"; });
-  }
+			var transition = d3.transition()
+				.duration(d3.event.altKey ? 7500 : 750)
+				.tween("zoom", function(d) {
+				  var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 + margin]);
+				  return function(t) { zoomTo(i(t)); };
+				});
 
-	  function zoomTo(v) {
-		var k = diameter / v[2]; view = v;
-		node.attr("transform", function(d) { return "translate(" + (d.x - v[0]) * k + "," + (d.y - v[1]) * k + ")"; });
-		circle.attr("r", function(d) { return d.r * k; });
-	  }
-	});
+			// transition.selectAll("text")
+			//   .filter(function(d) { return d.parent === focus; })
+			//   .style("fill-opacity", function(d) { return d === focus ? 1 : 0; })
+			// 	.on("start", function(d) { if (d === focus && d.parent != root) this.style.display = "inline"; })
+			// 	.on("end", function(d) { if (d !== focus) this.style.display = "none"; });
+		 //  }
+		 transition.selectAll("text")
+		  .filter(function(d) { return d === focus || this.style.display === "inline"; })
+			.style("fill-opacity", function(d) { return d === focus ? 1 : 0; })
+			.on("start", function(d) { if (d === focus) this.style.display = "inline"; })
+			.on("end", function(d) { if (d !== focus) this.style.display = "none"; });
+		  }
+
+		  function zoomTo(v) {
+			var k = diameter / v[2]; view = v;
+			node.attr("transform", function(d) { return "translate(" + (d.x - v[0]) * k + "," + (d.y - v[1]) * k + ")"; });
+			circle.attr("r", function(d) { return d.r * k; });
+		  }
+	  
+	  });
+	  
 }
-
