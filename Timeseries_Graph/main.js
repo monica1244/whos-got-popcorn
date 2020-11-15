@@ -493,7 +493,7 @@ function updateChart2(d) {
 		                	if (d.data.genres == key) {
 		                		return 1;
 		                	} else {
-		                		return 0.2;
+		                		return 1;
 		                	}
 		                } else {
 		                	return 0;
@@ -637,7 +637,7 @@ function updateChart2(d) {
 		                	if (d.data.genres == key) {
 		                		return 1;
 		                	} else {
-		                		return 0.2;
+		                		return 1;
 		                	}
 		                } else {
 		                	return 0;
