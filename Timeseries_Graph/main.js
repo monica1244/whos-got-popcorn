@@ -246,7 +246,9 @@ function updateChart() {
 				.style('stroke-width', 3)
 				.style('fill', 'none')
 				.attr('opacity', dict[key])
-				.attr("d", function(d) { return line(d); });
+				.attr("d", function(d) { return line(d); })
+				.on('mouseover', function(d) { console.log('test'); })
+				.on('mouseout', function(d) { console.log('test'); });
 		});
 	}
 	else {
@@ -350,7 +352,9 @@ function updateChart() {
 				.style('stroke-width', 3)
 				.style('fill', 'none')
 				.attr('opacity', dict[key])
-				.attr("d", function(d) { return line(d); });
+				.attr("d", function(d) { return line(d); })
+				.on('mouseover', function(d) { console.log('test'); })
+				.on('mouseout', function(d) { console.log('test'); });
 				
 			   /*chartG.selectAll("circles")
 		      .data(slice.data[key])
