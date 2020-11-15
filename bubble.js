@@ -57,46 +57,50 @@ function createBubbles(scaleBy){
 		  // apply filter
 			  for(c in root.children) {
 				root.children[c].children = root.children[c].children.filter(function( obj ) {
+					
 					g_flag = false;
 					a_flag = false;
 					d_flag = false;
 					p_flag = false;
 					k_flag = false;
-					if(genre.length == 1) {
-						if(obj.genres == genre[0]) {
+					if(parseInt(obj.release_date.split('-')[0]) >= 1980) {
+						if(genre.length == 1) {
+							if(obj.genres == genre[0]) {
+								g_flag = true;
+							}
+						} else if(genre.length == 0) {
 							g_flag = true;
 						}
-					} else if(genre.length == 0) {
-						g_flag = true;
-					}
-					if(actors.length > 0 &&  actors.length <= 3) {
-						if(actors.every(i => obj.cast.includes(i))) {
+						if(actors.length > 0 &&  actors.length <= 3) {
+							if(actors.every(i => obj.cast.includes(i))) {
+								a_flag = true;
+							}
+						} else if(actors.length == 0){
 							a_flag = true;
 						}
-					} else if(actors.length == 0){
-						a_flag = true;
-					}
-					if(director.length == 1) {
-						if(obj.director == director[0]) {
+						if(director.length == 1) {
+							if(obj.director == director[0]) {
+								d_flag = true;
+							}
+						}else if(director.length == 0){
 							d_flag = true;
 						}
-					}else if(director.length == 0){
-						d_flag = true;
-					}
-					if(production.length > 0) {
-						if(production.every(i => obj.production_companies.includes(i))) {
+						if(production.length > 0) {
+							if(production.every(i => obj.production_companies.includes(i))) {
+								p_flag = true;
+							}
+						} else if(production.length == 0) {
 							p_flag = true;
 						}
-					} else if(production.length == 0) {
-						p_flag = true;
-					}
-					if(keywords.length > 0) {
-						if(keywords.every(i => obj.keywords.includes(i))) {
+						if(keywords.length > 0) {
+							if(keywords.every(i => obj.keywords.includes(i))) {
+								k_flag = true;
+							}
+						}else if(keywords.length == 0) {
 							k_flag = true;
 						}
-					}else if(keywords.length == 0) {
-						k_flag = true;
 					}
+					
 					if(g_flag && a_flag && d_flag && p_flag && k_flag) {
 						return obj;
 					}
