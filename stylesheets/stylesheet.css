@@ -103,6 +103,26 @@ body {
   background-color: rgba(51, 37, 114, 0.2);
 }
 
+.viz_help {
+  height: 39vh;
+  margin-top: 2vh;
+}
+
+.overlay_info { 
+    max-height: 39vh;
+    margin-top: 2vh;
+    width: 0; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    bottom: 0;
+    background-color: rgb(0,0,0); /* Black fallback color */
+    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.3s; /* 0.5 second transition effect to slide in or slide down 
+
+the overlay (height or width, depending on reveal) */
+}
+
 .explore {
   width:100%;
   font-family: 'Montserrat', sans-serif;
@@ -290,7 +310,7 @@ div.tooltip-title {
      position: absolute;
      text-align: center;
      padding: .5vh 0.8vh 0.5vh 0.8vh;
-     background: #FFFFFF;
+     background: #FBFAF5;
      color: #313639;
      border-radius: 8px;
      pointer-events: none;
