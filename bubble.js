@@ -190,6 +190,7 @@ function createBubbles(scaleBy){
 		  }
 	  
 	  });
+}
 	  
 function highlight_genre(genre){
 	highlight = 1;
