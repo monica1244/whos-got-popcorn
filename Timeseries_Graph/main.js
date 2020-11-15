@@ -511,9 +511,18 @@ function updateChart2(d) {
 					} else if (chartScales.y == 'profit') {
 						y_coord = d.data.revenue - d.data.budget;
 					}
+					if (y_coord > yScale.domain()[1]) {
+						y_coord = yScale.domain()[1];
+					} else if (y_coord < yScale.domain()[0]) {
+						y_coord = yScale.domain()[0];
+					} else {
+						y_coord = y_coord;
+					}
+					y_coord = yScale(y_coord);
+					console.log(yScale.domain());
 					point = chartG.append('circle')
 						.attr('cx', xScale(d.data.release_date.substring(0, 4)))
-						.attr('cy', yScale(y_coord))
+						.attr('cy', y_coord)
 						.attr('r', 8)
 						.attr('fill', colors[d.data.genres])
 						.attr('class', 'point');
@@ -639,9 +648,17 @@ function updateChart2(d) {
 					} else if (chartScales.y == 'profit') {
 						y_coord = d.data.revenue - d.data.budget;
 					}
+					if (y_coord > yScale.domain()[1]) {
+						y_coord = yScale.domain()[1];
+					} else if (y_coord < yScale.domain()[0]) {
+						y_coord = yScale.domain()[0];
+					} else {
+						y_coord = y_coord;
+					}
+					y_coord = yScale(y_coord);
 					point = chartG.append('circle')
 						.attr('cx', xScale(d.data.release_date.substring(0, 4)))
-						.attr('cy', yScale(y_coord))
+						.attr('cy', y_coord)
 						.attr('r', 8)
 						.attr('fill', colors[d.data.genres])
 						.attr('class', 'point');
