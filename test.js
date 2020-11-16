@@ -13,7 +13,7 @@ function filterBy(category, value){
 	} else if(category == 'Keyword') {
 		keywords.push(value);
 	}
-	createBubbles('popularity');
+	createBubbles(scale_option);
 	
 }
 
@@ -40,5 +40,5 @@ function removeFilter(category, value){
 			return item !== value
 		})
 	}
-	createBubbles('popularity');
+	createBubbles(scale_option);
 }
