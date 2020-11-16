@@ -40,6 +40,96 @@
     <div class = "controls_column">
       <div class = "filters">
         <div class = "Bubble_heading">Cluster Bubbles</div>
+        <div class = "Genre_bubble">
+          <div class = "Genres_heading">
+            <p>Genre</p>
+            <div class = "Genre_dropdown">
+              <nav id="menu">
+                <label for="tm" id="toggle-menu">Navigation <span class="drop-icon">▾</span></label>
+                <input type="checkbox" id="tm">
+                <ul class="main-menu clearfix">
+                  <li><a>Select 
+                      <span class="drop-icon">▾</span>
+                      <label title="Toggle Drop-down" class="drop-icon" for="sm1">▾</label>
+                    </a>
+                    <input type="checkbox" id="sm1">
+                    <ul class="sub-menu genre_sub_menu_filter genre_scrollable_menu">
+                      <li><a onclick = "filterBy('All')">All</a></li>
+                      <li><a onclick = "filterBy('Action')">Action</a></li>
+                      <li><a onclick = "filterBy('Adventure')">Adventure</a></li>
+                      <li><a onclick = "filterBy('Animation')">Animation</a></li>
+                      <li><a onclick = "filterBy('Comedy')">Comedy</a></li>
+                      <li><a onclick = "filterBy('Crime')">Crime</a></li>
+                      <li><a onclick = "filterBy('Documentary')">Documentary</a></li>
+                      <li><a onclick = "filterBy('Drama')">Drama</a></li>
+                      <li><a onclick = "filterBy('Family')">Family</a></li>
+                      <li><a onclick = "filterBy('Fantasy')">Fantasy</a></li>
+                      <li><a onclick = "filterBy('History')">History</a></li>
+                      <li><a onclick = "filterBy('Horror')">Horror</a></li>
+                      <li><a onclick = "filterBy('Music')">Music</a></li>
+                      <li><a onclick = "filterBy('Mystery')">Mystery</a></li>
+                      <li><a onclick = "filterBy('Romance')">Romance</a></li>
+                      <li><a onclick = "filterBy('Science Fiction')">Science Fiction</a></li>
+                      <li><a onclick = "filterBy('Thriller')">Thriller</a></li>
+                      <li><a onclick = "filterBy('War')">War</a></li>
+                      <li><a onclick = "filterBy('Western')">Western</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <div class = "Genre_tags" id = "tag_holder2">
+            <div class = "Action">
+              <a>Action</a>&nbsp;
+              <a class = "close_tag2" onclick="removeFilter('Action')">x</a>
+            </div><div class = "Adventure">
+              <a>Adventure</a>&nbsp;
+              <a class = "close_tag2" onclick="removeFilter('Adventure')">x</a>
+            </div><div class = "Animation">
+              <a>Animation</a>&nbsp;
+              <a class = "close_tag2" onclick="removeFilter('Animation')">x</a>
+            </div><div class = "Comedy">
+              <a>Comedy</a>&nbsp;
+              <a class = "close_tag2" onclick="removeFilter('Comedy')">x</a>
+            </div><div class = "Crime">
+              <a>Crime</a>&nbsp;
+              <a class = "close_tag2" onclick="removeFilter('Crime')">x</a>
+            </div><div class = "Documentary">
+              <a>Documentary</a>&nbsp;
+              <a class = "close_tag2" onclick="removeFilter('Documentary')">x</a>
+            </div><div class = "Mystery">
+              <a>Mystery</a>&nbsp;
+              <a class = "close_tag2" onclick="removeFilter('Mystery')">x</a>
+            </div><div class = "Romance">
+              <a>Romance</a>&nbsp;
+              <a class = "close_tag2" onclick="removeFilter('Romance')">x</a>
+            </div>
+          </div>
+        </div>
+        <div class = "Color_heading">
+          <p>Scale By</p>
+          <div class = "Color_dropdown">
+            <nav id="menu">
+              <label for="tm" id="toggle-menu">Navigation <span class="drop-icon">▾</span></label>
+              <input type="checkbox" id="tm">
+              <ul class="main-menu clearfix">
+                <li><a id = "Color_sub_menu_heading">Popularity
+                    <span class="drop-icon">▾</span>
+                    <label title="Toggle Drop-down" class="drop-icon" for="sm1">▾</label>
+                  </a>
+                  <input type="checkbox" id="sm1">
+                  <ul class="sub-menu Color_sub_menu color_scrollable_menu">
+                    <li><a onclick = "onBubbleScaleChanged('popularity')">Popularity</a></li>
+                    <li><a onclick = "onBubbleScaleChanged('rating')">Rating</a></li>
+                    <li><a onclick = "onBubbleScaleChanged('revenue')">Revenue</a></li>
+                    <li><a onclick = "onBubbleScaleChanged('budget')">Budget</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
         <div class = "filter_box">
           <div class = "filter_box_box">  
             <div class = "filter_heading"><p>Filter</p></div>
@@ -54,32 +144,6 @@
                     </a>
                     <input type="checkbox" id="sm1">
                     <ul class="sub-menu">
-                      <li><a>Genre
-                          <span class="drop-icon">▾</span>
-                          <label title="Toggle Drop-down" class="drop-icon" for="sm2">▾</label>
-                          </a>
-                        <input type="checkbox" id="sm2">
-                        <ul class="sub-menu filter_sub_menu" id ="genre_list">
-                          <li><a onclick="filterBy('Genre','Action')">Action</a></li>
-                          <li><a onclick="filterBy('Genre','Adventure')">Adventure</a></li>
-                          <li><a onclick="filterBy('Genre','Animation')">Animation</a></li>
-                          <li><a onclick="filterBy('Genre','Comedy')">Comedy</a></li>
-                          <li><a onclick="filterBy('Genre','Crime')">Crime</a></li>
-                          <li><a onclick="filterBy('Genre','Documentary')">Documentary</a></li>
-                          <li><a onclick="filterBy('Genre','Drama')">Drama</a></li>
-                          <li><a onclick="filterBy('Genre','Family')">Family</a></li>
-                          <li><a onclick="filterBy('Genre','Fantasy')">Fantasy</a></li>
-                          <li><a onclick="filterBy('Genre','History')">History</a></li>
-                          <li><a onclick="filterBy('Genre','Horror')">Horror</a></li>
-                          <li><a onclick="filterBy('Genre','Music')">Music</a></li>
-                          <li><a onclick="filterBy('Genre','Mystery')">Mystery</a></li>
-                          <li><a onclick="filterBy('Genre','Romance')">Romance</a></li>
-                          <li><a onclick="filterBy('Genre','Science Fiction')">Science Fiction</a></li>
-                          <li><a onclick="filterBy('Genre','Thriller')">Thriller</a></li>
-                          <li><a onclick="filterBy('Genre','War')">War</a></li>
-                          <li><a onclick="filterBy('Genre','Western')">Western</a></li>
-                        </ul>
-                      </li>
                       <li><a>Actor
                           <span class="drop-icon">▾</span>
                           <label title="Toggle Drop-down" class="drop-icon" for="sm2">▾</label>
@@ -123,29 +187,6 @@
             </div>
           </div>
           <div id = "filter_tag_holder">
-          </div>
-        </div>
-        <div class = "Color_heading">
-          <p>Scale By</p>
-          <div class = "Color_dropdown">
-            <nav id="menu">
-              <label for="tm" id="toggle-menu">Navigation <span class="drop-icon">▾</span></label>
-              <input type="checkbox" id="tm">
-              <ul class="main-menu clearfix">
-                <li><a id = "Color_sub_menu_heading">Popularity
-                    <span class="drop-icon">▾</span>
-                    <label title="Toggle Drop-down" class="drop-icon" for="sm1">▾</label>
-                  </a>
-                  <input type="checkbox" id="sm1">
-                  <ul class="sub-menu Color_sub_menu color_scrollable_menu">
-                    <li><a onclick = "onBubbleScaleChanged('popularity')">Popularity</a></li>
-                    <li><a onclick = "onBubbleScaleChanged('rating')">Rating</a></li>
-                    <li><a onclick = "onBubbleScaleChanged('revenue')">Revenue</a></li>
-                    <li><a onclick = "onBubbleScaleChanged('budget')">Budget</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </nav>
           </div>
         </div>
       </div>
@@ -261,6 +302,8 @@
       var genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary","Mystery","Romance"];
       var applied_filters = [];
       var all_genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History", "Horror", "Music", "Mystery", "Romance", "Science Fiction", "Thriller", "War", "Western"];
+      var genre_bubble_applied = [];
+
       $(".Y_axis_sub_menu > li").click(function() {
         $("#Y_axis_sub_menu_heading").text($(this).text()+" "); 
         $("#Y_axis_sub_menu_heading").append('<span class="drop-icon">▾</span><label title="Toggle Drop-down" class="drop-icon" for="sm1">▾</label>');
@@ -268,6 +311,11 @@
 
       $(document).on('click', '.close_tag', function() { 
         genres.splice(genres.indexOf($(this).prev().text()), 1);
+        $(this).parent('div').remove(); 
+      });
+
+      $(document).on('click', '.close_tag2', function() { 
+        genre_bubble_applied.splice(genre_bubble_applied.indexOf($(this).prev().text()), 1);
         $(this).parent('div').remove(); 
       });
 
@@ -437,6 +485,50 @@
           d.appendChild(a2);
           tag_holder.appendChild(d);
           genres.push(str2);
+        }
+      });
+
+      $(".genre_sub_menu_filter > li").click(function() {
+        var str2 = $(this).text();
+        if (str2 == "All") {
+          for (i = 0; i < all_genres.length; i++) {
+            if (!genre_bubble_applied.includes(all_genres[i])) {
+              var d = document.createElement("div");
+              d.className = all_genres[i];
+              var a1 = document.createElement("a");
+              a1.appendChild(document.createTextNode(all_genres[i]));
+              var a2 = document.createElement("a");
+              a2.appendChild(document.createTextNode("x"));
+              a2.className = "close_tag2";
+              var str3 = "onGenreDeleted(\'";
+              var str4 = "\')";
+              var str5 = str3.concat(all_genres[i], str4);
+              a2.setAttribute("onclick", str5);
+              d.appendChild(a1);
+              d.appendChild(document.createTextNode("\u00A0"));
+              d.appendChild(a2);
+              tag_holder2.appendChild(d);
+              genre_bubble_applied.push(all_genres[i]);
+            }
+          }
+        }
+        else if (!genre_bubble_applied.includes(str2)) {
+          var d = document.createElement("div");
+          d.className = str2;
+          var a1 = document.createElement("a");
+          a1.appendChild(document.createTextNode(str2));
+          var a2 = document.createElement("a");
+          a2.appendChild(document.createTextNode("x"));
+          a2.className = "close_tag2";
+          var str3 = "onGenreDeleted(\'";
+          var str4 = "\')";
+          var str5 = str3.concat(str2, str4);
+          a2.setAttribute("onclick", str5);
+          d.appendChild(a1);
+          d.appendChild(document.createTextNode("\u00A0"));
+          d.appendChild(a2);
+          tag_holder2.appendChild(d);
+          genre_bubble_applied.push(str2);
         }
       });
       

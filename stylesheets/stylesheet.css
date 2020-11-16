@@ -40,30 +40,42 @@ body {
   font-size: 2.3vh;
 }
 
-.Y_axis p, .Genres p, .Color_heading p, .filter_heading p {
+ .Y_axis p, .Genres_heading p {
   font-family: 'Yeseva One';
   font-size: 2vh;
-  margin: 2vh 0vh 2vh 0vh;
+  margin: 0.8vh 0vh 1.3vh 0vh;
 }
 
-.Y_axis, .Genres, .filter_box_box{
-  height: 8.3vh;
+ .Genres p, .filter_heading p{
+  font-family: 'Yeseva One';
+  font-size: 2vh;
+  margin: 1.4vh 0vh 1.3vh 0vh;
+}
+
+.Color_heading p {
+  font-family: 'Yeseva One';
+  font-size: 2vh;
+  margin: 1vh 0vh 1.3vh 0vh;
+}
+
+.Y_axis, .Genres, .filter_box_box, .Color_heading, .Genres_heading{
+  height: 7.6vh;
 }
 
 .timeline_control {
   background-color: rgba(51, 37, 114, 0.4);
   border-radius: 5px;
-  height: 48.5vh;
+  height: 40vh;
   margin: 0rem 0rem 1vh 0rem;
-  padding: 1.7vh 1.7vh 1.7vh 1.7vh;
+  padding: 1.5vh 1.7vh 1.7vh 1.7vh;
 }
 
 .filters {
   background-color: rgba(51, 37, 114, 0.4);
   border-radius: 5px;
-  height: 48.5vh;
+  height: 57vh;
   margin: 1vh 0rem 1vh 0rem;
-  padding: 1.7vh 1.7vh 1.7vh 1.7vh;
+  padding: 1.5vh 1.7vh 1.7vh 1.7vh;
 }
 
 .timeline_viz {
@@ -180,7 +192,7 @@ body {
 
 .genre_scrollable_menu {
     height: auto;
-    max-height: 21.5vh;
+    max-height: 18.5vh;
     overflow-x: hidden;
 }
 
@@ -203,10 +215,10 @@ body {
 
 .tag {
   background-color: rgb(4, 117, 116);
-  padding: 0.8vh 1.2vh 0.8vh 1.2vh;
-  margin: 0px 1vh 1vh 0vh;
+  padding: 0.7vh 1.1vh 0.7vh 1.1vh;
+  margin: 0px 0.9vh 0.9vh 0vh;
   display: inline-flex;
-  font-size: 1.5vh;
+  font-size: 1.35vh;
   border-radius: 50px;
   pointer-events: none;
 }
@@ -219,15 +231,19 @@ body {
   pointer-events: auto;
 }
 
+.close_tag2 {
+  pointer-events: auto;
+}
+
 .close_filter_tag {
   pointer-events: auto;
 }
 
 .filter_tag, .Action, .Adventure, .Animation, .Comedy, .Crime, .Documentary, .Drama, .Family, .Fantasy, .History, .Horror, .Music, .Mystery, .Romance, .Science, .Thriller, .War, .Western {
-  padding: 0.7vh 1.2vh 0.7vh 1.2vh;
+  padding: 0.7vh 1.1vh 0.7vh 1.1vh;
   margin: 0px 0.9vh 0.9vh 0vh;
   display: inline-flex;
-  font-size: 1.4vh;
+  font-size: 1.35vh;
   border-radius: 50px;
   pointer-events: none;
 }
@@ -308,10 +324,21 @@ body {
   background-color: #e9b650;
 }
 
-.Genre_tags, #filter_tag_holder {
-  margin-top: 2vh;
+.Genre_bubble {
+  height:24.5vh;
+}
+
+.Genre_tags{
+  margin-top: 1.1vh;
   height: auto;
-  max-height: 20.2vh;
+  max-height: 16vh;
+  overflow-x: hidden;
+}
+
+#filter_tag_holder {
+  margin-top: 1.1vh;
+  height: auto;
+  max-height: 16.5vh;
   overflow-x: hidden;
 }
 
@@ -409,7 +436,7 @@ div.tooltip-title {
   text-shadow: 1px 1px 0 rgba(0, 0, 0, .125);
   text-decoration: none;
   border-radius: 5px;
-  font-size: 1.7vh;
+  font-size: 1.5vh;
   border-width: 0.01vh;
   border-color: rgba(255,255,255,0.85);
 }
@@ -420,7 +447,7 @@ div.tooltip-title {
 
 #toggle-menu, 
 #menu a {
-  padding: 1vh 1.5vh 1vh 1.5vh;
+  padding: 0.8vh 1vh 0.8vh 1vh;
 }
 
 #menu a {
@@ -548,7 +575,7 @@ div.tooltip-title {
   top: 0%;
   left: -101% !important;
   height: auto;
-  max-height: 30.1vh;
+  max-height: 29.5vh;
   overflow-x: hidden;
 }
 
@@ -564,7 +591,7 @@ div.tooltip-title {
   top: 0%;
   left: -101% !important;
   height: auto;
-  max-height: 38.5vh;
+  max-height: 31.6vh;
   overflow-x: hidden;
 }
 

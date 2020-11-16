@@ -1,7 +1,3 @@
-// var svgH = $("#svg2").parent().height();
-// var vwww = $(".viz_column").parent().width()/80;
-// var vhhh = Math.floor(svgH/60.41);
-
 var svg2 = d3.select("#svg2"),
     margin = 10,
     diameter = 65*vh,
