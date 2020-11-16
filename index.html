@@ -82,28 +82,28 @@
           <div class = "Genre_tags" id = "tag_holder2">
             <div class = "Action">
               <a>Action</a>&nbsp;
-              <a class = "close_tag2" onclick="removeFilter('Action')">x</a>
+              <a class = "close_tag2" onclick="removeFilter('Genre', 'Action')">x</a>
             </div><div class = "Adventure">
               <a>Adventure</a>&nbsp;
-              <a class = "close_tag2" onclick="removeFilter('Adventure')">x</a>
+              <a class = "close_tag2" onclick="removeFilter('Genre', 'Adventure')">x</a>
             </div><div class = "Animation">
               <a>Animation</a>&nbsp;
-              <a class = "close_tag2" onclick="removeFilter('Animation')">x</a>
+              <a class = "close_tag2" onclick="removeFilter('Genre', 'Animation')">x</a>
             </div><div class = "Comedy">
               <a>Comedy</a>&nbsp;
-              <a class = "close_tag2" onclick="removeFilter('Comedy')">x</a>
+              <a class = "close_tag2" onclick="removeFilter('Genre', 'Comedy')">x</a>
             </div><div class = "Crime">
               <a>Crime</a>&nbsp;
-              <a class = "close_tag2" onclick="removeFilter('Crime')">x</a>
+              <a class = "close_tag2" onclick="removeFilter('Genre', 'Crime')">x</a>
             </div><div class = "Documentary">
               <a>Documentary</a>&nbsp;
-              <a class = "close_tag2" onclick="removeFilter('Documentary')">x</a>
+              <a class = "close_tag2" onclick="removeFilter('Genre', 'Documentary')">x</a>
             </div><div class = "Mystery">
               <a>Mystery</a>&nbsp;
-              <a class = "close_tag2" onclick="removeFilter('Mystery')">x</a>
+              <a class = "close_tag2" onclick="removeFilter('Genre', 'Mystery')">x</a>
             </div><div class = "Romance">
               <a>Romance</a>&nbsp;
-              <a class = "close_tag2" onclick="removeFilter('Romance')">x</a>
+              <a class = "close_tag2" onclick="removeFilter('Genre', 'Romance')">x</a>
             </div>
           </div>
         </div>
@@ -302,7 +302,7 @@
       var genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary","Mystery","Romance"];
       var applied_filters = [];
       var all_genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History", "Horror", "Music", "Mystery", "Romance", "Science Fiction", "Thriller", "War", "Western"];
-      var genre_bubble_applied = [];
+      var genre_bubble_applied = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary","Mystery","Romance"];
 
       $(".Y_axis_sub_menu > li").click(function() {
         $("#Y_axis_sub_menu_heading").text($(this).text()+" "); 
@@ -500,7 +500,7 @@
               var a2 = document.createElement("a");
               a2.appendChild(document.createTextNode("x"));
               a2.className = "close_tag2";
-              var str3 = "onGenreDeleted(\'";
+              var str3 = "removeFilter(\'Genre\',\'";
               var str4 = "\')";
               var str5 = str3.concat(all_genres[i], str4);
               a2.setAttribute("onclick", str5);
@@ -520,7 +520,7 @@
           var a2 = document.createElement("a");
           a2.appendChild(document.createTextNode("x"));
           a2.className = "close_tag2";
-          var str3 = "onGenreDeleted(\'";
+          var str3 = "removeFilter(\'Genre\',\'";
           var str4 = "\')";
           var str5 = str3.concat(str2, str4);
           a2.setAttribute("onclick", str5);
