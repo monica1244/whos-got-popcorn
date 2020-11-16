@@ -148,7 +148,12 @@ function createBubbles(scaleBy){
 					}else {
 						return '#09ACB8';
 				}}})
-			  .on("click", function(d) { if (focus !== d) zoom(d), d3.event.stopPropagation(); })
+			  .on("click", function(d) {
+			   if (focus !== d) zoom(d), d3.event.stopPropagation(); 
+			   if (!d.children){
+			   	d3.select("#overlay_info").style("width", "40.15%");
+			   }
+			   })
 			  .on("mouseover", function(d) {
 			  		if (!d.children){
 			  		 	updateChart2(d);
