@@ -154,7 +154,7 @@ d3.csv('./Timeseries_Graph/tmdb_movies_aggregated.csv', dataPreprocessor).then(f
 	console.log(slices);
 	
 	xScale = d3.scaleLinear().range([0,chartWidth]);
-	yScale = d3.scaleLinear().rangeRound([chartHeight, 0]);
+	yScale = d3.scaleTime().rangeRound([chartHeight, 0]);
 
 	
 	//const tooltip = d3.select("body").append("div")
@@ -238,10 +238,10 @@ function updateChart() {
 			
 		xAx.transition()
 			.duration(350)
-			.call(d3.axisBottom(xScale));
+			.call(d3.axisBottom(xScale).tickFormat(d3.timeFormat("%Y")));
 		yAx.transition()
 			.duration(350)
-			.call(d3.axisLeft(yScale))
+			.call(d3.axisLeft(yScale));
 			
 		const line = d3.line()
 			.x(function(d) { return xScale(d.date); })
@@ -354,10 +354,10 @@ function updateChart() {
 			
 		xAx.transition()
 			.duration(350)
-			.call(d3.axisBottom(xScale));
+			.call(d3.axisBottom(xScale).tickFormat(d3.timeFormat("%Y")));
 		yAx.transition()
 			.duration(350)
-			.call(d3.axisLeft(yScale))
+			.call(d3.axisLeft(yScale));
 			
 		const line = d3.line()
 			.x(function(d) { return xScale(d.date); })
@@ -526,10 +526,10 @@ function updateChart2(d) {
 			
 		xAx.transition()
 			.duration(350)
-			.call(d3.axisBottom(xScale));
+			.call(d3.axisBottom(xScale).tickFormat(d3.timeFormat("%Y")));
 		yAx.transition()
 			.duration(350)
-			.call(d3.axisLeft(yScale))
+			.call(d3.axisLeft(yScale));
 			
 		const line = d3.line()
 			.x(function(d) { return xScale(d.date); })
@@ -674,10 +674,10 @@ function updateChart2(d) {
 			
 		xAx.transition()
 			.duration(350)
-			.call(d3.axisBottom(xScale));
+			.call(d3.axisBottom(xScale).tickFormat(d3.timeFormat("%Y")));
 		yAx.transition()
 			.duration(350)
-			.call(d3.axisLeft(yScale))
+			.call(d3.axisLeft(yScale));
 			
 		const line = d3.line()
 			.x(function(d) { return xScale(d.date); })
