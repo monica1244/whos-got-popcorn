@@ -152,6 +152,25 @@ function createBubbles(scaleBy){
 			   if (focus !== d) zoom(d), d3.event.stopPropagation(); 
 			   if (!d.children){
 			   	d3.select("#overlay_info").style("width", "40.15%");
+			   	d3.select(".info_title").text(d.data.title);
+			   	d3.select(".info_overview").text(d.data.overview);
+			   	if(d.data.tagline=="None"){
+			   		d3.select(".info_tagline").text(d.data.title);
+			   	}
+			   	else{
+			   		d3.select(".info_tagline").text(d.data.tagline);
+			   	}
+			   	var dur = runtime_dic[d.data.id]
+			   	if(dur>0){
+				   	var hours = Math.floor(dur/60);
+				   	var mins = dur%60;
+				   	var st = d.data.release_date.split('-')[0];
+				   	d3.select(".info_bar").text(st.concat(" | ",d.data.genres," | ",hours," HR ",mins," MIN"));
+				}
+				else{
+					var st = d.data.release_date.split('-')[0];
+				   	d3.select(".info_bar").text(st.concat(" | ",d.data.genres));
+				}
 			   }
 			   })
 			  .on("mouseover", function(d) {

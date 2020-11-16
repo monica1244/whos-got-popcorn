@@ -117,9 +117,31 @@ body {
   position: fixed;
   left: 0;
   top: 20vh;
-  background-color: #1a1339; /* Black w/opacity */
+  background-color: #181235; /* Black w/opacity */
   overflow-x: hidden; /* Disable horizontal scroll */
-  transition: 0.8s; 
+  transition: 0.7s; 
+  font-family: 'Nunito';
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.info_title {
+  margin: 2vh 1vw 1vh 1.4vw;
+  font-size: 3vh;
+}
+
+.info_tagline {
+  margin: 0vh 1vw 1.5vh 1.4vw;
+  font-size: 2vh;
+}
+
+.info_bar {
+  margin: 0vh 1vw 1.5vh 1.4vw;
+  font-size: 2vh;
+}
+
+.info_overview {
+  margin: 0vh 1vw 1.5vh 1.4vw;
+  font-size: 2vh;
 }
 
 .close_overlay {
