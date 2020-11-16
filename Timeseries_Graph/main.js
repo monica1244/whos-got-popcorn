@@ -23,6 +23,7 @@ function remove_genre(key) {
 	svg.selectAll('.genre_label').remove();
 }
 
+
 function onGenreSelected(key) {
 	if (key == 'All') {
 		for (let k in dict) {
@@ -422,8 +423,18 @@ function updateChart() {
 				.style('fill', 'none')
 				.attr('opacity', dict[key])
 				.attr("d", function(d) { return line(d); })
-				.on('mouseover', function(d) { highlight_genre(key); display_genre(key);})
-				.on('mouseout', function(d) { delight_genre(key); remove_genre(key);});
+				.on('mouseover', function(d) { 
+					display_genre(key);
+					d3.select(this)
+					.transition()
+					.duration(300)
+					.style('stroke-width', 6);})
+				.on('mouseout', function(d) { 
+					remove_genre(key);
+					d3.select(this)
+					.transition()
+					.duration(300)
+					.style('stroke-width', 3);});
 				
 			   /*chartG.selectAll("circles")
 		      .data(slice.data[key])
