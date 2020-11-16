@@ -65,7 +65,7 @@ var svgWidth = $("#timeline_viz svg").parent().width();
 var svgHeight = $("#timeline_viz svg").parent().height();
 var vw = $(".viz_column").parent().width()/80;
 var vh = svgHeight/36.59;
-var padding = {t: 2.5*vh, r: 2*vw, b: 2.5*vh, l: 4*vw};
+var padding = {t: 2.5*vh, r: 2*vw, b: 3.5*vh, l: 4*vw};
 
 // Compute chart dimensions
 var chartWidth = svgWidth - padding.l - padding.r;

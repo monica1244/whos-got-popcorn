@@ -1,6 +1,6 @@
 var svg2 = d3.select("#svg2"),
     margin = 10,
-    diameter = 65*vh,
+    diameter = 62*vh,
     g = svg2.append("g").attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
 
 var bubble_color = new Object();
