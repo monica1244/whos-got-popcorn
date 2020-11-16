@@ -231,20 +231,20 @@ function updateChart() {
 			}
 		})
 
-		xScale.domain(d3.extent(movies, function(d){
-			return d.release_year})).nice();
+		xScale.domain([Date.parse('1981'),d3.max(movies, function(d){
+			return Date.parse(d.release_year)})]);
 		yScale.domain(domainMap[chartScales.y]);
 	 		
 			
 		xAx.transition()
 			.duration(350)
-			.call(d3.axisBottom(xScale).tickFormat(d3.timeFormat("%Y")));
+			.call(d3.axisBottom(xScale));
 		yAx.transition()
 			.duration(350)
 			.call(d3.axisLeft(yScale));
 			
 		const line = d3.line()
-			.x(function(d) { return xScale(d.date); })
+			.x(function(d) { return xScale(Date.parse(d.date)); })
 			.y(function(d) { return yScale(d.measurement); });
 
 		let id = 0;
@@ -347,20 +347,20 @@ function updateChart() {
 			}
 		})
 		console.log(domainMap[chartScales.y]);
-		xScale.domain(d3.extent(movies_filtered, function(d){
-			return d.release_year})).nice();
+		xScale.domain([Date.parse('1981'),d3.max(movies_filtered, function(d){
+			return Date.parse(d.release_year)})]);
 		yScale.domain(domainMap[chartScales.y]);
 	 		
 			
 		xAx.transition()
 			.duration(350)
-			.call(d3.axisBottom(xScale).tickFormat(d3.timeFormat("%Y")));
+			.call(d3.axisBottom(xScale));
 		yAx.transition()
 			.duration(350)
 			.call(d3.axisLeft(yScale));
 			
 		const line = d3.line()
-			.x(function(d) { return xScale(d.date); })
+			.x(function(d) { return xScale(Date.parse(d.date)); })
 			.y(function(d) { return yScale(d.measurement); });
 
 		let id = 0;
@@ -519,20 +519,20 @@ function updateChart2(d) {
 			}
 		})
 
-		xScale.domain(d3.extent(movies, function(d){
-			return d.release_year})).nice();
+		xScale.domain([Date.parse('1981'),d3.max(movies, function(d){
+			return Date.parse(d.release_year)})]);
 		yScale.domain(domainMap[chartScales.y]);
 	 		
 			
 		xAx.transition()
 			.duration(350)
-			.call(d3.axisBottom(xScale).tickFormat(d3.timeFormat("%Y")));
+			.call(d3.axisBottom(xScale));
 		yAx.transition()
 			.duration(350)
 			.call(d3.axisLeft(yScale));
 			
 		const line = d3.line()
-			.x(function(d) { return xScale(d.date); })
+			.x(function(d) { return xScale(Date.parse(d.date)); })
 			.y(function(d) { return yScale(d.measurement); });
 
 		let id = 0;
@@ -623,7 +623,7 @@ function updateChart2(d) {
 					y_coord = yScale(y_coord);
 					console.log(yScale.domain());
 					point = chartG.append('circle')
-						.attr('cx', xScale(d.data.release_date.substring(0, 4)))
+						.attr('cx', xScale(Date.parse(d.data.release_date.substring(0, 4))))
 						.attr('cy', y_coord)
 						.attr('r', 8)
 						.attr('fill', colors[d.data.genres])
@@ -667,20 +667,20 @@ function updateChart2(d) {
 			}
 		})
 
-		xScale.domain(d3.extent(movies_filtered, function(d){
-			return d.release_year})).nice();
+		xScale.domain([Date.parse('1981'),d3.max(movies_filtered, function(d){
+			return Date.parse(d.release_year)})]);
 		yScale.domain(domainMap[chartScales.y]);
 	 		
 			
 		xAx.transition()
 			.duration(350)
-			.call(d3.axisBottom(xScale).tickFormat(d3.timeFormat("%Y")));
+			.call(d3.axisBottom(xScale));
 		yAx.transition()
 			.duration(350)
 			.call(d3.axisLeft(yScale));
 			
 		const line = d3.line()
-			.x(function(d) { return xScale(d.date); })
+			.x(function(d) { return xScale(Date.parse(d.date)); })
 			.y(function(d) { return yScale(d.measurement); });
 
 		let id = 0;
@@ -713,8 +713,8 @@ function updateChart2(d) {
 			.text("Release Year")
 			.style('fill', 'white')
 			.style('font-size', '11px')
-			.attr('x', chartWidth )
-			.attr('y', chartHeight )
+			.attr('x', chartWidth)
+			.attr('y', chartHeight)
 			.attr('class', 'axis_label');
 
 		slices.forEach(function (item) {
@@ -782,7 +782,7 @@ function updateChart2(d) {
 					}
 					y_coord = yScale(y_coord);
 					point = chartG.append('circle')
-						.attr('cx', xScale(d.data.release_date.substring(0, 4)))
+						.attr('cx', xScale(Date.parse(d.data.release_date.substring(0, 4))))
 						.attr('cy', y_coord)
 						.attr('r', 8)
 						.attr('fill', colors[d.data.genres])
