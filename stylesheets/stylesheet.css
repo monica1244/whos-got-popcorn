@@ -109,18 +109,24 @@ body {
 }
 
 #overlay_info { 
-    height: 41.5vh;
-    border-radius: 5px;
-    width: 0; /* Stay in place */
-    z-index: 10; /* Sit on top */
-    position: fixed;
-    left: 0;
-    top: 20vh;
-    background-color: rgba(51, 37, 114, 0.4); /* Black w/opacity */
-    overflow-x: hidden; /* Disable horizontal scroll */
-    transition: 0.3s; /* 0.5 second transition effect to slide in or slide down 
+  height: 41.5vh;
+  max-height: 41.5vh;
+  border-radius: 5px;
+  width: 0; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  position: fixed;
+  left: 0;
+  top: 20vh;
+  background-color: #1a1339; /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.8s; 
+}
 
-the overlay (height or width, depending on reveal) */
+.close_overlay {
+  float:right;
+  margin-top: 1vh;
+  margin-right: 1vw;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .explore {

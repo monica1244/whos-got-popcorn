@@ -22,6 +22,8 @@
         <div class = "viz_help">
         </div>
         <div id="overlay_info">
+        <p class = "close_overlay">x</p>
+
         </div>
       </div>
       <div class = "graph_viz">
@@ -268,6 +270,10 @@
       $(document).on('click', '.close_filter_tag', function() { 
         applied_filters.splice(applied_filters.indexOf($(this).prev().text()), 1);
         $(this).parent('div').remove(); 
+      });
+
+      $(document).on('click', '.close_overlay', function() { 
+        document.getElementById("overlay_info").style.width = "0%";
       });
 
       $(".filter_sub_menu > li").click(function() {
