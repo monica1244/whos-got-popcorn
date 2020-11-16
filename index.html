@@ -54,7 +54,7 @@
                     </a>
                     <input type="checkbox" id="sm1">
                     <ul class="sub-menu genre_sub_menu_filter genre_scrollable_menu">
-                      <li><a onclick = "filterBy('All')">All</a></li>
+                      <li><a>All</a></li>
                       <li><a onclick = "filterBy('Action')">Action</a></li>
                       <li><a onclick = "filterBy('Adventure')">Adventure</a></li>
                       <li><a onclick = "filterBy('Animation')">Animation</a></li>
@@ -491,6 +491,10 @@
       $(".genre_sub_menu_filter > li").click(function() {
         var str2 = $(this).text();
         if (str2 == "All") {
+          if ((all_genres.length)!= (genre.length)){
+            genre = all_genres;
+            createBubbles(scale_option);
+          }
           for (i = 0; i < all_genres.length; i++) {
             if (!genre_bubble_applied.includes(all_genres[i])) {
               var d = document.createElement("div");
