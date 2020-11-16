@@ -82,7 +82,11 @@ body {
 }
 
 #svg2 {
-  margin-left: 3vw;
+  display: table;
+  margin: 0 auto;
+  margin-top: 0.5vh;
+  height: 58vh;
+  width: 58vh;
 }
 
 .graph_viz {

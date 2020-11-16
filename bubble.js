@@ -1,6 +1,10 @@
+// var svgH = $("#svg2").parent().height();
+// var vwww = $(".viz_column").parent().width()/80;
+// var vhhh = Math.floor(svgH/60.41);
+
 var svg2 = d3.select("#svg2"),
-    margin = 20,
-    diameter = +svg2.attr("width"),
+    margin = 10,
+    diameter = 65*vh,
     g = svg2.append("g").attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
 
 var bubble_color = new Object();

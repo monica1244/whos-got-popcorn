@@ -12,9 +12,9 @@ function display_genre(key) {
 	svg.append('text')
 		.text(key)
 		.style('fill', colors[key])
-		.style('font-size', '22px')
-		.attr('x', chartWidth)
-		.attr('y', 18)
+		.style('font-size', 2.5*vh)
+		.attr('x', chartWidth + 5*vw)
+		.attr('y', 2*vh)
 		.attr('text-anchor', 'end')
 		.attr('class', 'genre_label');
 }
@@ -63,8 +63,9 @@ var svg = d3.select('.svg1');
 // Get layout parameters
 var svgWidth = $("#timeline_viz svg").parent().width();
 var svgHeight = $("#timeline_viz svg").parent().height();
+var vw = $(".viz_column").parent().width()/80;
 var vh = svgHeight/36.59;
-var padding = {t: 2*vh, r: 2*vh, b: 3*vh, l: 10*vh};
+var padding = {t: 2.5*vh, r: 2*vw, b: 2.5*vh, l: 4*vw};
 
 // Compute chart dimensions
 var chartWidth = svgWidth - padding.l - padding.r;
@@ -261,16 +262,16 @@ function updateChart() {
 			.text(chartScaleMap[chartScales.y])
 			.style('fill', 'white')
 			.style('font-size', '11px')
-			.attr('x', 80)
-			.attr('y', 10.5)
+			.attr('x', 4.5*vw)
+			.attr('y', 2*vh)
 			.attr('class', 'axis_label');
 
 		svg.append('text')
 			.text("Release Year")
 			.style('fill', 'white')
 			.style('font-size', '11px')
-			.attr('x', chartWidth - 5)
-			.attr('y', chartHeight - 5)
+			.attr('x', chartWidth)
+			.attr('y', chartHeight)
 			.attr('class', 'axis_label');
 
 		slices.forEach(function (item) {
@@ -384,16 +385,16 @@ function updateChart() {
 			.text(chartScaleMap[chartScales.y])
 			.style('fill', 'white')
 			.style('font-size', '11px')
-			.attr('x', 80)
-			.attr('y', 10.5)
+			.attr('x', 4.5*vw)
+			.attr('y', 2*vh)
 			.attr('class', 'axis_label');
 
 		svg.append('text')
 			.text("Release Year")
 			.style('fill', 'white')
 			.style('font-size', '11px')
-			.attr('x', chartWidth - 5)
-			.attr('y', chartHeight - 5)
+			.attr('x', chartWidth)
+			.attr('y', chartHeight)
 			.attr('class', 'axis_label');
 
 		slices.forEach(function (item) {
@@ -547,16 +548,16 @@ function updateChart2(d) {
 			.text(chartScaleMap[chartScales.y])
 			.style('fill', 'white')
 			.style('font-size', '11px')
-			.attr('x', 80)
-			.attr('y', 10.5)
+			.attr('x', 4.5*vw)
+			.attr('y', 2*vh)
 			.attr('class', 'axis_label');
 
 		svg.append('text')
 			.text("Release Year")
 			.style('fill', 'white')
 			.style('font-size', '11px')
-			.attr('x', chartWidth - 5)
-			.attr('y', chartHeight - 5)
+			.attr('x', chartWidth)
+			.attr('y', chartHeight)
 			.attr('class', 'axis_label');
 
 		slices.forEach(function (item) {
@@ -702,16 +703,16 @@ function updateChart2(d) {
 			.text(chartScaleMap[chartScales.y])
 			.style('fill', 'white')
 			.style('font-size', '11px')
-			.attr('x', 80)
-			.attr('y', 10.5)
+			.attr('x', 4.5*vw)
+			.attr('y', 2*vh)
 			.attr('class', 'axis_label');
 
 		svg.append('text')
 			.text("Release Year")
 			.style('fill', 'white')
 			.style('font-size', '11px')
-			.attr('x', chartWidth - 5)
-			.attr('y', chartHeight - 5)
+			.attr('x', chartWidth )
+			.attr('y', chartHeight )
 			.attr('class', 'axis_label');
 
 		slices.forEach(function (item) {
