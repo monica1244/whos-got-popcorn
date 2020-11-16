@@ -153,8 +153,8 @@ d3.csv('./Timeseries_Graph/tmdb_movies_aggregated.csv', dataPreprocessor).then(f
 
 	console.log(slices);
 	
-	xScale = d3.scaleLinear().range([0,chartWidth]);
-	yScale = d3.scaleTime().rangeRound([chartHeight, 0]);
+	xScale = d3.scaleTime().range([0,chartWidth]);
+	yScale = d3.scaleLinear().rangeRound([chartHeight, 0]);
 
 	
 	//const tooltip = d3.select("body").append("div")
