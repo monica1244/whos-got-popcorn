@@ -425,12 +425,14 @@ function updateChart() {
 				.attr('opacity', dict[key])
 				.attr("d", function(d) { return line(d); })
 				.on('mouseover', function(d) { 
+					highlight_genre(key);
 					display_genre(key);
 					d3.select(this).raise()
 					.transition()
 					.duration(300)
 					.style('stroke-width', 5.5);})
 				.on('mouseout', function(d) { 
+					delight_genre(key);
 					remove_genre(key);
 					d3.select(this)
 					.transition()
