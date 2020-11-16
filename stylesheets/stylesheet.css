@@ -65,7 +65,7 @@ body {
 .timeline_control {
   background-color: rgba(51, 37, 114, 0.4);
   border-radius: 5px;
-  height: 40vh;
+  height: 39vh;
   margin: 0rem 0rem 1vh 0rem;
   padding: 1.5vh 1.7vh 1.7vh 1.7vh;
 }
@@ -73,7 +73,7 @@ body {
 .filters {
   background-color: rgba(51, 37, 114, 0.4);
   border-radius: 5px;
-  height: 57vh;
+  height: 58vh;
   margin: 1vh 0rem 1vh 0rem;
   padding: 1.5vh 1.7vh 1.7vh 1.7vh;
 }
@@ -338,7 +338,7 @@ body {
 #filter_tag_holder {
   margin-top: 1.1vh;
   height: auto;
-  max-height: 16.5vh;
+  max-height: 8vh;
   overflow-x: hidden;
 }
 
