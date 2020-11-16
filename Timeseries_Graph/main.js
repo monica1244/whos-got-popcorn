@@ -425,10 +425,10 @@ function updateChart() {
 				.attr("d", function(d) { return line(d); })
 				.on('mouseover', function(d) { 
 					display_genre(key);
-					d3.select(this)
+					d3.select(this).raise()
 					.transition()
 					.duration(300)
-					.style('stroke-width', 6);})
+					.style('stroke-width', 5.5);})
 				.on('mouseout', function(d) { 
 					remove_genre(key);
 					d3.select(this)
