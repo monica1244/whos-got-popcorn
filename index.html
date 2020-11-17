@@ -20,13 +20,37 @@
         <p class = "explore">EXPLORE</p>
         <p class = "movies_welcome">Movies</p>
         <div class = "viz_help">
+          <p>Browse through our exploration options by clicking on the boxes below.</p>
+          <div class="help_box_holder">
+            <div class="help_box" onclick="view_help('1')">View Movie Title</div>
+            <div class="help_box" onclick="view_help('2')">View Movie Info</div>
+            <div class="help_box" onclick="view_help('3')">Select Genres To View</div>
+            <div class="help_box" onclick="view_help('4')">Find Similar Movies</div>
+            <div class="help_box" onclick="view_help('5')">View Genre For Trend Line</div>
+            <div class="help_box" onclick="view_help(6)">Filter Movie Bubbles</div>
+            <div class="help_box" onclick="view_help(7)">Toggle Bubble Scale Factor</div>
+            <div class="help_box" onclick="view_help(8)">Toggle Timeline Y-Axis</div>
+            <div class="help_box" onclick="view_help(9)">Zoom In On Cluster Bubbles</div>
+            <div class="help_box" onclick="view_help(10)">Zoom Out Of Cluster Bubbles</div>   
+            <div class="help_box" onclick="view_help(11)">Map Trend Line To Bubbles</div>
+            <div class="help_box" onclick="view_help(12)">Map Movie To Trend Info</div>
+          </div>
         </div>
         <div id="overlay_info">
-        <p class = "close_overlay">x</p>
-        <p class = "info_title"></p>
-        <p class = "info_tagline"></p>
-        <p class = "info_bar"></p>
-        <p class = "info_overview"></p>
+          <p class = "close_overlay">x</p>
+          <p class = "info_title"></p>
+          <p class = "info_tagline"></p>
+          <p class = "info_bar"></p>
+          <p class = "info_overview"></p>
+        </div>
+        <div id = "instructions_overlay">
+          <p class = "close_tag3" onclick="close_help()">x</p>
+          <div class = "instructions">
+            <p id = "ins_text"></p>
+          </div>
+          <div id = "image_tut">
+            <img class = "help_image"/>
+          </div>
         </div>
       </div>
       <div class = "graph_viz">
@@ -303,6 +327,71 @@
       var applied_filters = [];
       var all_genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History", "Horror", "Music", "Mystery", "Romance", "Science Fiction", "Thriller", "War", "Western"];
       var genre_bubble_applied = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary","Mystery","Romance"];
+
+      function close_help(){
+        $("#ins_text").text("");
+        // $("#image_tut img").attr('src','');
+        $(".close_tag3").text("");
+        $("#instructions_overlay").css('width', '0%');
+        $(".instructions").css('width','0%');
+        // $("#image_tut img").css('width','0%');
+      }
+
+      function view_help(num){
+        $("#instructions_overlay").css('width', '38.57%');
+        $(".instructions").css('width','50%');
+        // $("#image_tut").css('width','50%');
+        $("#ins_text").css("opacity", 1);
+        $(".close_tag3").text("x");
+        if(num==1){
+          $("#ins_text").text("How To View Movie Title\n \n Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
+          $("#image_tut img").attr('src','./images/1.png');
+        }
+        else if(num==2){
+          $("#ins_text").text("How To View Movie Info\n \n Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
+          $("#image_tut img").attr('src','./images/2.png');
+        }
+        else if(num==3){
+          $("#ins_text").text("How To Select Genres To View\n \n Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
+          $("#image_tut img").attr('src','./images/3.png');
+        }
+        else if(num==4){
+          $("#ins_text").text("How To Find Similar Movies\n \n Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
+          $("#image_tut img").attr('src','./images/4.png');
+        }
+        else if(num==5){
+          $("#ins_text").text("How To View Genre For Trend Line\n \n Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
+          $("#image_tut img").attr('src','./images/5.png');
+        }
+        else if(num==6){
+          $("#ins_text").text("How To Filter Movie Bubbles\n \n Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
+          $("#image_tut img").attr('src','./images/6.png');
+        }
+        else if(num==7){
+          $("#ins_text").text("How To Toggle Bubble Scale Factor\n \n Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
+          $("#image_tut img").attr('src','./images/7.png');
+        }
+        else if(num==8){
+          $("#ins_text").text("How To Toggle Timeline Y-Axis\n \n Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
+          $("#image_tut img").attr('src','./images/8.png');
+        }
+        else if(num==9){
+          $("#ins_text").text("How To Zoom In On Cluster Bubbles\n \n Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
+          $("#image_tut img").attr('src','./images/9.png');
+        }
+        else if(num==10){
+          $("#ins_text").text("How To Zoom Out Of Cluster Bubbles\n \n Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
+          $("#image_tut img").attr('src','./images/10.png');
+        }
+        else if(num==11){
+          $("#ins_text").text("How To Map Trend Line To Bubbles\n \n Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
+          $("#image_tut img").attr('src','./images/11.png');
+        }
+        else if(num==12){
+          $("#ins_text").text("How To Map Movie To Trend Line\n \n Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
+          $("#image_tut img").attr('src','./images/12.png');
+        }
+      }
 
       $(".Y_axis_sub_menu > li").click(function() {
         $("#Y_axis_sub_menu_heading").text($(this).text()+" "); 

@@ -120,8 +120,45 @@ body {
 }
 
 .viz_help {
-  height: 39vh;
+  height: 41.5vh;
   margin-top: 2vh;
+  padding-top: 1vh;
+  font-family: 'Nunito';
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 2vh;
+  /*background-color: green;*/
+}
+
+.viz_help p{
+  margin-left: 2.5%;
+  font-size: 2vh;
+  margin-bottom: 0vh;
+}
+
+.help_box_holder {
+  height: 36.5vh;
+  padding: 1vh 1.5% 0vh 0vw;
+}
+
+.help_box {
+  width: 23.5%;
+  height: 10.833vh;
+  margin: 0vh 0vw 1vh 1.5%;
+  background-color: rgba(24, 18, 53,0.9);
+  float: left;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.6vh;
+  padding-left: 0.9vw;
+  padding-right: 0.9vw;
+}
+
+.help_box:hover {
+  background-color: rgba(85, 71, 148,0.8);
+  cursor: pointer;
 }
 
 #overlay_info { 
@@ -138,6 +175,52 @@ body {
   transition: 0.7s; 
   font-family: 'Nunito';
   color: rgba(255, 255, 255, 0.85);
+}
+
+#instructions_overlay {
+  height: 34.7vh;
+  width: 0%;
+  z-index: 8;
+  position: fixed;
+  border-radius: 5px;
+  left: 1.1%;
+  top: 25.7vh;
+  font-family: 'Nunito';
+  transition: 0.7s; 
+  background-color: rgba(24, 18, 53);
+  overflow-y: hidden;
+}
+
+.instructions {
+  width: 50%;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Nunito';
+  float: left;
+  height: 34.7vh;
+  padding: 1.5vh 3% 1.5vh 3%;
+  display: flex;
+  justify-content: center;
+  transition: 0s; 
+  align-items: center;
+}
+
+.instructions p {
+  opacity: 0;
+  transition: 0.7s; 
+  margin: 0vh;
+  font-size: 1.8vh;
+}
+
+#image_tut {
+  width: 50%;
+  float: left;
+  height: 34.7vh;
+  padding: 0vh 3% 1.5vh 3%;
+  transition: 0.7s; 
+}
+
+#ins_text {
+  white-space: pre-line;
 }
 
 .info_title {
@@ -165,6 +248,7 @@ body {
   margin-top: 1vh;
   margin-right: 1vw;
   color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
 }
 
 .explore {
@@ -172,7 +256,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   color: rgba(255, 255, 255, 0.8);
   font-size: 3.5vh;
-  margin: 2vh 0vh 0vh 2vh;
+  margin: 2vh 0vh 0vh 1.1vw;
 }
 
 .movies_welcome {
@@ -180,8 +264,8 @@ body {
   font-family: 'Baro';
   color: coral;
   font-weight: 600;
-  margin: -1vh 0vh 0vh 1.1vh;
-  font-size: 80;
+  margin: -1vh 0vh 0vh 0.6vw;
+  font-size: 9vh;
 }
 
 .y_scrollable_menu {/*
@@ -227,16 +311,32 @@ body {
   background-color: #554794;
 }
 
+.help_image {
+  width: 15vw;
+}
+
 .close_tag {
   pointer-events: auto;
+  cursor: pointer;
 }
 
 .close_tag2 {
   pointer-events: auto;
+  cursor: pointer;
 }
 
 .close_filter_tag {
+  cursor: pointer;
   pointer-events: auto;
+}
+
+.close_tag3{
+  float:right;
+  margin-top: 1vh;
+  margin-right: 1vw;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0;
+  cursor: pointer;
 }
 
 .filter_tag, .Action, .Adventure, .Animation, .Comedy, .Crime, .Documentary, .Drama, .Family, .Fantasy, .History, .Horror, .Music, .Mystery, .Romance, .Science, .Thriller, .War, .Western {
