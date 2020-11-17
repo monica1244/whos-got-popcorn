@@ -260,7 +260,7 @@ function updateChart() {
 
 		svg.append('text')
 			.text(chartScaleMap[chartScales.y])
-			.style('fill', 'white')
+			.style('fill', 'rgba(255, 255, 255, 0.85)')
 			.style('font-size', '11px')
 			.attr('x', 4.5*vw)
 			.attr('y', 2*vh)
@@ -268,10 +268,10 @@ function updateChart() {
 
 		svg.append('text')
 			.text("Release Year")
-			.style('fill', 'white')
+			.style('fill', 'rgba(255, 255, 255, 0.85)')
 			.style('font-size', '11px')
-			.attr('x', chartWidth)
-			.attr('y', chartHeight)
+			.attr('x', 4.5*vw)
+			.attr('y', chartHeight+4.5*vh)
 			.attr('class', 'axis_label');
 
 		slices.forEach(function (item) {
@@ -383,7 +383,7 @@ function updateChart() {
 
 		svg.append('text')
 			.text(chartScaleMap[chartScales.y])
-			.style('fill', 'white')
+			.style('fill', 'rgba(255, 255, 255, 0.85)')
 			.style('font-size', '11px')
 			.attr('x', 4.5*vw)
 			.attr('y', 2*vh)
@@ -391,10 +391,10 @@ function updateChart() {
 
 		svg.append('text')
 			.text("Release Year")
-			.style('fill', 'white')
+			.style('fill', 'rgba(255, 255, 255, 0.85)')
 			.style('font-size', '11px')
-			.attr('x', chartWidth)
-			.attr('y', chartHeight)
+			.attr('x', 4.5*vw)
+			.attr('y', chartHeight+4.5*vh)
 			.attr('class', 'axis_label');
 
 		slices.forEach(function (item) {
@@ -548,7 +548,7 @@ function updateChart2(d) {
 
 		svg.append('text')
 			.text(chartScaleMap[chartScales.y])
-			.style('fill', 'white')
+			.style('fill', 'rgba(255, 255, 255, 0.85)')
 			.style('font-size', '11px')
 			.attr('x', 4.5*vw)
 			.attr('y', 2*vh)
@@ -556,10 +556,10 @@ function updateChart2(d) {
 
 		svg.append('text')
 			.text("Release Year")
-			.style('fill', 'white')
+			.style('fill', 'rgba(255, 255, 255, 0.85)')
 			.style('font-size', '11px')
-			.attr('x', chartWidth)
-			.attr('y', chartHeight)
+			.attr('x', 4.5*vw)
+			.attr('y', chartHeight + 4.5*vh)
 			.attr('class', 'axis_label');
 
 		slices.forEach(function (item) {
@@ -703,7 +703,7 @@ function updateChart2(d) {
 
 		svg.append('text')
 			.text(chartScaleMap[chartScales.y])
-			.style('fill', 'white')
+			.style('fill', 'rgba(255, 255, 255, 0.85)')
 			.style('font-size', '11px')
 			.attr('x', 4.5*vw)
 			.attr('y', 2*vh)
@@ -711,10 +711,10 @@ function updateChart2(d) {
 
 		svg.append('text')
 			.text("Release Year")
-			.style('fill', 'white')
+			.style('fill', 'rgba(255, 255, 255, 0.85)')
 			.style('font-size', '11px')
-			.attr('x', chartWidth)
-			.attr('y', chartHeight)
+			.attr('x', 4.5*vw)
+			.attr('y', chartHeight+4.5*vh)
 			.attr('class', 'axis_label');
 
 		slices.forEach(function (item) {
