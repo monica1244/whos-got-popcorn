@@ -67,6 +67,7 @@
         <div class = "Genre_bubble">
           <div class = "Genres_heading">
             <p>Genres</p>
+            <a class = "bubble_reset" id = "bubble_reset_genre">Reset</a>
             <div class = "Genre_dropdown">
               <nav id="menu">
                 <label for="tm" id="toggle-menu">Navigation <span class="drop-icon">▾</span></label>
@@ -244,6 +245,7 @@
         </div>
         <div class = "Genres">
           <p>Genres</p>
+          <a class = "bubble_reset" id = "timeline_reset_genre">Reset</a>
           <div class = "Genre_dropdown">
             <nav id="menu">
               <label for="tm" id="toggle-menu">Navigation <span class="drop-icon">▾</span></label>
@@ -392,6 +394,22 @@
           $("#image_tut img").attr('src','./images/12.png');
         }
       }
+
+      $("#bubble_reset_genre").click(function() {
+        console.log("g");
+        genre = [];
+        genre_bubble_applied = [];
+        createBubbles(scale_option);
+        $("#tag_holder2").empty();
+      });
+
+      $("#timeline_reset_genre").click(function() {
+        for(i=0;i<genres.length;i++){
+          onGenreDeleted(genres[i]);
+        }
+        genres = [];
+        $("#tag_holder").empty();
+      });
 
       $(".Y_axis_sub_menu > li").click(function() {
         $("#Y_axis_sub_menu_heading").text($(this).text()+" "); 
