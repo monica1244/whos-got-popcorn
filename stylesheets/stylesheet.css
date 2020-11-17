@@ -189,6 +189,7 @@ body {
   transition: 0.7s; 
   background-color: rgba(24, 18, 53);
   overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .instructions {
