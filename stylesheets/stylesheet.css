@@ -108,6 +108,8 @@ body {
   margin: 1vh 0rem 1vh 0rem;
   width: 50%;
   float:left;
+  display: flex;
+  justify-content: center;
 }
 
 .welcome_div {
